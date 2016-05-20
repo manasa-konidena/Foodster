@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.28">-->
+    <meta charset="UTF-8"><meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1.25, user-scalable = no">
     <title>Edit Website</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
@@ -11,26 +12,24 @@
 
 <!--Header-->
 <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-
+    <div class="container-fluid">
+        <div class="navbar-header">
             <p class="navbar-text pull-left">
                 <a href="website-list.html" class="navbar-link">
-                    <span class="glyphicon glyphicon-chevron-left back-logo"></span>
+                  <span class="glyphicon glyphicon-chevron-left">
+                  </span>
                 </a>
             </p>
-
-        <p class="navbar-header pull-left">
             <a class="navbar-brand" href="#">
                 Edit Website
             </a>
-        </p>
-
             <p class="navbar-text pull-right">
-                <a href="website-list.html" class="navbar-link">
-                    <span class="glyphicon glyphicon-ok ok-logo"></span>
+                <a href="website-edit.html" class="navbar-link">
+                  <span class="glyphicon glyphicon-ok">
+                  </span>
                 </a>
             </p>
-
+        </div>
     </div>
 </nav>
 <!--Header End-->
@@ -60,21 +59,22 @@
 
 <!--Footer-->
 <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-footer">
-            <!--<a class="navbar-brand" href="#">-->
-            <!--Profile-->
-            <!--</a>-->
-
-            <p class="navbar-text pull-right">
-                <a href="profile.html" class="navbar-link">
-                    <span class="glyphicon glyphicon-user logo"></span>
+    <div class="container">
+        <div class="row navbar-text">
+            <div class="col-xs-3 text-center">
+            </div>
+            <div class="col-xs-3 text-center">
+            </div>
+            <div class="col-xs-3 text-center">
+            </div>
+            <div class="col-xs-3 text-center">
+                <a href="profile.html">
+                    <span class="glyphicon glyphicon-user"></span>
                 </a>
-            </p>
+            </div>
         </div>
     </div>
 </nav>
-
 <!--Footer End-->
 
 </body>

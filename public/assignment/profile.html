@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1.25, user-scalable = no">
     <title>Register</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
@@ -11,24 +14,23 @@
 <!--Header-->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <p class="navbar-header pull-left">
+        <div class="navbar-header">
             <a class="navbar-brand" href="#">
                 Profile
             </a>
-        </p>
-
             <p class="navbar-text pull-right">
-                <a href="profile.html" class="navbar-link">
-                    <span class="glyphicon glyphicon-ok ok-logo"></span>
+                <a href="#" class="navbar-link">
+                  <span class="glyphicon glyphicon-ok">
+                  </span>
                 </a>
             </p>
-
+        </div>
     </div>
 </nav>
 <!--Header End-->
 
 <div class="container">
-    <!--<h1>Profile</h1>-->
+
     <form>
         <div class="form-group">
             <label for="username">Username</label>
@@ -57,17 +59,19 @@
 
 <!--Footer-->
 <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-footer">
-            <!--<a class="navbar-brand" href="#">-->
-                <!--Profile-->
-            <!--</a>-->
-
-            <p class="navbar-text pull-right">
-                <a href="profile.html" class="navbar-link">
-                    <span class="glyphicon glyphicon-user logo"></span>
+    <div class="container">
+        <div class="row navbar-text">
+            <div class="col-xs-3 text-center">
+            </div>
+            <div class="col-xs-3 text-center">
+            </div>
+            <div class="col-xs-3 text-center">
+            </div>
+            <div class="col-xs-3 text-center">
+                <a href="profile.html">
+                    <span class="glyphicon glyphicon-user"></span>
                 </a>
-            </p>
+            </div>
         </div>
     </div>
 </nav>
