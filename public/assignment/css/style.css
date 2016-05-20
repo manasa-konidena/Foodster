@@ -7,22 +7,8 @@ body{
     padding-bottom: 80px;
 }
 
-.logo{
-    color: lightseagreen;
 
-}
 
-.ok-logo{
-    padding-right: 20px;
-}
-
-.back-logo{
-    padding-left: 20px;
-}
-
-.website-navs{
-    padding-right: 5px;
-}
 
 img {
     max-width: 100%;
@@ -62,3 +48,7 @@ p.navbar-text.pull-left{
     opacity: 0.7;
 }
 
+.navbar-default{
+    background: lightgray;
+
+}

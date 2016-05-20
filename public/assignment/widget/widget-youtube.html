@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"><meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="viewport" content="initial-scale=1.25, user-scalable = no">
-    <title>Edit Website</title>
+    <title>Edit Youtube</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/style.css" rel="stylesheet"/>
+    <link href="../css/style.css" rel="stylesheet"/>
 </head>
 <body>
 
@@ -15,16 +16,16 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left">
-                <a href="website-list.html" class="navbar-link">
+                <a href="widget-list.html" class="navbar-link">
                   <span class="glyphicon glyphicon-chevron-left">
                   </span>
                 </a>
             </p>
             <a class="navbar-brand" href="#">
-                Edit Website
+                Widget Edit
             </a>
             <p class="navbar-text pull-right">
-                <a href="website-list.html" class="navbar-link">
+                <a href="widget-list.html" class="navbar-link">
                   <span class="glyphicon glyphicon-ok">
                   </span>
                 </a>
@@ -38,25 +39,36 @@
 
     <form>
         <div class="form-group">
-            <label for="website-name">Website Name</label>
+            <label for="widget-name">Name</label>
             <input type="text"
-                   value="Sorted Food"
                    class="form-control"
-                   id="website-name"
-                   placeholder="Website Name">
+                   id="widget-name"
+                   placeholder="Name">
         </div>
         <div class="form-group">
-            <label for="website-description">Website Description</label>
-            <textarea type="text"
-                      rows="5"
-                      class="form-control"
-                      id="website-description"
-                      placeholder="Write a short description for your website">Bacon ipsum dolor amet turducken jerky short ribs kielbasa doner meatloaf bacon pork belly salami flank pork loin drumstick. Pork belly chicken porchetta, meatloaf pig t-bone frankfurter tri-tip flank andouille ball tip strip steak prosciutto. Short loin frankfurter salami, ball tip leberkas pastrami bacon tri-tip doner sausage jowl sirloin kielbasa meatloaf fatback. Tongue prosciutto flank, rump chicken pig kevin shankle ribeye capicola swine. Pancetta rump landjaeger t-bone fatback tail.
-            </textarea>
+            <label for="heading-text">Text</label>
+            <input type="text"
+                   class="form-control"
+                   id="heading-text"
+                   placeholder="Text">
+        </div>
+        <div class="form-group">
+            <label for="url">URL</label>
+            <input type="url"
+                   class="form-control"
+                   id="url"
+                   placeholder="URL of the Video">
+        </div>
+        <div class="form-group">
+            <label for="width">Width</label>
+            <input type="text"
+                   class="form-control"
+                   id="width"
+                   placeholder="Width of the video">
         </div>
     </form>
     <a class="btn btn-danger btn-block"
-       href="website-list.html"
+       href="widget-list.html"
        role="button">Delete</a>
 
 
@@ -73,13 +85,14 @@
             <div class="col-xs-3 text-center">
             </div>
             <div class="col-xs-3 text-center">
-                <a href="profile.html">
+                <a href="../user/profile.html">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>
         </div>
     </div>
 </nav>
+
 <!--Footer End-->
 
 </body>
