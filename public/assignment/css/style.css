@@ -1,0 +1,46 @@
+input.form-control{
+    margin-bottom: 5px;
+}
+
+body{
+    padding-top: 70px;
+    padding-bottom: 80px;
+}
+
+.logo{
+    color: lightseagreen;
+
+}
+
+.ok-logo{
+    padding-right: 20px;
+}
+
+.back-logo{
+    padding-left: 20px;
+}
+
+.website-navs{
+    padding-right: 5px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+.glyph-pos{
+    position: relative;
+    width: 160px;
+}
+.glyph-pos .glyphicon-cog {
+    left: 0;
+    position: absolute;
+    top: 2px;
+}
+
