@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.28">-->
+    <title>Edit Image</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!--Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+            <p class="navbar-text pull-left">
+                <a href="widget-list.html" class="navbar-link">
+                    <span class="glyphicon glyphicon-chevron-left back-logo"></span>
+                </a>
+            </p>
+
+
+            <p class="navbar-header">
+                <a class="navbar-brand" href="#">
+                Widget Edit
+                </a>
+            </p>
+
+
+            <p class="navbar-text pull-right">
+                <a href="widget-list.html" class="navbar-link">
+                    <span class="glyphicon glyphicon-ok ok-logo"></span>
+                </a>
+            </p>
+
+    </div>
+</nav>
+<!--Header End-->
+
+<div class="container">
+
+    <form>
+        <div class="form-group">
+            <label for="widget-name">Name</label>
+            <input type="text" class="form-control" id="widget-name">
+        </div>
+        <div class="form-group">
+            <label for="heading-text">Text</label>
+            <input type="text" class="form-control" id="heading-text">
+        </div>
+        <div class="form-group">
+            <label for="url">URL</label>
+            <input type="url" class="form-control" id="url">
+        </div>
+        <div class="form-group">
+            <label for="width">Width</label>
+            <input type="text" class="form-control" id="width">
+        </div>
+        <div class="form-group">
+            <label for="upload">Upload</label>
+            <input type="file" class="form-control" id="upload">
+        </div>
+    </form>
+    <a class="btn btn-danger btn-block"
+       href="widget-list.html"
+       role="button">Delete</a>
+
+
+</div>
+
+<!--Footer-->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-footer">
+            <!--<a class="navbar-brand" href="#">-->
+            <!--Profile-->
+            <!--</a>-->
+
+            <p class="navbar-text pull-right">
+                <a href="profile.html" class="navbar-link">
+                    <span class="glyphicon glyphicon-user logo"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<!--Footer End-->
+
+</body>
+</html>
