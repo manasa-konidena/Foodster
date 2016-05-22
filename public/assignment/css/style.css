@@ -30,6 +30,10 @@ iframe {
     top: 2px;
 }
 
+p.navbar-text.pull-left{
+    padding-left: 15px;
+}
+
 p.navbar-text.pull-right{
     padding-right: 15px;
 }
