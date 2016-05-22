@@ -34,7 +34,9 @@ p.navbar-text.pull-right{
     padding-right: 15px;
 }
 
-p.navbar-text.pull-left{
+
+
+p.navbar-header.pull-left{
     padding-left: 15px;
 }
 
