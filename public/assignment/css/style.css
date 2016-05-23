@@ -58,3 +58,7 @@ p.navbar-header.pull-left{
     background: lightgray;
 
 }
+
+.list-element{
+    padding-bottom: 10px;
+}
