@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"><meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="viewport" content="initial-scale=1.25, user-scalable = no">
-    <title>Edit Heading</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../css/style.css" rel="stylesheet"/>
-</head>
-<body>
+
 
 <!--Header-->
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -22,7 +12,7 @@
 
         <p class="navbar-header pull-left">
             <a class="navbar-brand" href="#">
-                Edit Heading Widget
+                Edit YouTube Widget
             </a>
         </p>
 
@@ -45,30 +35,32 @@
             <input type="text"
                    class="form-control"
                    id="widget-name"
-                   placeholder="Name">
+                   placeholder="Name"
+                   value="Summer Dish">
         </div>
         <div class="form-group">
             <label for="heading-text">Text</label>
             <input type="text"
                    class="form-control"
                    id="heading-text"
-                   placeholder="Text">
+                   placeholder="Text"
+                   value="Learn how to cook this">
         </div>
         <div class="form-group">
-            <label for="size">Size</label>
-            <select id="size"
-                    class="form-control">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-            </select>
-            <!--<input type="text"-->
-                   <!--class="form-control"-->
-                   <!--id="size"-->
-                   <!--placeholder="Size of the heading">-->
+            <label for="url">URL</label>
+            <input type="url"
+                   class="form-control"
+                   id="url"
+                   placeholder="URL of the Video"
+                   value="https://youtube-url.com">
+        </div>
+        <div class="form-group">
+            <label for="width">Width</label>
+            <input type="text"
+                   class="form-control"
+                   id="width"
+                   placeholder="Width of the video"
+                   value="100%">
         </div>
     </form>
     <a class="btn btn-danger btn-block"
@@ -92,6 +84,3 @@
 </nav>
 
 <!--Footer End-->
-
-</body>
-</html>

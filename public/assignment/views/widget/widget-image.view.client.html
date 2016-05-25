@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"><meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="viewport" content="initial-scale=1.25, user-scalable = no">
-    <title>Edit Youtube</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../css/style.css" rel="stylesheet"/>
-</head>
-<body>
 
 <!--Header-->
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -23,7 +11,7 @@
 
         <p class="navbar-header pull-left">
             <a class="navbar-brand" href="#">
-                Edit YouTube Widget
+                Edit Image Widget
             </a>
         </p>
 
@@ -47,7 +35,7 @@
                    class="form-control"
                    id="widget-name"
                    placeholder="Name"
-                   value="Summer Dish">
+                   value="Oranges">
         </div>
         <div class="form-group">
             <label for="heading-text">Text</label>
@@ -55,23 +43,29 @@
                    class="form-control"
                    id="heading-text"
                    placeholder="Text"
-                   value="Learn how to cook this">
+                   value="Mushrooms">
         </div>
         <div class="form-group">
             <label for="url">URL</label>
             <input type="url"
                    class="form-control"
                    id="url"
-                   placeholder="URL of the Video"
-                   value="https://youtube-url.com">
+                   placeholder="URL of the Image"
+                   value="http://image-url.com">
         </div>
         <div class="form-group">
             <label for="width">Width</label>
             <input type="text"
                    class="form-control"
                    id="width"
-                   placeholder="Width of the video"
+                   placeholder="Width of the Image"
                    value="100%">
+        </div>
+        <div class="form-group">
+            <label for="upload">Upload</label>
+            <input type="file"
+                   class="form-control"
+                   id="upload">
         </div>
     </form>
     <a class="btn btn-danger btn-block"
@@ -82,6 +76,7 @@
 </div>
 
 <!--Footer-->
+
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-footer">
@@ -95,6 +90,3 @@
 </nav>
 
 <!--Footer End-->
-
-</body>
-</html>
