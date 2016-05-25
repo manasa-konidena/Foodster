@@ -62,3 +62,8 @@ p.navbar-header.pull-left{
 .list-element{
     padding-bottom: 10px;
 }
+
+.home-page-head{
+    color: darkblue;
+    font-family: "Comic Sans MS";
+}
