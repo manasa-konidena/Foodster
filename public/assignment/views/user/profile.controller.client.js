@@ -1,9 +1,9 @@
-(function () {
+(function(){
     angular
         .module("WebAppMaker")
-        .controller("LoginController", LoginController);
+        .controller("ProfileController", ProfileController);
 
-    function LoginController() {
+    function ProfileController($routeParams){
         var vm = this;
 
         var users = [
@@ -13,21 +13,12 @@
             {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
         ];
 
+        var id = $routeParams.uid;
 
-        vm.login = function(username, password) {
-            // console.log(vm.username);
-
-            for(var i in users){
-                if(users[i].username === username &&
-                    users[i].password === password){
-
-                    console.log("YAY");
-
-                } else {
-                    vm.error = "Oh SNAP! User not found";
-                }
+        for(var i in users){
+            if(users[i]._id === id){
+                vm.user = users[i];
             }
-
         }
 
     }
