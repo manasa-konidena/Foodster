@@ -22,14 +22,19 @@
         return api;
 
         function createUser(newUser){
-            var brandNewUser = {
-                _id: (new Date()).getTime()+"",
-                username: newUser.username,
-                password: newUser.password
-            };
+            for(var i in users){
+                if(newUser.username === users[i].username){
+                    return null;
+                }
+            }
+                var brandNewUser = {
+                    _id: (new Date()).getTime()+"",
+                    username: newUser.username,
+                    password: newUser.password
+                };
 
-            users.push(brandNewUser);
-            return brandNewUser;
+                users.push(brandNewUser);
+                return brandNewUser;
         }
 
 
