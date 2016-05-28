@@ -12,7 +12,7 @@
 
 
         <p class="navbar-text pull-right">
-            <a href="#/user/:uid/website/new" class="navbar-link">
+            <a href="#/user/{{model.userId}}/website/new" class="navbar-link">
                 <span class="glyphicon glyphicon-plus"></span>
             </a>
         </p>
@@ -21,14 +21,15 @@
 </nav>
 
 <!--Header End-->
-{{model.websites}}
+
 
 <div class="container">
 
-        <div class="container-fluid">
-            <a href="#/user/:uid/website/:wid/page">Blogging App</a>
+        <div ng-repeat="website in model.websites"
+             class="container-fluid">
+            <a href="#/user/:uid/website/:wid/page">{{website.name}}</a>
             <p class="pull-right">
-                <a href="#/user/:uid/website/:wid">
+                <a href="#/user/{{website.developerId}}/website/{{website._id}}">
                     <span class="glyphicon glyphicon-cog website-navs"></span>
                 </a>
                 <a href="#/" class="navbar-link">

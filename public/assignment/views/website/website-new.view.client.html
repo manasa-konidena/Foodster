@@ -5,7 +5,7 @@
     <div class="container">
 
         <p class="navbar-text pull-left">
-            <a href="#/user/:uid/website" class="navbar-link">
+            <a href="#/user/{{model.userId}}/website" class="navbar-link">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
         </p>
@@ -18,7 +18,7 @@
 
 
         <p class="navbar-text pull-right">
-            <a href="#/user/:uid/website" class="navbar-link">
+            <a ng-click="model.createWebsite(name, description)" class="navbar-link">
                 <span class="glyphicon glyphicon-ok"></span>
             </a>
         </p>
@@ -34,11 +34,16 @@
     <form>
         <div class="form-group">
             <label for="website-name">Name</label>
-            <input type="text" class="form-control" id="website-name" placeholder="Website Name">
+            <input ng-model="name"
+                   type="text"
+                   class="form-control"
+                   id="website-name"
+                   placeholder="Website Name">
         </div>
         <div class="form-group">
             <label for="website-description">Description</label>
-            <textarea type="text"
+            <textarea ng-model="description"
+                      type="text"
                       rows="5"
                       class="form-control"
                       id="website-description"
