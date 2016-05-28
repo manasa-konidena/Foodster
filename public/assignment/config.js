@@ -54,7 +54,9 @@
                 controllerAs: "model"
             })
             .when("/user/:uid/website/:wid/page/:pid", {
-                templateUrl: "views/page/page-edit.view.client.html"
+                templateUrl: "views/page/page-edit.view.client.html",
+                controller: "PageEditController",
+                controllerAs: "model"
             })
             .when("/user/:uid/website/:wid/page/:pid/widget", {
                 templateUrl: "views/widget/widget-list.view.client.html"

@@ -39,11 +39,6 @@
 
         function updateWebsite(website){
             WebsiteService.updateWebsite(websiteId, website);
-        } {
-
         }
-
-
-
     }
 })();
