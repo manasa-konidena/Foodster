@@ -27,7 +27,7 @@
 
         <div ng-repeat="website in model.websites"
              class="container-fluid">
-            <a href="#/user/:uid/website/:wid/page">{{website.name}}</a>
+            <a href="#/user/{{website.developerId}}/website/{{website._id}}/page">{{website.name}}</a>
             <p class="pull-right">
                 <a href="#/user/{{website.developerId}}/website/{{website._id}}">
                     <span class="glyphicon glyphicon-cog website-navs"></span>
@@ -46,7 +46,7 @@
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
-                <a href="#/user/:uid">
+                <a href="#/user/{{model.userId}}">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </p>
