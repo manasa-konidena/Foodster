@@ -4,7 +4,7 @@
     <div class="container">
 
         <p class="navbar-text pull-left">
-            <a href="#/user/:uid/website/:wid/page" class="navbar-link">
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page" class="navbar-link">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
         </p>
@@ -17,7 +17,8 @@
 
 
         <p class="navbar-text pull-right">
-            <a href="#/user/:uid/website/:wid/page" class="navbar-link">
+            <a ng-click="model.createPage(model.page)"
+               class="navbar-link">
                 <span class="glyphicon glyphicon-ok"></span>
             </a>
         </p>
@@ -31,14 +32,16 @@
     <form>
         <div class="form-group">
             <label for="page-name">Name</label>
-            <input type="text"
+            <input ng-model="model.page.name"
+                   type="text"
                    class="form-control"
                    id="page-name"
                    placeholder="Page Name">
         </div>
         <div class="form-group">
             <label for="page-title">Title</label>
-            <input type="text"
+            <input ng-model="model.page.title"
+                   type="text"
                    class="form-control"
                    id="page-title"
                    placeholder="Page Title">
@@ -53,7 +56,7 @@
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
-                <a href="#/user/:uid">
+                <a href="#/user/{{model.userId}}">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </p>

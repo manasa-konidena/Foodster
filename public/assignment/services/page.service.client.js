@@ -13,10 +13,23 @@
 
     function PageService() {
         var api = {
-            findPagesByWebsiteId: findPagesByWebsiteId
+            findPagesByWebsiteId: findPagesByWebsiteId,
+            createPage: createPage
         }
         return api;
-        
+
+        function createPage(newPage, websiteId) {
+            var brandNewPage = {
+                _id: (new Date()).getTime()+"",
+                name: newPage.name,
+                websiteId: websiteId
+            };
+
+            pages.push(brandNewPage);
+            return brandNewPage;
+        }
+
+
         function findPagesByWebsiteId(websiteId) {
             var resultSet = [];
             
