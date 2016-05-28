@@ -22,11 +22,14 @@
         return api;
 
         function createUser(newUser){
-            for(var i in users){
-                if(newUser.username === users[i].username){
-                    return null;
-                }
-            }
+            // for(var i in users){
+            //     if(newUser.username === users[i].username){
+            //         return null;
+            //     }
+            // }
+            if(findUserByUsername(newUser.username)){
+                return null;
+            }else {
                 var brandNewUser = {
                     _id: (new Date()).getTime()+"",
                     username: newUser.username,
@@ -35,6 +38,7 @@
 
                 users.push(brandNewUser);
                 return brandNewUser;
+            }
         }
 
 
@@ -67,11 +71,11 @@
         }
 
         function updateUser(id, newUser) {
-            console.log(newUser);
+
             for(var i in users){
                 if(users[i]._id === id){
-                    users[index].firstName = newUser.firstName;
-                    users[index].lastName = newUser.lastName;
+                    users[i].firstName = newUser.firstName;
+                    users[i].lastName = newUser.lastName;
                     return true;
                 }
             }

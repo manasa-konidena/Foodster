@@ -5,22 +5,18 @@
 
     function ProfileController($routeParams, UserService){
         var vm = this;
+        vm.updateUser = updateUser;
 
-        //vm.updateUser = updateUser;
-
+        var id = $routeParams.uid;
 
         function init(){
-        var id = $routeParams.uid;
-        vm.user = UserService.findUserById(id);
+            vm.user = UserService.findUserById(id);
         }
         init();
 
 
         function updateUser(newUser){
-
             UserService.updateUser(id, newUser);
-           
-
         }
     }
 })();

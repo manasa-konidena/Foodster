@@ -18,9 +18,21 @@
             findWebsitesByUser: findWebsitesByUser,
             findWebsiteById: findWebsiteById,
             createWebsite: createWebsite,
-            deleteWebsite: deleteWebsite
+            deleteWebsite: deleteWebsite,
+            updateWebsite: updateWebsite
         };
         return api;
+        
+        function updateWebsite(websiteId, website) {
+            for(var i in websites){
+                if(websiteId === websites[i]._id){
+                    websites[i].name = website.name;
+                    websites[i].description = website.description;
+                    return true;
+                }
+            }
+            return false;
+        }
 
         function deleteWebsite(websiteId) {
             for(var i in websites){

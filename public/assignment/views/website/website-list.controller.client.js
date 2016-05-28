@@ -14,7 +14,7 @@
         };
         init();
 
-        console.log(vm.websites);
+        // console.log(vm.websites);
 
         
     }
