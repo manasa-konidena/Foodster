@@ -16,7 +16,7 @@
 
 
         function updateUser(newUser){
-            UserService.updateUser(id, newUser);
+           UserService.updateUser(id, newUser);
         }
     }
 })();

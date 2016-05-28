@@ -38,7 +38,13 @@
         vm.updateWebsite = updateWebsite;
 
         function updateWebsite(website){
-            WebsiteService.updateWebsite(websiteId, website);
+           var result = WebsiteService.updateWebsite(websiteId, website);
+
+            if(result){
+                $location.url("user/"+userId+"/website");
+            }else{
+                vm.error = "Oh SNAP! Couldnt update the website";
+            }
         }
     }
 })();

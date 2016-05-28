@@ -41,7 +41,13 @@
         vm.updatePage = updatePage;
 
         function updatePage(page){
-            PageService.updatePage(pageId, page);
+            var result = PageService.updatePage(pageId, page);
+
+            if(result){
+                $location.url("user/"+userId+"/website/"+websiteId+"/page");
+            }else{
+                vm.error = "Oh SNAP! Couldnt update the page";
+            }
         }
    }
 })();
