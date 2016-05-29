@@ -17,8 +17,10 @@
         function createHeaderWidget(pageId) {
             var newWidget = {
                 _id: (new Date()).getTime()+"",
-                widgetType: "HEADER"
+                widgetType: "HEADER",
+                pageId: pageId
             };
+            // var type = "HEADER";
 
             var result = WidgetService.createWidget(pageId, newWidget);
 
@@ -32,9 +34,11 @@
         function createImageWidget(pageId) {
             var newWidget = {
                 _id: (new Date()).getTime()+"",
-                widgetType: "IMAGE"
-            }
+                widgetType: "IMAGE",
+                pageId: pageId
+            };
 
+            // var type = "IMAGE";
             var result = WidgetService.createWidget(pageId, newWidget);
 
             if(result){
@@ -47,8 +51,11 @@
         function createYoutubeWidget(pageId) {
             var newWidget = {
                 _id: (new Date()).getTime()+"",
-                widgetType: "YOUTUBE"
-            }
+                widgetType: "YOUTUBE",
+                pageId: pageId
+            };
+
+            // var type = "YOUTUBE";
 
             var result = WidgetService.createWidget(pageId, newWidget);
 

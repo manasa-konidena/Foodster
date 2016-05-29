@@ -1,7 +1,7 @@
 (function () {
     angular
         .module("WebAppMaker")
-        .factory("WidgetService", WidgetService)
+        .factory("WidgetService", WidgetService);
 
     var widgets = [
         { "_id": "123", "widgetType": "HEADER", "pageId": "321", "size": 2, "text": "GIZMODO"},
@@ -53,7 +53,6 @@
                             widgets[i].url = widget.url;
                             widgets[i].width = widget.width;
                             return true;
-
                     }
 
                 }
@@ -69,8 +68,8 @@
             }
         }
         
-        function createWidget(pageId, widget) {
-            widgets.push(widget);
+        function createWidget(pageId, newWidget) {
+            widgets.push(newWidget);
             return widgets;
         }
 

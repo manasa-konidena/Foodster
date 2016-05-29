@@ -6,12 +6,12 @@
     function WebsiteEditController($routeParams, WidgetService, $location) {
         var vm = this;
 
-        var widgetId = $routeParams.wgid;
+        // var widgetId = $routeParams.wgid;
         vm.userId = $routeParams.uid;
         vm.websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
 
-        vm.widgetId = widgetId;
+        vm.widgetId = $routeParams.wgid;
 
         vm.updateWidget = updateWidget;
         vm.deleteWidget = deleteWidget;
@@ -33,7 +33,7 @@
 
         function updateWidget(widget) {
             
-            var result = WidgetService.updateWidget(widgetId, widget);
+            var result = WidgetService.updateWidget(vm.widgetId, widget);
 
             if(result){
                 $location.url("/user/"+ vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
@@ -41,6 +41,6 @@
                 vm.error = "Error";
             }
         }
-       // console.log(vm.widget);
+       
     }
 })();
