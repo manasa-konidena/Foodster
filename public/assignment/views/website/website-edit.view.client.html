@@ -1,11 +1,10 @@
-
-
 <!--Header-->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
 
         <p class="navbar-text pull-left">
-            <a href="#/user/{{model.website.developerId}}/website" class="navbar-link">
+            <a href="#/user/{{model.userId}}/website"
+               class="navbar-link">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
         </p>
@@ -18,7 +17,7 @@
 
 
         <p class="navbar-text pull-right">
-            <a ng-click="model.updateWebsite(model.website)"
+            <a ng-click="model.updateWebsite(model.websiteId, model.website)"
                class="navbar-link">
                 <span class="glyphicon glyphicon-ok"></span>
             </a>
@@ -41,17 +40,18 @@
         </div>
         <div class="form-group">
             <label for="website-description">Website Description</label>
-            <textarea type="text"
+            <textarea ng-model="model.website.description"
+                      type="text"
                       rows="5"
                       class="form-control"
                       id="website-description"
-                      ng-model="model.website.description"
                       placeholder="Write a short description for your website">
             </textarea>
         </div>
     </form>
     <a class="btn btn-danger btn-block"
-       ng-click="model.deleteWebsite(model.websiteId)">Delete</a>
+       ng-click="model.deleteWebsite(model.websiteId)"
+       role="button">Delete</a>
 
 
 </div>
@@ -62,12 +62,12 @@
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-left">
-                <a href="#/">
+                <a href="#">
                     <span class="glyphicon glyphicon-share"></span>
                 </a>
             </p>
             <p class="navbar-text pull-right">
-                <a href="#/user/:uid">
+                <a href="#/user/{{model.userId}}">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </p>

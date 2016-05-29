@@ -1,49 +1,39 @@
-(function(){
+(function () {
     angular
         .module("WebAppMaker")
-        .controller("WebsiteEditController", WebsiteEditController);
-    
-    function WebsiteEditController($location, $routeParams, WebsiteService) {
-        var vm = this;
+        .controller("EditWebsiteController", EditWebsiteController)
 
-        var userId = $routeParams.uid;
-        var websiteId = $routeParams.wid;
+    function EditWebsiteController($location, $routeParams, WebsiteService) {
+        var vm =this;
 
-        // find out why it doesn't when we pass no arguments from view
-        // and use the var websiteId
-        vm.websiteId = websiteId;
-
-        // vm.userId = $routeParams.uid;
-        // vm.websiteId = $routeParams.wid;
-
-        function init(){
-
-            vm.website = WebsiteService.findWebsiteById(websiteId);
-        }
-        init();
-
-
+        vm.websiteId = $routeParams.wid;
+        vm.userId = $routeParams.uid;
+        
+        vm.updateWebsite = updateWebsite;
         vm.deleteWebsite = deleteWebsite;
         
+        function init() {
+            vm.website = WebsiteService.findWebsiteById(vm.websiteId);
+        }
+        init();
+        
+        function updateWebsite(websiteId, website) {
+            var result = WebsiteService.updateWebsite(websiteId, website);
+
+            if(result){
+                $location.url("user/"+vm.userId+"/website");
+            }else{
+                vm.error = "Oh SNAP! Couldnt update the website";
+            }
+        }
+
         function deleteWebsite(websiteId) {
             var result = WebsiteService.deleteWebsite(websiteId);
 
             if(result){
-                $location.url("user/"+userId+"/website");
+                $location.url("user/"+vm.userId+"/website");
             }else{
                 vm.error = "Oh SNAP! Couldnt delete the website";
-            }
-        }
-
-        vm.updateWebsite = updateWebsite;
-
-        function updateWebsite(website){
-           var result = WebsiteService.updateWebsite(websiteId, website);
-
-            if(result){
-                $location.url("user/"+userId+"/website");
-            }else{
-                vm.error = "Oh SNAP! Couldnt update the website";
             }
         }
     }

@@ -1,7 +1,7 @@
 (function(){
     angular
         .module("WebAppMaker")
-        .factory("WebsiteService", WebsiteService);
+        .factory("WebsiteService", WebsiteService)
 
     var websites = [
         { "_id": "123", "name": "Facebook",	"developerId": "456" },
@@ -62,7 +62,7 @@
                 if(websiteId === websites[i]._id){
                     return websites[i];
                 }
-            }
+            }return null;
         }
         
         function findWebsitesByUser(userId) {
