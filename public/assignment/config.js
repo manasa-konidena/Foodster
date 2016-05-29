@@ -64,10 +64,14 @@
                 controllerAs: "model"
             })
             .when("/user/:uid/website/:wid/page/:pid/widget/new", {
-                templateUrl: "views/widget/widget-choose.view.client.html"
+                templateUrl: "views/widget/widget-choose.view.client.html",
+                controller: "WidgetChooseController",
+                controllerAs: "model"
             })
             .when("/user/:uid/website/:wid/page/:pid/widget/:wgid", {
-                templateUrl: "views/widget/widget-image.view.client.html"
+                templateUrl: "views/widget/widget-edit.view.client.html",
+                controller: "WebsiteEditController",
+                controllerAs: "model"
             })
             .otherwise({
                 redirectTo: "/login"

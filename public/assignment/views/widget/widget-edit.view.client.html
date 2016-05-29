@@ -1,0 +1,17 @@
+<div ng-switch="model.widget.widgetType">
+    <!--<div ng-switch="widget.widgetType">-->
+    <div ng-switch-when="HEADER">
+        <!--<h1>HEADER WIDGET</h1>-->
+        <ng-include src="'/assignment/views/widget/widget-heading.view.client.html'"/>
+    </div>
+    <div ng-switch-when="IMAGE">
+        <ng-include src="'/assignment/views/widget/widget-image.view.client.html'"/>
+    </div>
+    <div ng-switch-when="YOUTUBE">
+        <ng-include src="'/assignment/views/widget/widget-youtube.view.client.html'"/>
+    </div>
+    <div ng-switch-default>
+        <div class="alert alert-danger">Couldnt render form</div>
+    </div>
+    <!--</div>-->
+</div>

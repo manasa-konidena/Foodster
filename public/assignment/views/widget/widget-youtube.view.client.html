@@ -5,7 +5,7 @@
     <div class="container">
 
         <p class="navbar-text pull-left">
-            <a href="#/user/:uid/website/:wid/page/:pid/widget" class="navbar-link">
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
         </p>
@@ -18,8 +18,7 @@
 
 
         <p class="navbar-text pull-right">
-            <a href="#/user/:uid/website/:wid/page/:pid/widget"
-               class="navbar-link">
+            <a ng-click="model.updateWidget(model.widget)" class="navbar-link">
                 <span class="glyphicon glyphicon-ok"></span>
             </a>
         </p>
@@ -37,7 +36,7 @@
                    class="form-control"
                    id="widget-name"
                    placeholder="Name"
-                   value="Summer Dish">
+                   ng-model="model.widget.name">
         </div>
         <div class="form-group">
             <label for="heading-text">Text</label>
@@ -45,7 +44,7 @@
                    class="form-control"
                    id="heading-text"
                    placeholder="Text"
-                   value="Learn how to cook this">
+                   ng-model="model.widget.text">
         </div>
         <div class="form-group">
             <label for="url">URL</label>
@@ -53,7 +52,7 @@
                    class="form-control"
                    id="url"
                    placeholder="URL of the Video"
-                   value="https://youtube-url.com">
+                   ng-model="model.widget.url">
         </div>
         <div class="form-group">
             <label for="width">Width</label>
@@ -61,11 +60,11 @@
                    class="form-control"
                    id="width"
                    placeholder="Width of the video"
-                   value="100%">
+                   ng-model="model.widget.width">
         </div>
     </form>
     <a class="btn btn-danger btn-block"
-       href="#/user/:uid/website/:wid/page/:pid/widget"
+       ng-click="model.deleteWidget(model.widgetId)"
        role="button">Delete</a>
 
 
@@ -76,7 +75,7 @@
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
-                <a href="#/user/:uid">
+                <a href="#/user/{{model.userId}}">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </p>
