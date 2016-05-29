@@ -43,13 +43,24 @@
 
 
         function findUserByCredentials(username, password){
-            for(var i in users){
-                if(users[i].username === username &&
-                    users[i].password === password){
-                    return users[i];
-                }
-            }
-            return null;
+           for(var i in users){
+               if(users[i].username === username){
+                   if(users[i].password === password){
+                       return users[i];
+                   }else {
+                       return "Pinc";
+                   }
+               }
+           }
+            return "Unof";
+
+            // for(var i in users){
+            //     if(users[i].username === username &&
+            //         users[i].password === password){
+            //         return users[i];
+            //     }
+            // }
+            // return null;
         }
 
         function findUserById(id) {

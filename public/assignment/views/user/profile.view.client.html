@@ -24,7 +24,11 @@
 
 <!--{{model.user}}-->
 
+
 <div class="container">
+
+    <div ng-show="model.error"
+         class="alert alert-success">{{model.error}}</div>
 
     <form>
         <div class="form-group">

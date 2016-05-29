@@ -16,7 +16,12 @@
 
 
         function updateUser(newUser){
-           UserService.updateUser(id, newUser);
+           var result = UserService.updateUser(id, newUser);
+            if(result){
+                vm.error = "Successfully Updated!";
+            } else {
+                vm.error = "Something went wrong. Couldn't update your profile"
+            }
         }
     }
 })();

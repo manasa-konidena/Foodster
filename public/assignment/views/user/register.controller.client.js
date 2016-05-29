@@ -8,13 +8,20 @@
         var vm = this;
 
 
-        vm.register = function (newUser) {
+        vm.register = register;
+        
+        function register(newUser) {
+            if(newUser.password !== newUser.verpass){
+                vm.error = "Passwords don't match!!";
+                // return vm.error;
+            } else {
             var brandNewUser = UserService.createUser(newUser);
 
             if(brandNewUser){
                 $location.url("/user/"+brandNewUser._id);
             } else {
-                vm.error = "Oh SNAP! Username already exists. Please try with another";
+                vm.error = "Oh SNAP! Username already exists. Please try with another.";
+            }
             }
         }
     }
