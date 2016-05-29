@@ -27,100 +27,42 @@
 </nav>
 <!--Header End-->
 
+
+
 <div class="container">
-
-    <div class="jga-widget">
+    <div ng-repeat="widget in model.widgets"
+         class="jga-widget">
         <div class="jga-widget-tool">
             <a href="#/user/:uid/website/:wid/page/:pid/widget/:wgid">
                 <span class="glyphicon glyphicon-cog"></span>
             </a>
             <span class="glyphicon glyphicon-align-justify"></span>
         </div>
-        <h1>SORTED FOOD</h1>
-
-    </div>
-
-    <div class="jga-widget">
-        <div class="jga-widget-tool">
-            <a href="#/user/:uid/website/:wid/page/:pid/widget/:wgid">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
+        <!--{{widget}}-->
+        <div ng-switch="widget.widgetType">
+            <div ng-switch-when="HEADER"
+                 ng-switch="widget.size">
+                <h1 ng-switch-when="1">{{widget.text}}</h1>
+                <h2 ng-switch-when="2">{{widget.text}}</h2>
+                <h3 ng-switch-when="3">{{widget.text}}</h3>
+                <h4 ng-switch-when="4">{{widget.text}}</h4>
+                <h5 ng-switch-when="5">{{widget.text}}</h5>
+                <h6 ng-switch-when="6">{{widget.text}}</h6>
+            </div>
+            <div ng-switch-when="IMAGE">
+                <img width="{{widget.width}}" ng-src={{widget.url}}>
+            </div>
+            <div ng-switch-when="YOUTUBE">
+                <iframe width="{{widget.width}}" ng-src="{{model.getSafeUrl(widget)}}" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div ng-switch-when="HTML">
+                <div ng-bind-html="model.getSafeHtml(widget)"></div>
+            </div>
+            <div ng-switch-default>
+                Unable to render widget
+            </div>
         </div>
-        <h4>Blog Love: 6 Fresh Summer Time Dishes for all your family</h4>
-
     </div>
-
-    <div class="jga-widget">
-        <div class="jga-widget-tool">
-            <a href="#/user/:uid/website/:wid/page/:pid/widget/:wgid">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <img width="100%" src="../Image.png" alt="Summer Dishes" >
-
-    </div>
-
-    <div class="jga-widget">
-        <div class="jga-widget-tool">
-            <a href="#">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <p>
-            The start of Summer is an ideal time to inject some colour into your
-        cooking. These beautiful recipes from some of our favourite online
-        bloggers give a great lesson in making the most of the colours and
-        flavours of your ingredients.
-        Starting off with a classic summer dish. This works really well as a
-        light bite for when it’s too hot to have a full meal.
-        These wedges aren’t just topped with regular bacon,
-        that’s Chinese bacon. It’s basically streaky bacon
-        cured with soy sauce and spices. YUM.</p>
-
-    </div>
-
-    <div class="jga-widget">
-        <div class="jga-widget-tool">
-            <a href="#/user/:uid/website/:wid/page/:pid/widget/:wgid">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <h3>Summer Porridge Recipe</h3>
-
-    </div>
-
-    <div class="jga-widget">
-        <div class="jga-widget-tool">
-            <a href="#/user/:uid/website/:wid/page/:pid/widget/:wgid">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <iframe width="100%" src="https://www.youtube.com/embed/7Tb1qv5eVR8" frameborder="0" allowfullscreen></iframe>
-    </div>
-
-
-    <div class="jga-widget">
-        <div class="jga-widget-tool">
-            <a href="#">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <p>Chop the hazelnuts.
-
-            Grate the apples into a bowl leaving the skin on.  mix with the lemon juice.
-            Add all the other ingredients except for the berries and nuts, then taste. You may wish to add more condensed milk if not sweet enough.
-            Serve it an hour after making to let the oats soak with plenty of fresh berries and the nuts sprinkled on top. Serves 2</p>
-
-    </div>
-
-
-
 </div>
 
 <!--Footer-->

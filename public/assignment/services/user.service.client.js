@@ -29,7 +29,7 @@
             // }
             if(findUserByUsername(newUser.username)){
                 return null;
-            }else {
+            } else {
                 var brandNewUser = {
                     _id: (new Date()).getTime()+"",
                     username: newUser.username,
