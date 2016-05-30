@@ -13,7 +13,7 @@
         function register(newUser) {
             if(newUser.password !== newUser.verpass){
                 vm.error = "Passwords don't match!!";
-                // return vm.error;
+                
             } else {
             var brandNewUser = UserService.createUser(newUser);
 
