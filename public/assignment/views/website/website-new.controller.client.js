@@ -9,9 +9,9 @@
 
         vm.createWebsite = createWebsite;
 
-        function createWebsite(name, desc) {
+        function createWebsite(website) {
 
-           var newWebsite = WebsiteService.createWebsite(name, desc, vm.userId);
+           var newWebsite = WebsiteService.createWebsite(vm.userId, website);
 
            if(newWebsite) {
             $location.url("/user/"+vm.userId+"/website");

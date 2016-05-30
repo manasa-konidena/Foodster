@@ -5,7 +5,6 @@
 
     function PageEditController($location, $routeParams, PageService) {
         var vm = this;
-
         var userId = $routeParams.uid;
         var websiteId = $routeParams.wid;
         var pageId = $routeParams.pid;
@@ -16,17 +15,14 @@
         vm.websiteId = websiteId;
         vm.pageId = pageId;
 
-        // vm.userId = $routeParams.uid;
-        // vm.websiteId = $routeParams.wid;
+        // Event Handlers
+        vm.deletePage = deletePage;
+        vm.updatePage = updatePage;
 
         function init(){
-
             vm.page = PageService.findPageById(pageId);
         }
         init();
-
-
-        vm.deletePage = deletePage;
 
         function deletePage(pageId) {
             var result = PageService.deletePage(pageId);
@@ -37,8 +33,6 @@
                 vm.error = "Oh SNAP! Couldnt delete the page";
             }
         }
-
-        vm.updatePage = updatePage;
 
         function updatePage(page){
             var result = PageService.updatePage(pageId, page);

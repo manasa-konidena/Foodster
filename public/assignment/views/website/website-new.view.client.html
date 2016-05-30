@@ -18,7 +18,7 @@
 
 
         <p class="navbar-text pull-right">
-            <a ng-click="model.createWebsite(name, description)" class="navbar-link">
+            <a ng-click="model.createWebsite(model.website)" class="navbar-link">
                 <span class="glyphicon glyphicon-ok"></span>
             </a>
         </p>
@@ -34,15 +34,15 @@
     <form>
         <div class="form-group">
             <label for="website-name">Name</label>
-            <input ng-model="name"
+            <input ng-model="model.website.name"
                    type="text"
                    class="form-control"
                    id="website-name"
-                   placeholder="Website Name">
+                   placeholder="Website Name" required>
         </div>
         <div class="form-group">
             <label for="website-description">Description</label>
-            <textarea ng-model="description"
+            <textarea ng-model="model.website.description"
                       type="text"
                       rows="5"
                       class="form-control"

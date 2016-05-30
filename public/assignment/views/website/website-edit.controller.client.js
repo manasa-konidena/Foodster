@@ -8,7 +8,8 @@
 
         vm.websiteId = $routeParams.wid;
         vm.userId = $routeParams.uid;
-        
+
+        // Event Handlers
         vm.updateWebsite = updateWebsite;
         vm.deleteWebsite = deleteWebsite;
         

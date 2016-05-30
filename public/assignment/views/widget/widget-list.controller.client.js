@@ -10,27 +10,25 @@
         vm.websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
 
+        // Event Handlers
         vm.getSafeHtml = getSafeHtml;
         vm.getSafeUrl = getSafeUrl;
-
-        function getSafeUrl(widget) {
-            var urlParts = widget.url.split("/");
-            var id = urlParts[urlParts.length -1];
-            var url = "https://www.youtube.com/embed/" + id;
-            return $sce.trustAsResourceUrl(url);
-
-        }
-        
-        function getSafeHtml(widget) {
-            return $sce.trustAsHtml(widget.text);
-        }
 
         function init() {
             vm.widgets = WidgetService.findWidgetsByPageId(vm.pageId);
         }
         init();
 
+        function getSafeUrl(widget) {
+            var urlParts = widget.url.split("/");
+            var id = urlParts[urlParts.length -1];
+            var url = "https://www.youtube.com/embed/" + id;
+            return $sce.trustAsResourceUrl(url);
+        }
         
+        function getSafeHtml(widget) {
+            return $sce.trustAsHtml(widget.text);
+        }
     }
 
 })();

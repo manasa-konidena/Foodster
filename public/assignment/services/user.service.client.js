@@ -63,9 +63,9 @@
             // return null;
         }
 
-        function findUserById(id) {
+        function findUserById(userId) {
             for(var i in users){
-                if(users[i]._id === id){
+                if(users[i]._id === userId){
                     return users[i];
                 }
             }
@@ -81,10 +81,10 @@
             return null;
         }
 
-        function updateUser(id, newUser) {
+        function updateUser(userid, newUser) {
 
             for(var i in users){
-                if(users[i]._id === id){
+                if(users[i]._id === userid){
                     users[i].firstName = newUser.firstName;
                     users[i].lastName = newUser.lastName;
                     return true;

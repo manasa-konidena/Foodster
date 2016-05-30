@@ -45,19 +45,19 @@
         }
 
         
-        function createWebsite(name, desc, developerId) {
+        function createWebsite(userId, website) {
             var newWebsite = {
                 _id: (new Date()).getTime()+"",
-                name: name,
-                description: desc,
-                developerId: developerId
+                name: website.name,
+                description: website.description,
+                developerId: userId
             };
 
             websites.push(newWebsite);
             return newWebsite;
         }
 
-        function findWebsiteById (websiteId) {
+        function findWebsiteById(websiteId) {
             for(var i in websites){
                 if(websiteId === websites[i]._id){
                     return websites[i];

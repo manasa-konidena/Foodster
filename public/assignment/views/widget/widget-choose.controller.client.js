@@ -10,6 +10,7 @@
         vm.websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
 
+        // Event Handlers
         vm.createHeaderWidget = createHeaderWidget;
         vm.createImageWidget = createImageWidget;
         vm.createYoutubeWidget = createYoutubeWidget;
@@ -65,7 +66,5 @@
                 vm.error = "Oh SNAP! Couldn't create widget";
             }
         }
-
-
     }
 })();

@@ -8,13 +8,14 @@
         vm.userId = $routeParams.uid;
         vm.websiteId = $routeParams.wid;
 
+        // Event Handler
         vm.createPage = createPage;
 
         function createPage(newPage) {
 
             var brandNewPage = PageService.createPage(newPage, vm.websiteId);
 
-            console.log(brandNewPage);
+            // console.log(brandNewPage);
 
             if(brandNewPage) {
                 $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");

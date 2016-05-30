@@ -13,6 +13,7 @@
 
         vm.widgetId = $routeParams.wgid;
 
+        // Event Handlers
         vm.updateWidget = updateWidget;
         vm.deleteWidget = deleteWidget;
 
@@ -41,6 +42,5 @@
                 vm.error = "Error";
             }
         }
-       
     }
 })();
