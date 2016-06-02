@@ -12,16 +12,16 @@
         vm.createPage = createPage;
 
         function createPage(newPage) {
-
-            var brandNewPage = PageService.createPage(newPage, vm.websiteId);
-
-            // console.log(brandNewPage);
-
-            if(brandNewPage) {
-                $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
-            } else{
-                vm.error = "Oh SNAP! Not able to create a page";
-            }
+           PageService
+                .createPage(newPage, vm.websiteId)
+                .then(function (response) {
+                    var brandNewPage = response.data;
+                    if(brandNewPage) {
+                        $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
+                    } else{
+                        vm.error = "Oh SNAP! Not able to create a page";
+                    }
+                });
         }
     }
 })();

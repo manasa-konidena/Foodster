@@ -20,28 +20,42 @@
         vm.updatePage = updatePage;
 
         function init(){
-            vm.page = PageService.findPageById(pageId);
+            PageService
+                .findPageById(pageId)
+                .then(function (response) {
+                    vm.page = response.data;
+                    },
+                    function (response) {
+                        vm.error = "Page Not Found";
+                    });
         }
         init();
 
         function deletePage(pageId) {
-            var result = PageService.deletePage(pageId);
-
-            if(result){
-                $location.url("user/"+userId+"/website/"+websiteId+"/page");
-            }else{
-                vm.error = "Oh SNAP! Couldnt delete the page";
-            }
+            PageService
+                .deletePage(pageId)
+                .then(function (response) {
+                        var result = response.data;
+                        if(result){
+                            $location.url("user/"+userId+"/website/"+websiteId+"/page");
+                        }else{
+                            vm.error = "Oh SNAP! Couldnt delete the page";
+                        }
+                    }
+                );
         }
 
         function updatePage(page){
-            var result = PageService.updatePage(pageId, page);
-
-            if(result){
-                $location.url("user/"+userId+"/website/"+websiteId+"/page");
-            }else{
-                vm.error = "Oh SNAP! Couldnt update the page";
-            }
+           PageService
+               .updatePage(pageId, page)
+               .then(function (response) {
+                   var result = response.data;
+                   if(result){
+                       $location.url("user/"+userId+"/website/"+websiteId+"/page");
+                   }else{
+                       vm.error = "Oh SNAP! Couldnt update the page";
+                   }
+               });
         }
    }
 })();
