@@ -10,18 +10,16 @@
         vm.createWebsite = createWebsite;
 
         function createWebsite(website) {
-
-           var newWebsite = WebsiteService.createWebsite(vm.userId, website);
-
-           if(newWebsite) {
-            $location.url("/user/"+vm.userId+"/website");
-           } else{
-               vm.error = "Oh SNAP! Not able to create a website";
-           }
-
-
+           WebsiteService
+               .createWebsite(vm.userId, website)
+               .then(function (response) {
+                   var result = response.data;
+                   if(result) {
+                       $location.url("/user/"+vm.userId+"/website");
+                   } else{
+                       vm.error = "Oh SNAP! Not able to create a website";
+                   }
+               });
         }
-
-
     }
 })();

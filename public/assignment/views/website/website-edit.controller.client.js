@@ -14,28 +14,45 @@
         vm.deleteWebsite = deleteWebsite;
         
         function init() {
-            vm.website = WebsiteService.findWebsiteById(vm.websiteId);
+            WebsiteService
+                .findWebsiteById(vm.websiteId)
+                .then(
+                    function (response) {
+                        vm.website = response.data;
+                    },
+
+                    function (response) {
+                        vm.error = "Website doesnt exist";
+                    }
+                );
         }
         init();
         
         function updateWebsite(websiteId, website) {
-            var result = WebsiteService.updateWebsite(websiteId, website);
-
-            if(result){
-                $location.url("user/"+vm.userId+"/website");
-            }else{
-                vm.error = "Oh SNAP! Couldnt update the website";
-            }
+            WebsiteService
+                .updateWebsite(websiteId, website)
+                .then(function (response) {
+                        var result = response.data;
+                        if(result){
+                            $location.url("user/"+vm.userId+"/website");
+                        }else{
+                            vm.error = "Oh SNAP! Couldnt update the website";
+                        }
+                      }
+                    );
         }
 
         function deleteWebsite(websiteId) {
-            var result = WebsiteService.deleteWebsite(websiteId);
-
-            if(result){
-                $location.url("user/"+vm.userId+"/website");
-            }else{
-                vm.error = "Oh SNAP! Couldnt delete the website";
-            }
+            WebsiteService
+                .deleteWebsite(websiteId)
+                .then(function (response) {
+                    var result = response.data;
+                    if(result){
+                        $location.url("user/"+vm.userId+"/website");
+                    }else{
+                        vm.error = "Oh SNAP! Couldnt delete the website";
+                    }
+                });
         }
     }
 })();
