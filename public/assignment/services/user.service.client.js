@@ -15,22 +15,15 @@
         return api;
 
         function createUser(newUser){
-            // for(var i in users){
-            //     if(newUser.username === users[i].username){
-            //         return null;
-            //     }
-            // }
-            if(findUserByUsername(newUser.username)){
+            // add findUserByUsername functionality here
+            if("" !== ""){
                 return null;
             } else {
                 var brandNewUser = {
-                    _id: (new Date()).getTime()+"",
                     username: newUser.username,
                     password: newUser.password
                 };
-
-                users.push(brandNewUser);
-                return brandNewUser;
+                return $http.post("/api/user", brandNewUser);
             }
         }
 
@@ -41,7 +34,8 @@
         }
 
         function findUserById(userId) {
-
+            var url = "/api/user/"+ userId;
+            return $http.get(url);
         }
 
         function findUserByUsername(username){
@@ -53,26 +47,14 @@
             return null;
         }
 
-        function updateUser(userid, newUser) {
-
-            for(var i in users){
-                if(users[i]._id === userid){
-                    users[i].firstName = newUser.firstName;
-                    users[i].lastName = newUser.lastName;
-                    return true;
-                }
-            }
-            return false;
+        function updateUser(userId, newUser) {
+            var url = "/api/user/" + userId;
+            return $http.put(url, newUser);
         }
 
         function deleteUser(userId) {
-            for(var i in users){
-                if(userid === users._id){
-                    users.splice(i, 1);
-                    return true;
-                }
-            }
-            return false;
+            var url = "/api/user/" + userId;
+            return $http.delete(url);
         }
     }
 })();

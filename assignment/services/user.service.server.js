@@ -10,8 +10,31 @@ module.exports = function(app) {
     app.get("/api/user", getUsers);
     app.get("/api/user/:userId", findUserById);
     app.delete("/api/user/:userId", deleteUser);
+    app.post("/api/user", createUser);
+    app.put("/api/user/:userId", updateUser);
 
-    function deleteUser(req,res, newUser) {
+    function updateUser(req, res) {
+        var id = req.params.userId;
+        var user = req.body;
+        for (var i in users){
+            if(id === users[i]._id){
+                users[i].firstName = user.firstName;
+                users[i].lastName = user.lastName;
+                res.json(users[i]);
+                return;
+            }
+        }
+        res.send(400);
+    }
+
+    function createUser(req, res) {
+        var user = req.body;
+        user._id = (new Date()).getTime()+"";
+        users.push(user);
+        res.json(user);
+    }
+
+    function deleteUser(req,res) {
         var id = req.params.userId;
         for(var i in users){
             if(id === users[i]._id){
@@ -20,7 +43,7 @@ module.exports = function(app) {
                 return;
             }
         }
-        res.send(users);
+        res.send(400);
     }
 
 

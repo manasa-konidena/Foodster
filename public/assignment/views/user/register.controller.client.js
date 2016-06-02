@@ -13,15 +13,18 @@
         function register(newUser) {
             if(newUser.password !== newUser.verpass){
                 vm.error = "Passwords don't match!!";
-                
             } else {
-            var brandNewUser = UserService.createUser(newUser);
+            UserService
+                .createUser(newUser)
+                .then(function (response) {
+                    var brandNewUser = response.data;
 
-            if(brandNewUser){
-                $location.url("/user/"+brandNewUser._id);
-            } else {
-                vm.error = "Oh SNAP! Username already exists. Please try with another.";
-            }
+                    if(brandNewUser){
+                        $location.url("/user/"+brandNewUser._id);
+                    } else {
+                        vm.error = "Oh SNAP! Username already exists. Please try with another.";
+                    }
+                })
             }
         }
     }

@@ -27,8 +27,11 @@
 
 <div class="container">
 
+    <div ng-show="model.success"
+         class="alert alert-success">{{model.success}}</div>
+
     <div ng-show="model.error"
-         class="alert alert-success">{{model.error}}</div>
+         class="alert alert-danger">{{model.error}}</div>
 
     <form>
         <div class="form-group">
@@ -69,6 +72,9 @@
     <a class="btn btn-danger btn-block"
        href="#/login"
        role="button">Logout</a>
+    <a class="btn btn-danger btn-block"
+       ng-click="model.unregister()"
+       role="button">Unregister</a>
 </div>
 
 <!--Footer-->
