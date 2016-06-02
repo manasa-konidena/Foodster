@@ -17,54 +17,62 @@
 
         function createHeaderWidget(pageId) {
             var newWidget = {
-                _id: (new Date()).getTime()+"",
+                // _id: (new Date()).getTime()+"",
                 widgetType: "HEADER",
                 pageId: pageId
             };
             // var type = "HEADER";
 
-            var result = WidgetService.createWidget(pageId, newWidget);
-
-            if(result){
-                $location.url("user/"+ vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + newWidget._id);
-            } else {
-                vm.error = "Oh SNAP! Couldn't create widget";
-            }
+            WidgetService
+                .createWidget(pageId, newWidget)
+                .then(function (response) {
+                    var result = response.data;
+                    if (result._id) {
+                        $location.url("user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + result._id);
+                    } else {
+                        vm.error = "Oh SNAP! Couldn't create widget";
+                    }
+                });
         }
 
         function createImageWidget(pageId) {
             var newWidget = {
-                _id: (new Date()).getTime()+"",
+                //_id: (new Date()).getTime()+"",
                 widgetType: "IMAGE",
                 pageId: pageId
             };
 
-            // var type = "IMAGE";
-            var result = WidgetService.createWidget(pageId, newWidget);
-
-            if(result){
-                $location.url("user/"+ vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + newWidget._id);
-            } else {
-                vm.error = "Oh SNAP! Couldn't create widget";
-            }
+            WidgetService
+                .createWidget(pageId, newWidget)
+                .then(function (response) {
+                    var result = response.data;
+                    if (result._id) {
+                        $location.url("user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + result._id);
+                    } else {
+                        vm.error = "Oh SNAP! Couldn't create widget";
+                    }
+                });
         }
 
         function createYoutubeWidget(pageId) {
             var newWidget = {
-                _id: (new Date()).getTime()+"",
+                _id: (new Date()).getTime() + "",
                 widgetType: "YOUTUBE",
                 pageId: pageId
             };
 
             // var type = "YOUTUBE";
 
-            var result = WidgetService.createWidget(pageId, newWidget);
-
-            if(result){
-                $location.url("user/"+ vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + newWidget._id);
-            } else {
-                vm.error = "Oh SNAP! Couldn't create widget";
-            }
+            WidgetService
+                .createWidget(pageId, newWidget)
+                .then(function (response) {
+                    var result = response.data;
+                    if (result._id) {
+                        $location.url("user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + result._id);
+                    } else {
+                        vm.error = "Oh SNAP! Couldn't create widget";
+                    }
+                });
         }
     }
 })();
