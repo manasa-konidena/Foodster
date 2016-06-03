@@ -49,7 +49,7 @@ module.exports = function(app) {
         for(var i in widgets){
             if(wgid === widgets[i]._id){
                 console.log("ids matched");
-                switch (widget.widgetType){
+                switch (widgets[i].widgetType){
                     case "HEADER":
                         widgets[i].name = widget.name;
                         widgets[i].text = widget.text;
@@ -59,6 +59,7 @@ module.exports = function(app) {
 
                     case "YOUTUBE":
                     case "IMAGE":
+                        console.log("Its an image");
                         widgets[i].name = widget.name;
                         widgets[i].text = widget.text;
                         widgets[i].url = widget.url;

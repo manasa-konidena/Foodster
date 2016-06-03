@@ -29,7 +29,7 @@
                 .then(function (response) {
                     var result = response.data;
                     if(result){
-                        $location.utl("user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+vm.widgetId);
+                        $location.url("user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+vm.widgetId);
                     } else {
                         vm.error = "couldnt add flickr";
                     }
