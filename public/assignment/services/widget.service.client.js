@@ -31,7 +31,7 @@
         }
         
         function createWidget(pageId, newWidget) {
-            var url = "/api/page/" + pageId +"/widget";
+            var url = "/api/page/" + pageId + "/widget";
             return $http.post(url, newWidget);
         }
 
@@ -39,6 +39,6 @@
             var url = "/api/page/" + pageId + "/widget";
             return $http.get(url);
         }
-        
+
     }
 })();

@@ -39,12 +39,8 @@
         }
 
         function findUserByUsername(username){
-            for(var i in users){
-                if(username === users[i].username){
-                    return users[i];
-                }
-            }
-            return null;
+            var url = "/api/user?username="+ username;
+            return $http.get(url);
         }
 
         function updateUser(userId, newUser) {

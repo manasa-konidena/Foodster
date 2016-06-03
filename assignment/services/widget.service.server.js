@@ -41,10 +41,14 @@ module.exports = function(app) {
     }
 
     function updateWidget(req, res) {
+        console.log("came here");
         var wgid = req.params.widgetId;
         var widget = req.body;
+        console.log(wgid);
+        console.log(widget);
         for(var i in widgets){
             if(wgid === widgets[i]._id){
+                console.log("ids matched");
                 switch (widget.widgetType){
                     case "HEADER":
                         widgets[i].name = widget.name;
@@ -60,6 +64,7 @@ module.exports = function(app) {
                         widgets[i].url = widget.url;
                         widgets[i].width = widget.width;
                         res.send(200);
+                        console.log(widgets[i]);
                         return;
                 }
 
@@ -84,7 +89,7 @@ module.exports = function(app) {
     function createWidget(req, res) {
         var pid = req.params.pageId;
         var widget = req.body;
-        widget._id = (new Date()).getTime+"";
+        //widget._id = (new Date()).getTime+"";
         widgets.push(widget);
         res.send(widget);
     }

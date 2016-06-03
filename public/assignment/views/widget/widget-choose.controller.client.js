@@ -17,7 +17,7 @@
 
         function createHeaderWidget(pageId) {
             var newWidget = {
-                // _id: (new Date()).getTime()+"",
+                _id: (new Date()).getTime()+"",
                 widgetType: "HEADER",
                 pageId: pageId
             };
@@ -37,7 +37,7 @@
 
         function createImageWidget(pageId) {
             var newWidget = {
-                //_id: (new Date()).getTime()+"",
+                _id: (new Date()).getTime()+"",
                 widgetType: "IMAGE",
                 pageId: pageId
             };
