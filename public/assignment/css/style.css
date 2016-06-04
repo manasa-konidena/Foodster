@@ -67,3 +67,9 @@ p.navbar-header.pull-left{
     color: darkblue;
     font-family: "Comic Sans MS";
 }
+
+div.photo-layout{
+    border: ridge;
+    border-color: cornflowerblue;
+    box-shadow: 5px 5px 5px lightblue;
+}
