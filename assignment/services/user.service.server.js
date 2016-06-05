@@ -24,11 +24,23 @@ module.exports = function(app) {
                 return;
             }
         }
-        res.send(400);
+        res.sendStatus(400);
     }
 
     function createUser(req, res) {
         var user = req.body;
+        for (var i in users){
+            if(users[i].username === user.username){
+                res.send("Username already exists. Please try something else.");
+                return;
+            }
+        }
+
+        if(user.username !== user.verpass){
+            res.send("Passwords don't match!");
+            return;
+        }
+
         user._id = (new Date()).getTime()+"";
         users.push(user);
         res.json(user);
@@ -43,7 +55,7 @@ module.exports = function(app) {
                 return;
             }
         }
-        res.send(400);
+        res.sendStatus(400);
     }
 
 
@@ -67,14 +79,12 @@ module.exports = function(app) {
                     res.send(users[i]);
                     return;
                 }else {
-                    //return "Pinc";
-                    res.send({});
+                    res.send("Password Incorrect. Please retry!");
                     return;
                 }
             }
         }
-        // return "Unof";
-        res.send({});
+        res.send("Username doesn't exist. Please register!");
         return;
     }
 

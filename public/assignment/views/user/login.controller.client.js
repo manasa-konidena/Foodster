@@ -14,12 +14,11 @@
             UserService
                 .findUserByCredentials(username, password)
                 .then(function(response){
-                console.log(response);
                 var user = response.data;
                 if(user._id){
                     $location.url("/user/"+ user._id);
                 } else{
-                    vm.error = "User not found";
+                    vm.error = response.data;
                 }
             });
         }

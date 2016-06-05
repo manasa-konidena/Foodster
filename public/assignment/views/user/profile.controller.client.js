@@ -16,7 +16,6 @@
                 .then(function (response) {
                     vm.user = response.data;
                 })
-
         }
         init();
 
@@ -44,14 +43,6 @@
                        vm.error = "Something went wrong. Couldn't update your profile";
                    }
                );
-               // .then(function (response) {
-               //     var result = response.data;
-               //     if(result){
-               //         vm.error = "Successfully Updated!";
-               //     } else {
-               //         vm.error = "Something went wrong. Couldn't update your profile"
-               //     }
-               // });
         }
     }
 })();
