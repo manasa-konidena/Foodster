@@ -16,14 +16,11 @@
         function selectPhoto(photo) {
             var url = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server;
             url += "/" + photo.id + "_" + photo.secret + "_b.jpg";
-            console.log(url);
             var updatedWidget = {
                 url: url,
                 _id: vm.widgetId,
                 pageId: vm.pageId
             };
-            console.log(updatedWidget);
-
             WidgetService
                 .updateWidget(vm.widgetId, updatedWidget)
                 .then(function (response) {

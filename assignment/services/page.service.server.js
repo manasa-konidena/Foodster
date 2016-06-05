@@ -66,6 +66,6 @@ module.exports = function(app) {
         var newPage = req.body;
         newPage._id = (new Date()).getTime()+"";
         pages.push(newPage);
-        res.send(200);
+        res.sendStatus(200);
     }
 };

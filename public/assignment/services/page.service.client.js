@@ -41,6 +41,7 @@
             var url = "/api/website/" + websiteId + "/page";
             var brandNewPage = {
                 name: newPage.name,
+                title: newPage.title,
                 websiteId: websiteId
             };
             return $http.post(url, brandNewPage);
