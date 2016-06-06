@@ -73,3 +73,7 @@ div.photo-layout{
     border-color: cornflowerblue;
     box-shadow: 5px 5px 5px lightblue;
 }
+
+a{
+    cursor: hand;
+}
