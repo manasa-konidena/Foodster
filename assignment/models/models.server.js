@@ -6,7 +6,7 @@ module.exports = function() {
 
     var models = {
         userModel: require("./user/user.model.server")(),
-        websiteModel: require("./website/website.model.serber")()
+        websiteModel: require("./website/website.model.server")()
         // TODO: add all the toher models: websiteModel, pageModel, widgetModel
     };
     return models;
