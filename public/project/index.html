@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="FoodsterApp">
 <head>
     <meta charset="UTF-8">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -11,7 +11,19 @@
     <link href="../css/jquery-ui.css" rel="stylesheet"/>
     <script src="../js/jquery.js"></script>
     <script src="../js/jquery-ui.js"></script>
+
+    <!--Font Custom-->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
     <!--Adding Angular to HTML-->
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/freelancer.css" rel="stylesheet">
+
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <!--Adding Angular Routing Module to HTML-->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
@@ -20,8 +32,6 @@
     <script src="config.js"></script>
 </head>
 <body>
-<div class="container">
-    <h1>Project Home Page</h1>
-</div>
+    <div ng-view></div>
 </body>
 </html>

@@ -1,0 +1,72 @@
+
+
+<!--{{model.user}}-->
+
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-footer">
+            <p class="navbar-text pull-right">
+                <a href="#/user/{{model.user._id}}">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<!--Footer-->
+
+<div class="container">
+    <div ng-show="model.success"
+         class="alert alert-success">{{model.success}}</div>
+
+    <div ng-show="model.error"
+         class="alert alert-danger">{{model.error}}</div>
+
+    <form>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text"
+                   class="form-control"
+                   id="username"
+                   placeholder="pfitz"
+                   ng-model="model.user.username">
+        </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email"
+                   class="form-control"
+                   id="email"
+                   ng-model="model.user.email"
+                   placeholder="phill.f@example.com">
+        </div>
+        <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text"
+                   class="form-control"
+                   id="first-name"
+                   ng-model="model.user.firstName"
+                   placeholder="Phill">
+        </div>
+        <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text"
+                   class="form-control"
+                   id="last-name"
+                   ng-model="model.user.lastName"
+                   placeholder="Fitzgerald">
+        </div>
+    </form>
+    <a class="btn btn-primary btn-block"
+       href="#/user/{{model.user._id}}/website">Websites</a>
+    <a class="btn btn-danger btn-block"
+       href="#/login"
+       role="button">Logout</a>
+    <a class="btn btn-danger btn-block"
+       ng-click="model.unregister()"
+       role="button">Unregister</a>
+</div>
+
+<!--Footer End-->

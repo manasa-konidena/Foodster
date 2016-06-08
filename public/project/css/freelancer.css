@@ -6,6 +6,8 @@
 
 body {
   overflow-x: hidden;
+  padding-top: 110px;
+  padding-bottom: 100px;
 }
 p {
   font-size: 20px;
@@ -67,11 +69,16 @@ hr.star-primary:after {
 .img-centered {
   margin: 0 auto;
 }
+
 header {
   text-align: center;
   background: #18bc9c;
   color: white;
+  background: url("../img/header.png");
+  opacity: 0.8;
 }
+
+
 header .container {
   padding-top: 100px;
   padding-bottom: 50px;
@@ -389,4 +396,9 @@ footer .footer-below {
 .portfolio-modal .modal-backdrop {
   opacity: 0;
   display: none;
+}
+
+/*My styling*/
+.center-any-text{
+  text-align: center;
 }
