@@ -18,6 +18,7 @@ module.exports = function () {
         newWebsite._user = userId;
         return Website.create(newWebsite);
     }
+    
     function findAllWebsitesForUser(userId) {
         return Website.find({"_user": userId});
     }

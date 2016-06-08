@@ -2,41 +2,42 @@
 module.exports = function () {
 
     var mongoose = require("mongoose")
-    var WebsiteSchema = require("./website.schema.server")();
-    var Website = mongoose.model("Website", WebsiteSchema);
+    var PageSchema = require("./page.schema.server")();
+    var Page = mongoose.model("Page", PageSchema);
 
     var api = {
-        createWebsite: createWebsite,
-        findAllWebsitesForUser: findAllWebsitesForUser,
-        findWebsiteById: findWebsiteById,
-        updateWebsite: updateWebsite,
-        deleteWebsite: deleteWebsite
+        createPage: createPage,
+        findAllPagesForWebsite: findAllPagesForWebsite,
+        findPageById: findPageById,
+        updatePage: updatePage,
+        deletePage: deletePage
     };
     return api;
 
-    function createWebsite(userId, newWebsite) {
-        newWebsite._user = userId;
-        return Website.create(newWebsite);
-    }
-    function findAllWebsitesForUser(userId) {
-        return Website.find({"_user": userId});
+    function createPage(websiteId, newPage) {
+        newPage._website = websiteId;
+        return Page.create(newPage);
     }
 
-    function findWebsiteById(websiteId) {
-        return Website.findById(websiteId);
+    function findAllPagesForWebsite(websiteId) {
+        return Page.find({"_website": websiteId});
     }
 
-    function updateWebsite(websiteId, website) {
-        return Website
-            .update({_id: websiteId},{
+    function findPageById(pageId) {
+        return Page.findById(pageId);
+    }
+
+    function updatePage(pageId, page) {
+        return Page
+            .update({_id: pageId},{
                 $set: {
-                    name: website.name,
-                    description: website.description
+                    name: page.name,
+                    title: page.title
                 }
             });
     }
 
-    function deleteWebsite(websiteId) {
-        return Website.remove({_id: websiteId});
+    function deletePage(pageId) {
+        return Page.remove({_id: pageId});
     }
 };

@@ -17,9 +17,8 @@
 
         function createHeaderWidget(pageId) {
             var newWidget = {
-                _id: (new Date()).getTime()+"",
-                widgetType: "HEADER",
-                pageId: pageId
+                type: "HEADER",
+                // pageId: pageId
             };
             // var type = "HEADER";
 
@@ -27,6 +26,7 @@
                 .createWidget(pageId, newWidget)
                 .then(function (response) {
                     var result = response.data;
+                    console.log(result);
                     if (result._id) {
                         $location.url("user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + result._id);
                     } else {
@@ -37,9 +37,9 @@
 
         function createImageWidget(pageId) {
             var newWidget = {
-                _id: (new Date()).getTime()+"",
-                widgetType: "IMAGE",
-                pageId: pageId
+                // _id: (new Date()).getTime()+"",
+                type: "IMAGE",
+                // pageId: pageId
             };
 
             WidgetService
@@ -56,9 +56,9 @@
 
         function createYoutubeWidget(pageId) {
             var newWidget = {
-                _id: (new Date()).getTime() + "",
-                widgetType: "YOUTUBE",
-                pageId: pageId
+                // _id: (new Date()).getTime() + "",
+                type: "YOUTUBE",
+                // pageId: pageId
             };
 
             // var type = "YOUTUBE";
@@ -68,6 +68,7 @@
                 .then(function (response) {
                     var result = response.data;
                     if (result._id) {
+                        console.log(result._id);
                         $location.url("user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + result._id);
                     } else {
                         vm.error = "Oh SNAP! Couldn't create widget";

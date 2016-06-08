@@ -27,7 +27,7 @@
 
         <div ng-repeat="website in model.websites"
              class="container-fluid">
-            <a href="#/user/{{website.developerId}}/website/{{website._id}}/page">{{website.name}}</a>
+            <a href="#/user/{{website._user}}/website/{{website._id}}/page">{{website.name}}</a>
             <p class="pull-right">
                 <a href="#/user/{{website._user}}/website/{{website._id}}">
                     <span class="glyphicon glyphicon-cog website-navs"></span>

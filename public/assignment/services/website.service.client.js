@@ -32,8 +32,8 @@
                 // _id: (new Date()).getTime()+"",
                 name: website.name,
                 description: website.description,
-                developerId: userId
-            };
+                // developerId: userId
+            };      
             return $http.post(url, newWebsite);
         }
 

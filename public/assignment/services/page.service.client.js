@@ -42,7 +42,7 @@
             var brandNewPage = {
                 name: newPage.name,
                 title: newPage.title,
-                websiteId: websiteId
+                // websiteId: websiteId
             };
             return $http.post(url, brandNewPage);
         }
