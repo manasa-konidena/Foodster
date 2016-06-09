@@ -1,7 +1,7 @@
 
 <div class="container">
 
-    <div ng-show="model.error"
+    <div ng-if="model.error"
          class="alert alert-danger">{{model.error}}</div>
 
     <h1 class="center-any-text">Register</h1>
@@ -18,7 +18,7 @@
            class="form-control"
            placeholder="Verify Password"/>
     <a class="btn btn-primary btn-block"
-       ng-click="model.register(model.user)">
+       href="#/welcomepage">
        <!--href="#/user/:uid"-->Register</a>
     <a class="btn btn-danger btn-block"
        href="#/login"

@@ -1,7 +1,7 @@
 
 <div class="container">
 
-    <div ng-show="model.error"
+    <div ng-if="model.error"
          class="alert alert-danger">{{model.error}}</div>
 
     <h1 class="center-any-text">Login</h1>
@@ -13,7 +13,7 @@
            type="password"
            class="form-control"
            placeholder="Password"/>
-    <a ng-click="model.login(username, password)"
+    <a href="#/welcomepage"
        class="btn btn-primary btn-block">Login</a>
     <a href="#/register" class="btn btn-success btn-block">Register</a>
     <h3 class="center-any-text">OR</h3>
