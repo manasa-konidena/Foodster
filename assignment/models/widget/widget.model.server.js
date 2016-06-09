@@ -1,7 +1,7 @@
 
 module.exports = function () {
 
-    var mongoose = require("mongoose")
+    var mongoose = require("mongoose");
     var WidgetSchema = require("./widget.schema.server")();
     var Widget = mongoose.model("Widget", WidgetSchema);
 
@@ -16,7 +16,7 @@ module.exports = function () {
 
     function createWidget(pageId, newWidget) {
         newWidget._page = pageId;
-         console.log(newWidget);
+        console.log(newWidget);
         return Widget.create(newWidget);
     }
 

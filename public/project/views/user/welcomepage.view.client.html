@@ -28,7 +28,6 @@
 </nav>
 <!--Header End-->
 
-<!--{{model.user}}-->
 <div class="container">
     <div class="body-nonindex">
         <h4>Search with any cuisine, ingredient, dish. Basically, anything food!!</h4>
@@ -38,10 +37,23 @@
                    placeholder="Search with an ingredient, dish.."
                    class="form-control">
                         <span class="input-group-btn">
-                            <a class="btn btn-info" type="button">
+                            <a ng-click="model.searchRecipes(searchText)"
+                               class="btn btn-info" type="button">
                                 <span><strong>Search Recipes</strong></span>
                             </a>
                         </span>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div ng-repeat="recipe in model.recipes"
+        class="list-group">
+        <div class="list-group-item">
+            <h4>{{recipe.recipeName}}</h4>
+            <img ng-src="{{recipe.smallImageUrls[0]}}"
+                 width="304" height="236"
+                 class="img-thumbnail"/>
         </div>
     </div>
 </div>

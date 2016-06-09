@@ -18,7 +18,13 @@
             WidgetService
                 .findWidgetsByPageId(vm.pageId)
                 .then(function (response) {
-                    vm.widgets = response.data;
+                    var widgetList = response.data;
+                    for(var w in widgetList){
+                        if(widgetList[w].type === "HEADER" || widgetList[w].type === "IMAGE"){
+                            widgetList[w].width += "%";
+                        }
+                    }
+                    vm.widgets = widgetList;
                     $(".container")
                         .sortable({
                             axis: 'y'

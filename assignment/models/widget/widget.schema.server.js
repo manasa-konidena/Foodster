@@ -9,7 +9,7 @@ module.exports = function() {
         placeholder: String,
         description: String,
         url: String,
-        width: String,
+        width: Number,
         height: Number,
         rows: Number,
         size: Number,

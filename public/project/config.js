@@ -35,7 +35,9 @@
                 templateUrl: "views/recipe/favourites.view.client.html"
             })
             .when("/welcomepage", {
-                templateUrl: "views/user/welcomepage.view.client.html"
+                templateUrl: "views/user/welcomepage.view.client.html",
+                controller: "WelcomePageController",
+                controllerAs: "model"
             })
             .when("/cookedrecipes", {
                 templateUrl: "views/recipe/cookedrecipes.view.client.html"

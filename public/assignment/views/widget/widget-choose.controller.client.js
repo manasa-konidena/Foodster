@@ -17,7 +17,7 @@
 
         function createHeaderWidget(pageId) {
             var newWidget = {
-                type: "HEADER",
+                type: "HEADER"
                 // pageId: pageId
             };
             // var type = "HEADER";
@@ -26,7 +26,6 @@
                 .createWidget(pageId, newWidget)
                 .then(function (response) {
                     var result = response.data;
-                    console.log(result);
                     if (result._id) {
                         $location.url("user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + result._id);
                     } else {
