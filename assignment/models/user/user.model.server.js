@@ -11,13 +11,15 @@ module.exports = function () {
         findUserByCredentials: findUserByCredentials,
         findUserByUsername: findUserByUsername,
         updateUser: updateUser,
-        deleteUser: deleteUser
+        deleteUser: deleteUser,
+        findAllUsers: findAllUsers
     };
     return api;
 
+    function findAllUsers() {
+        return User.find();
+    }
     function createUser(user) {
-        console.log("user.model.server.createUser()");
-        console.log(user);
         return User.create(user);
     }
 

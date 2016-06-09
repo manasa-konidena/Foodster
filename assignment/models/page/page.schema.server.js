@@ -3,7 +3,7 @@ module.exports = function() {
 
     var PageSchema = mongoose.Schema({
         _website: {type: mongoose.Schema.ObjectId, ref: "Website"},
-        name: String,
+        name: {type: String, required: true},
         title: String,
         dateCreated: {type: Date, default: Date.now}
     }, {collection: "assignment.page"});

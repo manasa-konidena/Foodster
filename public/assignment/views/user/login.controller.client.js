@@ -18,7 +18,7 @@
                 if(user){
                     $location.url("/user/"+ user._id);
                 } else{
-                    vm.error = "Couldn't login. Please check password and username";
+                    vm.error = "Error in Login";
                 }
             });
         }
