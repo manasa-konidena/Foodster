@@ -14,6 +14,46 @@
         vm.createHeaderWidget = createHeaderWidget;
         vm.createImageWidget = createImageWidget;
         vm.createYoutubeWidget = createYoutubeWidget;
+        vm.createHtmlWidget = createHtmlWidget;
+        vm.createTextWidget = createTextWidget;
+
+        function createTextWidget(pageId) {
+            var newWidget = {
+                type: "TEXT"
+                // pageId: pageId
+            };
+            // var type = "HEADER";
+
+            WidgetService
+                .createWidget(pageId, newWidget)
+                .then(function (response) {
+                    var result = response.data;
+                    if (result._id) {
+                        $location.url("user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + result._id);
+                    } else {
+                        vm.error = "Oh SNAP! Couldn't create widget";
+                    }
+                });
+        }
+
+        function createHtmlWidget(pageId) {
+            var newWidget = {
+                type: "HTML"
+                // pageId: pageId
+            };
+            // var type = "HEADER";
+
+            WidgetService
+                .createWidget(pageId, newWidget)
+                .then(function (response) {
+                    var result = response.data;
+                    if (result._id) {
+                        $location.url("user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + result._id);
+                    } else {
+                        vm.error = "Oh SNAP! Couldn't create widget";
+                    }
+                });
+        }
 
         function createHeaderWidget(pageId) {
             var newWidget = {
