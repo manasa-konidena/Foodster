@@ -52,6 +52,7 @@ p.navbar-header.pull-left{
     padding-bottom: 5px;
     border-bottom-left-radius: 8px;
     opacity: 0.7;
+    z-index: 2;
 }
 
 .navbar-default{

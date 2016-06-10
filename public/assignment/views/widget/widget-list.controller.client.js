@@ -20,14 +20,15 @@
                 .then(function (response) {
                     var widgetList = response.data;
                     for(var w in widgetList){
-                        if(widgetList[w].type === "HEADER" || widgetList[w].type === "IMAGE"){
+                        if(widgetList[w].type === "YOUTUBE" || widgetList[w].type === "IMAGE"){
                             widgetList[w].width += "%";
                         }
                     }
                     vm.widgets = widgetList;
                     $(".container")
                         .sortable({
-                            axis: 'y'
+                            axis: 'y',
+                            handle: '.sort-handle'
                         });
                 });
         }

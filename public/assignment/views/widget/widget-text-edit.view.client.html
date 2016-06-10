@@ -31,10 +31,23 @@
     Rows
     <input ng-model="model.widget.rows" class="form-control" type="number"/>
     Placeholder
-    <input ng-model="model.widget.placeholder" class="form-control"/>
-    Formatted
-    <input ng-model="model.widget.formatted" type="checkbox"/>
+    <input ng-model="model.widget.placeholder"
+           class="form-control"/>
+    <div class="input-group">
+        <input type="text"
+               readonly
+               value="Formatted"
+               class="form-control"/>
+        <span class="input-group-addon">
+            <input ng-model="model.widget.formatted"
+                   type="checkbox"/>
+        </span>
+    </div>
 </div>
+<p></p>
+<a class="btn btn-danger btn-block"
+   ng-click="model.deleteWidget(model.widgetId)"
+   role="button">Delete</a>
 
 <!--Footer-->
 
