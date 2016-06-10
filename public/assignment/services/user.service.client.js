@@ -15,16 +15,11 @@
         return api;
 
         function createUser(newUser){
-            // add findUserByUsername functionality here
-            if("" !== ""){
-                return null;
-            } else {
-                var brandNewUser = {
+                 var brandNewUser = {
                     username: newUser.username,
                     password: newUser.password
                 };
                 return $http.post("/api/user", brandNewUser);
-            }
         }
 
 

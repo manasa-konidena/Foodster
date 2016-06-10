@@ -1,16 +1,6 @@
 var express = require('express');
 var app = express();
 
-var bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// configure a public directory to host static content
-app.use(express.static(__dirname + '/public'));
-
-// var mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/assignment5610');
-
 var connectionString = 'mongodb://127.0.0.1:27017/assignment5610';
 
 if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
@@ -23,6 +13,18 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
 
 var mongoose = require("mongoose");
 mongoose.connect(connectionString);
+
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// configure a public directory to host static content
+app.use(express.static(__dirname + '/public'));
+
+// var mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost/assignment5610');
+
+
 
 
 // require ("./test/app.js")(app);

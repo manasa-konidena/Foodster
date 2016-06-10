@@ -2,9 +2,6 @@
     angular
         .module("WebAppMaker")
         .factory("PageService", PageService);
-    
-    
-
 
     function PageService($http) {
         var api = {
@@ -19,12 +16,6 @@
         function findPageById(pageId) {
             var url = "/api/page/" + pageId;
             return $http.get(url);
-
-            for(var i in pages){
-                if(pageId === pages[i]._id){
-                    return pages[i];
-                }
-            }
         }
 
         function updatePage(pageId, page) {
