@@ -31,7 +31,12 @@ module.exports = function () {
     function updateWidget(widgetId, widget) {
         return Widget
             .update({_id: widgetId},{
-                $set: widget
+                $set: {
+                    name: widget.name,
+                    text: widget.text,
+                    size: widget.size
+                }
+                // $set: widget
             });
     }
 
