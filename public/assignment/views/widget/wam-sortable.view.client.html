@@ -6,8 +6,9 @@
 <!--<h1>testing this again</h1>-->
 
 <div class="container">
-    <div ng-repeat="widget in data.array | orderBy: 'reorderIndex'"
+    <div ng-repeat="widget in data.widgets | orderBy: 'reorderIndex'"
          class="jga-widget">
+        <p></p>
         <div class="jga-widget-tool">
             <a href="#/user/{{data.userId}}/website/{{data.websiteId}}/page/{{widget._page}}/widget/{{widget._id}}">
                 <span class="glyphicon glyphicon-cog"></span>
@@ -29,10 +30,10 @@
                 <img width="{{widget.width}}" ng-src={{widget.url}}>
             </div>
             <div ng-switch-when="YOUTUBE" class="youtube-widget">
-                <iframe width="{{widget.width}}" ng-src="{{directivemodel.getSafeUrl(widget)}}" frameborder="0" allowfullscreen></iframe>
+                <iframe width="{{widget.width}}" ng-src="{{data.getSafeUrl(widget)}}" frameborder="0" allowfullscreen></iframe>
             </div>
             <div ng-switch-when="HTML">
-                <div ng-bind-html="directivemodel.getSafeHtml(widget)"></div>
+                <div ng-bind-html="data.getSafeHtml(widget)"></div>
             </div>
             <div ng-switch-when="TEXT">
                 <div ng-if="widget.formatted"

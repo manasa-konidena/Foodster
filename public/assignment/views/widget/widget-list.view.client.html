@@ -36,11 +36,13 @@
 <!--{{model.widgets}}-->
 
 
-<wam-sortable data="{ array: model.widgets,
-                      userId: model.userId,
-                      websiteId: model.websiteId }"
-              callback="model.reorderWidgets(start, stop)"
-              directivemodel="model"></wam-sortable>
+<!--<wam-sortable data="{ array: model.widgets,-->
+                      <!--userId: model.userId,-->
+                      <!--websiteId: model.websiteId }"-->
+              <!--callback="model.reorderWidgets(start, stop)"-->
+              <!--directivemodel="model"></wam-sortable>-->
+
+<wam-sortable data="model"></wam-sortable>
 
 <!--Footer-->
 <nav class="navbar navbar-default navbar-fixed-bottom">
@@ -57,7 +59,7 @@
                 </a>
             </p>
             <p class="navbar-text pull-right">
-                <a href="#/user/{{data.userId}}">
+                <a href="#/user/{{model.userId}}">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </p>

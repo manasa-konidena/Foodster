@@ -21,7 +21,8 @@
                         stopIndex = ui.item.index();
                         console.log([startIndex, stopIndex]);
                         console.log(myScope);
-                        myScope.callback({start: startIndex , stop: stopIndex})
+                        // myScope.data.reorderWidgets({start: startIndex , stop: stopIndex})
+                        myScope.data.reorderWidgets(startIndex, stopIndex);
                     }
                 });
         }
@@ -29,11 +30,11 @@
             templateUrl: "views/widget/wam-sortable.view.client.html",
             scope: {
                 data: "=",
-                callback: "&",
+                // callback: "&",
                 // userId: "="
                 // websiteId: "=",
                 // pageId: "="
-                directivemodel: "="
+                // directivemodel: "="
             },
             link: linker
         }
