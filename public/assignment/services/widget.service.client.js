@@ -21,8 +21,8 @@
         //     return $http.get(url);
         // }
 
-        function reorderWidgets(start, end, pageId) {
-            var url = "/api/page/" +pageId +"/widget?start="+start+"&end="+end;
+        function reorderWidgets(start, stop, pageId) {
+            var url = "/api/page/" +pageId +"/widget?start="+start+"&end="+stop;
             return $http.put(url);
         }
 

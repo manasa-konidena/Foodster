@@ -7,7 +7,6 @@ module.exports = function(app, models) {
 
     app.get("/api/page/:pageId/widget", findAllWidgetsForPage);
     app.get("/api/widget/:widgetId", findWidgetById);
-    app.get("/api/page/:pageId/widgetCount", findNumberOfWidgets);
     app.delete("/api/widget/:widgetId", deleteWidget);
     app.post("/api/page/:pageId/widget", createWidget);
     app.put("/api/widget/:widgetId", updateWidget);
@@ -49,21 +48,6 @@ module.exports = function(app, models) {
             );
     }
 
-    function findNumberOfWidgets(req, res) {
-        var pid = req.params.pageId;
-
-        widgetModel
-            .findNumberOfWidgets(pid)
-            .then(
-                function (widgetCount) {
-                    console.log(widgetCount);
-                    res.send(widgetCount);
-                },
-                function (err) {
-                    res.sendStatus(404).send(err);
-                }
-            );
-    }
 
     function findAllWidgetsForPage(req, res) {
         var pid = req.params.pageId;
@@ -113,10 +97,21 @@ module.exports = function(app, models) {
 
     function reorderWidgets(req, res) {
         var pid = req.params.pageId;
-        var start = req.query.start;
-        var stop = req.query.end;
+        var start = parseInt(req.query.start);
+        var stop = parseInt(req.query.end);
         console.log([start, stop]);
-        res.sendStatus(200);
+        // res.sendStatus(200);
+
+        widgetModel
+            .reorderWidgets(start, stop, pid)
+            .then(
+                function (stats) {
+                    res.sendStatus(200)
+                },
+                function (error) {
+                    res.sendStatus(400);
+                }
+            );
     }
 
     function deleteWidget(req, res) {

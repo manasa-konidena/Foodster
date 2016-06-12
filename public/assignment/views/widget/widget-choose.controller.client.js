@@ -26,7 +26,7 @@
                     function (response) {
                         var result = response.data;
                         var length = result.length;
-                        index = length + 1;
+                        index = length;
 
                         newWidget.reorderIndex = index;
 
@@ -52,7 +52,7 @@
                     function (response) {
                         var result = response.data;
                         var length = result.length;
-                        index = length + 1;
+                        index = length;
 
                         newWidget.reorderIndex = index;
 
@@ -80,7 +80,7 @@
                     function (response) {
                         var result = response.data;
                         var length = result.length;
-                        index = length+1;
+                        index = length;
 
                         newWidget.reorderIndex = index;
 
@@ -106,7 +106,7 @@
                     function (response) {
                         var result = response.data;
                         var length = result.length;
-                        index = length + 1;
+                        index = length;
 
                         newWidget.reorderIndex = index;
 
@@ -132,7 +132,7 @@
                     function (response) {
                         var result = response.data;
                         var length = result.length;
-                        index = length + 1;
+                        index = length;
 
                         newWidget.reorderIndex = index;
 

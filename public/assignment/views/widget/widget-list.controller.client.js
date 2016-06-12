@@ -23,13 +23,7 @@
                 .reorderWidgets(start, stop, vm.pageId)
                 .then(
                     function (response) {
-                        var widgetList = response.data;
-                        for(var w in widgetList){
-                            if(widgetList[w].type === "YOUTUBE" || widgetList[w].type === "IMAGE"){
-                                widgetList[w].width += "%";
-                            }
-                        }
-                        vm.widgets = widgetList;
+                    return "true";
                     }
                 );
         }

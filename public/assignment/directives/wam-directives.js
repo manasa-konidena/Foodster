@@ -29,10 +29,11 @@
             templateUrl: "views/widget/wam-sortable.view.client.html",
             scope: {
                 data: "=",
-                callback: "&"
+                callback: "&",
                 // userId: "="
                 // websiteId: "=",
                 // pageId: "="
+                directivemodel: "="
             },
             link: linker
         }
