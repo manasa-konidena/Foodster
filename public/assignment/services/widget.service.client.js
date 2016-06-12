@@ -10,9 +10,21 @@
             createWidget: createWidget,
             findWidgetById: findWidgetById,
             updateWidget: updateWidget,
-            deleteWidget: deleteWidget
+            deleteWidget: deleteWidget,
+            reorderWidgets: reorderWidgets,
+            // findNumberOfWidgets: findNumberOfWidgets
         };
         return api;
+
+        // function findNumberOfWidgets(pageId) {
+        //     var url = "/api/page/"+pageId+"/widgetCount";
+        //     return $http.get(url);
+        // }
+
+        function reorderWidgets(start, end, pageId) {
+            var url = "/api/page/" +pageId +"/widget?start="+start+"&end="+end;
+            return $http.put(url);
+        }
 
         function deleteWidget(widgetId) {
             var url = "/api/widget/" + widgetId;

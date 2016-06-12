@@ -13,6 +13,26 @@
         // Event Handlers
         vm.getSafeHtml = getSafeHtml;
         vm.getSafeUrl = getSafeUrl;
+        vm.reorderWidgets = reorderWidgets;
+        
+        function reorderWidgets(start, stop) {
+            console.log("reordering widgets");
+            console.log(start);
+            console.log(stop);
+            WidgetService
+                .reorderWidgets(start, stop, vm.pageId)
+                .then(
+                    function (response) {
+                        var widgetList = response.data;
+                        for(var w in widgetList){
+                            if(widgetList[w].type === "YOUTUBE" || widgetList[w].type === "IMAGE"){
+                                widgetList[w].width += "%";
+                            }
+                        }
+                        vm.widgets = widgetList;
+                    }
+                );
+        }
 
         function init() {
             WidgetService
@@ -25,11 +45,11 @@
                         }
                     }
                     vm.widgets = widgetList;
-                    $(".container")
-                        .sortable({
-                            axis: 'y',
-                            handle: '.sort-handle'
-                        });
+                    // $(".container")
+                    //     .sortable({
+                    //         axis: 'y',
+                    //         handle: '.sort-handle'
+                    //     });
                 });
         }
         init();

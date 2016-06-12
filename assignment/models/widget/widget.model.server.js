@@ -10,7 +10,8 @@ module.exports = function () {
         findAllWidgetsForPage: findAllWidgetsForPage,
         findWidgetById: findWidgetById,
         updateWidget: updateWidget,
-        deleteWidget: deleteWidget
+        deleteWidget: deleteWidget,
+        findNumberOfWidgets: findNumberOfWidgets
     };
     return api;
 
@@ -18,6 +19,10 @@ module.exports = function () {
         newWidget._page = pageId;
         console.log(newWidget);
         return Widget.create(newWidget);
+    }
+
+    function findNumberOfWidgets(pageId) {
+        return Widget.count({"_page": pageId});
     }
 
     function findAllWidgetsForPage(pageId) {
@@ -31,12 +36,12 @@ module.exports = function () {
     function updateWidget(widgetId, widget) {
         return Widget
             .update({_id: widgetId},{
-                $set: {
-                    name: widget.name,
-                    text: widget.text,
-                    size: widget.size
-                }
-                // $set: widget
+                // $set: {
+                //     name: widget.name,
+                //     text: widget.text,
+                //     size: widget.size
+                // }
+                $set: widget
             });
     }
 
