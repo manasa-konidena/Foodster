@@ -26,8 +26,12 @@
             return $http.put(url);
         }
 
-        function deleteWidget(widgetId) {
-            var url = "/api/widget/" + widgetId;
+        function deleteWidget(widgetId, pageId, reorderIndex) {
+            var url = "/api/widget/" + widgetId+"?pageId="+pageId+"&deleteIndex="+reorderIndex;
+            // var widgetInfo = {
+            //   pageId: pageId,
+            //   reorderIndex: reorderIndex
+            // };
             return $http.delete(url);
         }
 

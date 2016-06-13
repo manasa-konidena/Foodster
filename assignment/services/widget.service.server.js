@@ -99,7 +99,7 @@ module.exports = function(app, models) {
         var pid = req.params.pageId;
         var start = parseInt(req.query.start);
         var stop = parseInt(req.query.end);
-        console.log([start, stop]);
+        // console.log([start, stop]);
         // res.sendStatus(200);
 
         widgetModel
@@ -116,17 +116,33 @@ module.exports = function(app, models) {
 
     function deleteWidget(req, res) {
         var wgid = req.params.widgetId;
+        var pageId = req.query.pageId;
+        var deletedIndex = req.query.deleteIndex;
+
+        // console.log(wgid);
+        // console.log(pageId);
+        // console.log(deletedIndex);
+        
+        // var pageId = widgetInfo.pageId;
+        // var deletedIndex = widgetInfo.reorderIndex;
 
         widgetModel
-            .deleteWidget(wgid)
+            .updateWidgetIndex(pageId, deletedIndex)
             .then(
                 function (stats) {
-                    res.sendStatus(200);
-                },
-                function (error) {
-                    res.sendStatus(400).send(error);
+                    widgetModel
+                        .deleteWidget(wgid)
+                        .then(
+                            function (stats) {
+                                res.sendStatus(200);
+                            },
+                            function (error) {
+                                res.sendStatus(400).send(error);
+                            }
+                        );
                 }
             );
+        
     }
 
     function createWidget(req, res) {

@@ -27,8 +27,8 @@
         init();
 
         function deleteWidget(widgetId) {
-            WidgetService
-                .deleteWidget(widgetId)
+             WidgetService
+                .deleteWidget(widgetId, vm.pageId, vm.widget.reorderIndex)
                 .then(function (response) {
                     var result = response.data;
                     if(result){

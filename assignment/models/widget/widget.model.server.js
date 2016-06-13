@@ -11,13 +11,13 @@ module.exports = function () {
         findWidgetById: findWidgetById,
         updateWidget: updateWidget,
         deleteWidget: deleteWidget,
-        reorderWidgets: reorderWidgets
+        reorderWidgets: reorderWidgets,
+        updateWidgetIndex: updateWidgetIndex
     };
     return api;
 
     function createWidget(pageId, newWidget) {
         newWidget._page = pageId;
-        console.log(newWidget);
         return Widget.create(newWidget);
     }
 
@@ -45,32 +45,20 @@ module.exports = function () {
         })
     }
 
-
-
-        // var widgetsForPage= findAllWidgetsForPage(pageId);
-        // console.log(widgetsForPage);
-        // return "OK";
-        // widgetsForPage.forEach(function (widget) {
-        //    if(start < stop){
-        //        if(widget.reorderIndex === start){
-        //            widget.reorderIndex = stop;
-        //            widget.save();
-        //        } else if(widget.reorderIndex > start && widget.reorderIndex <= stop){
-        //            widget.reorderIndex--;
-        //            widget.save();
-        //        }
-        //    } else {
-        //        if(widget.reorderIndex === start){
-        //            widget.reorderIndex = stop;
-        //            widget.save();
-        //        } else if(widget.reorderIndex < start && widget.reorderIndex >= stop){
-        //            widget.reorderIndex++;
-        //            widget.save();
-        //        }
-        //    }
-        // });
-        // return "OK";
-    // }
+    function updateWidgetIndex(pageId, deletedIndex) {
+        var pageId = pageId;
+        var deletedIndex = deletedIndex;
+        // console.log(deletedIndex);
+        return Widget.find({_page: pageId}, function (err, widgets) {
+            widgets.forEach(function (widget) {
+                if(widget.reorderIndex > deletedIndex){
+                    widget.reorderIndex--;
+                    widget.save(function () {
+                    });
+                }
+            })
+        });
+    }
 
     function findAllWidgetsForPage(pageId) {
         return Widget.find({"_page": pageId});
@@ -94,6 +82,20 @@ module.exports = function () {
     }
 
     function deleteWidget(widgetId) {
+        // var pageId = widgetInfo.pageId;
+        // var deletedIndex = widgetInfo.reorderIndex;
+        //
+        // return Widget.find({pageId: pageId}, function (err, widgets) {
+        //     widgets.forEach(function (widget) {
+        //         if(widget.reorderIndex === deletedIndex){
+        //             widgets.splice(deletedIndex, 1);
+        //             widget.save();
+        //         } else if(widget.reorderIndex > deletedIndex){
+        //             widget.reorderIndex--;
+        //             widget.save();
+        //         }
+        //     })
+        // });
         return Widget.remove({_id: widgetId});
     }
 };
