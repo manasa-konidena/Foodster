@@ -27,6 +27,14 @@
 <!--Header End-->
 
 <div class="container">
+    <div>
+        <label for="widget-name">Name</label>
+        <input ng-model="model.widget.name"
+               type="text"
+               class="form-control"
+               id="widget-name"
+               placeholder="Name">
+    </div>
     <div ng-model="model.widget.text"
          text-angular
          ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
