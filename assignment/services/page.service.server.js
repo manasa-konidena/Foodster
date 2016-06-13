@@ -16,7 +16,6 @@ module.exports = function(app, models) {
             .then(
                 function (pages) {
                     res.json(pages);
-                    console.log(pages);
                 },
                 function (error) {
                     res.sendStatus(404).send(error);
