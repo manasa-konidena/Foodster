@@ -119,13 +119,7 @@ module.exports = function(app, models) {
         var pageId = req.query.pageId;
         var deletedIndex = req.query.deleteIndex;
 
-        // console.log(wgid);
-        // console.log(pageId);
-        // console.log(deletedIndex);
         
-        // var pageId = widgetInfo.pageId;
-        // var deletedIndex = widgetInfo.reorderIndex;
-
         widgetModel
             .updateWidgetIndex(pageId, deletedIndex)
             .then(
