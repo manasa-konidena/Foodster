@@ -406,3 +406,7 @@ footer .footer-below {
 .center-any-text{
   text-align: center;
 }
+
+p.navbar-header.pull-left{
+  padding-top: 20px;
+}

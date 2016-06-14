@@ -49,22 +49,24 @@
 <div class="container">
     <div ng-repeat="recipe in model.recipes"
         class="list-group">
+        <a href="#/recipe/{{recipe.id}}">
             <h4>{{recipe.recipeName}}</h4>
-        <div class="row">
-            <div class="col-xs-4">
-            <img ng-src="{{recipe.smallImageUrls[0]}}"
-                 width="100%"
-                 class="img-thumbnail"
-                 class="img-responsive"/>
-            </div>
-            <div class="col-xs-8">
-                <div class="list-group">
-                    <h6 class="list-group-item">Rating: {{recipe.rating}}/5</h6>
-                    <h6 class="list-group-item">Cooking Time: {{recipe.totalTimeInSeconds / 60}} mins</h6>
-                    <h6 class="list-group-item">No. of Ingredients: {{recipe.ingredients.length + 1}}</h6>
+            <div class="row">
+                <div class="col-xs-4">
+                <img ng-src="{{recipe.smallImageUrls[0]}}"
+                     width="100%"
+                     class="img-thumbnail"
+                     class="img-responsive"/>
+                </div>
+                <div class="col-xs-8">
+                    <div class="list-group">
+                        <h6 class="list-group-item">Rating: {{recipe.rating}}/5</h6>
+                        <h6 class="list-group-item">Cooking Time: {{recipe.totalTimeInSeconds / 60}} mins</h6>
+                        <h6 class="list-group-item">No. of Ingredients: {{recipe.ingredients.length + 1}}</h6>
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
 </div>
 

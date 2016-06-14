@@ -6,13 +6,24 @@
     var appId = "01053330";
     var appKey = "bd4e0ab74249bc1416f80431ea060085";
     var urlBase = "http://api.yummly.com/v1/api/recipes?_app_id=app-id&_app_key=app-key&q=your_search_parameters";
-
+    var getUrlBase = "http://api.yummly.com/v1/api/recipe/recipe_id?_app_id=app-id&_app_key=app-key";
 
     function YummlyService($http) {
         var api = {
-            searchRecipes: searchRecipes
+            searchRecipes: searchRecipes,
+            getFullRecipe: getFullRecipe
         };
         return api;
+
+        function getFullRecipe(id) {
+            var url = getUrlBase
+                .replace("app-id", appId)
+                .replace("app-key", appKey)
+                .replace("recipe_id", id);
+
+            console.log(url);
+            return $http.get(url);
+        }
         
         function searchRecipes(searchTerm) {
             var searchYum = searchTerm

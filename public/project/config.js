@@ -45,5 +45,10 @@
             .when("/personalinfo", {
                 templateUrl: "views/user/personalinfo.view.client.html"
             })
+            .when("/recipe/:recipeId", {
+                templateUrl: "views/recipe/recipe.view.client.html",
+                controller: "RecipeController",
+                controllerAs: "model"
+            })
     }
 })();

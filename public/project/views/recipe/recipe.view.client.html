@@ -1,0 +1,73 @@
+<!--{{model.recipe}}-->
+<!--Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+
+        <p class="navbar-header pull-left">
+            <a href="#/"
+               class="navbar-link">
+                <span class="glyphicon glyphicon-home"></span>
+            </a>
+        </p>
+
+
+        <p class="navbar-text pull-right">
+            <a href="#/login"
+               class="navbar-link">
+                <span class="glyphicon glyphicon-log-out"></span>
+            </a>
+        </p>
+
+    </div>
+</nav>
+
+
+<div class="container">
+    <h1>{{model.recipe.name}}</h1>
+    <div class="row">
+        <div class="col-xs-4">
+            <h5>Servings: {{model.recipe.yield}}</h5>
+        </div>
+        <div class="col-xs-4">
+            <h5>Rating: {{model.recipe.rating}}</h5>
+        </div>
+        <div class="col-xs-4">
+            <h5>Course: {{model.recipe.attributes.course[0]}}</h5>
+        </div>
+    </div>
+    <img ng-src="{{model.recipe.images[0].hostedLargeUrl}}"
+         class="img-responsive"
+         width="100%"/>
+    <div class="row">
+        <div class="col-xs-4">
+            <h5>Holiday: {{model.recipe.attributes.course[0]}}</h5>
+        </div>
+        <div class="col-xs-4">
+            <h5>Prep-Time: {{model.recipe.prepTime}}</h5>
+        </div>
+        <div class="col-xs-4">
+            <h5>Total-Time: {{model.recipe.totalTime}}</h5>
+        </div>
+    </div>
+    <h3>Ingredients:</h3>
+    <div ng-repeat="ing in model.recipe.ingredientLines"
+         class="list-group">
+         <h6>{{ing}}</h6>
+    </div>
+</div>
+<!--{{model.recipe.nutritionEstimates}}-->
+
+<!--Footer-->
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-footer">
+            <p class="navbar-text pull-right">
+                <a href="#/welcomepage">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
