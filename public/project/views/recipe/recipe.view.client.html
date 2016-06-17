@@ -41,7 +41,7 @@
          width="100%"/>
     <div class="row">
         <div class="col-xs-4">
-            <h5>Holiday: {{model.recipe.attributes.course[0]}}</h5>
+            <h5>Holiday: {{model.recipe.attributes.holiday[0]}}</h5>
         </div>
         <div class="col-xs-4">
             <h5>Prep-Time: {{model.recipe.prepTime}}</h5>
@@ -55,6 +55,18 @@
          class="list-group">
          <h6>{{ing}}</h6>
     </div>
+
+    <button type="button"
+            class="btn btn-success btn-block"
+            href="#">Full Recipe Here</button>
+    <!--Nutritiion Attributes-->
+    <h3>Nutrition Estimates:</h3>
+    <div ng-repeat="estimate in model.recipe.nutritionEstimates">
+        <h6>{{estimate.description}}: {{estimate.value}} {{estimate.unit.pluralAbbreviation}}</h6>
+    </div>
+
+</div>
+
 </div>
 <!--{{model.recipe.nutritionEstimates}}-->
 

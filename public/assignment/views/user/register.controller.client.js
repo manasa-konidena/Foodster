@@ -12,7 +12,7 @@
         
         function register(newUser) {
             UserService
-                .createUser(newUser)
+                .register(newUser)
                 .then(function (response) {
                     var brandNewUser = response.data;
                     if(brandNewUser._id){
