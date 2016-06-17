@@ -69,7 +69,9 @@ module.exports = function(app, models) {
             .findUserByUsername(username)
             .then(
                 function (user) {
-                    if(user && bcrypt.compareSync(password, user.passw)){
+                    // var hashedPassword = bcrypt.hashSync(password);
+
+                    if(user && bcrypt.compareSync(password, user.password)){
                         done(null,user);
                     }else {
                         done(null, false);
