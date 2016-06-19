@@ -30,16 +30,10 @@ module.exports = function(app, models) {
 
 
 
-    // var facebookConfig = {
-    //     clientID     : process.env.FACEBOOK_CLIENT_ID,
-    //     clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
-    //     callbackURL  : process.env.FACEBOOK_CALLBACK_URL
-    // };
-
     var facebookConfig = {
-        clientID     : "1742859526003267",
-        clientSecret : "36bcb8e54590dc4039cec32a3add7338",
-        callbackURL  : "http://127.0.0.1:3000/auth/facebook/callback"
+        clientID     : process.env.FACEBOOK_CLIENT_ID,
+        clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+        callbackURL  : process.env.FACEBOOK_CALLBACK_URL
     };
 
 
@@ -98,12 +92,11 @@ module.exports = function(app, models) {
             .findUserByUsername(username)
             .then(
                 function (user) {
-                    // var hashedPassword = bcrypt.hashSync(password);
 
                     if(user && bcrypt.compareSync(password, user.password)){
                         done(null,user);
                     }else {
-                        done(null, false);
+                        done(null, "Error in login");
                     }
                 },
                 function(err) {
@@ -146,7 +139,7 @@ module.exports = function(app, models) {
     }
 
     function facebookLogin(token, refreshToken, profile, done) {
-        console.log(profile);
+       // console.log(profile);
         userModel
             .findFacebookUser(profile.id)
             .then(
@@ -212,7 +205,6 @@ module.exports = function(app, models) {
             .deleteUser(id)
             .then(
                 function (stats) {
-                    console.log(stats);
                     res.send(200);
                 },
                 function (error) {

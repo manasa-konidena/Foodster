@@ -97,3 +97,6 @@ h6{
     color: red;
 }
 
+input.ng-invalid{
+    background-color: lightyellow;
+}
