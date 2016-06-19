@@ -27,20 +27,31 @@
 <!--Header End-->
 
 <div class="container">
-    <div>
-        <label for="widget-name">Name</label>
-        <input ng-model="model.widget.name"
-               type="text"
-               class="form-control"
-               id="widget-name"
-               placeholder="Name">
+    <div ng-show="model.error"
+         class="alert alert-danger">
+        {{model.error}}
     </div>
-    <div ng-model="model.widget.text"
-         text-angular
-         ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
-        ['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
-        ['indent','outdent'],['html']]">
-    </div>
+    <form novalidate name="model.myForm">
+        <div>
+            <label for="widget-name">Name</label>
+            <span ng-show="model.myForm.name.$invalid">
+                <h6>{{model.alert}}</h6>
+            </span>
+            <input ng-model="model.widget.name"
+                   name="name"
+                   required
+                   type="text"
+                   class="form-control"
+                   id="widget-name"
+                   placeholder="Name">
+        </div>
+        <div ng-model="model.widget.text"
+             text-angular
+             ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
+            ['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
+            ['indent','outdent'],['html']]">
+        </div>
+    </form>
     <a class="btn btn-danger btn-block"
        ng-click="model.deleteWidget(model.widgetId)"
        role="button">Delete</a>
@@ -52,7 +63,7 @@
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
-                <a href="#/user/{{model.userId}}">
+                <a href="#/user">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </p>

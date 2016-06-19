@@ -29,6 +29,12 @@
         init();
         
         function updateWebsite(websiteId, website) {
+            if(vm.myForm.$invalid == true){
+                vm.error = "Please enter a valid website name";
+                vm.alert = "* Required Field";
+                
+            }else {
+            
             WebsiteService
                 .updateWebsite(websiteId, website)
                 .then(function (response) {
@@ -40,6 +46,7 @@
                         }
                       }
                     );
+            }
         }
 
         function deleteWebsite(websiteId) {

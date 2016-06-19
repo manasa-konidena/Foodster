@@ -40,7 +40,15 @@
         }
 
         function updateWidget(widget) {
-            
+            if(vm.myForm.$invalid == true){
+             vm.error = "Oops! Please check the requirements and fill correctly.";
+             vm.alert = "* Required Field";
+                if(widget.type === "HEADER"){
+                    vm.numalert = "Please assign a value between 1 and 6"
+                } else if(widget.type === "YOUTUBE" || widget.type === "IMAGE"){
+                    vm.widthalert = "Please give a width. 100 is preferrable";
+                }
+            } else {
             WidgetService
                 .updateWidget(vm.widgetId, widget)
                 .then(function (response) {
@@ -51,6 +59,7 @@
                         vm.error = "Error";
                     }
                 });
+            }
         }
     }
 })();

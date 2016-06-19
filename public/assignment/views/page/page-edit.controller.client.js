@@ -46,6 +46,11 @@
         }
 
         function updatePage(page){
+            if(vm.myForm.$invalid == true){
+                vm.error = "Page name can't be left empty";
+                vm.alert = "* Required Field"
+            } else {
+
            PageService
                .updatePage(pageId, page)
                .then(function (response) {
@@ -56,6 +61,7 @@
                        vm.error = "Oh SNAP! Couldnt update the page";
                    }
                });
+            }
         }
    }
 })();

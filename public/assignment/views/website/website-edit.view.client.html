@@ -28,17 +28,24 @@
 <!--Header End-->
 
 <div class="container">
-    <div ng-show="model.error"
-         class="alert alert-danger">{{<model class="error"></model>}}</div>
 
-    <form>
+
+    <div ng-show="model.error"
+         class="alert alert-danger">{{model.error}}</div>
+
+    <form novalidate name="model.myForm">
         <div class="form-group">
             <label for="website-name">Website Name</label>
+            <span ng-show="model.myForm.name.$invalid">
+                <h6>{{model.alert}}</h6>
+            </span>
             <input type="text"
+                   name="name"
+                   required
                    ng-model="model.website.name"
                    class="form-control"
                    id="website-name"
-                   placeholder="Website Name">
+                   placeholder="Website Name" required>
         </div>
         <div class="form-group">
             <label for="website-description">Website Description</label>
@@ -64,12 +71,12 @@
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-left">
-                <a
+                <a>
                     <span class="glyphicon glyphicon-share"></span>
                 </a>
             </p>
             <p class="navbar-text pull-right">
-                <a href="#/user/{{model.userId}}">
+                <a href="#/user">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </p>

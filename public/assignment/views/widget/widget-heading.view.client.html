@@ -27,11 +27,18 @@
 <!--Header End-->
 
 <div class="container">
+    <div ng-show="model.error"
+         class="alert alert-danger">{{model.error}}</div>
 
-    <form>
+    <form name="model.myForm" novalidate>
         <div class="form-group">
             <label for="widget-name">Name</label>
+            <span ng-show="model.myForm.name.$invalid">
+                <h6>{{model.alert}}</h6>
+            </span>
             <input ng-model="model.widget.name"
+                   name="name"
+                   required
                    type="text"
                    class="form-control"
                    id="widget-name"
@@ -39,24 +46,31 @@
         </div>
         <div class="form-group">
             <label for="heading-text">Text</label>
+            <span ng-show="model.myForm.text.$invalid">
+                <h6>{{model.alert}}</h6>
+            </span>
             <input ng-model="model.widget.text"
                    type="text"
+                   name="text"
+                   required
                    class="form-control"
                    id="heading-text"
                    placeholder="Text">
         </div>
         <div class="form-group">
             <label for="size">Size</label>
-            <select id="size"
-                    ng-model="model.widget.size"
-                    class="form-control">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-            </select>
+            <span ng-show="model.myForm.size.$invalid">
+                <h6>{{model.numalert}}</h6>
+            </span>
+            <input id="size"
+                   name="size"
+                   required
+                   min="1"
+                   max="6"
+                   type="number"
+                   ng-model="model.widget.size"
+                   class="form-control"/>
+
             <!--<input type="text"-->
                    <!--class="form-control"-->
                    <!--id="size"-->
@@ -75,7 +89,7 @@
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
-                <a href="#/user/{{model.userId}}">
+                <a href="#/user">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </p>

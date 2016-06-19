@@ -28,11 +28,20 @@
 <!--Header End-->
 
 <div class="container">
+    <div ng-show="model.error"
+         class="alert alert-danger">
+        {{model.error}}
+    </div>
 
-    <form>
+    <form novalidate name="model.myForm">
         <div class="form-group">
             <label for="widget-name">Name</label>
+            <span ng-show="model.myForm.name.$invalid">
+                <h6>{{model.alert}}</h6>
+            </span>
             <input type="text"
+                   name="name"
+                   required
                    class="form-control"
                    id="widget-name"
                    placeholder="Name"
@@ -56,7 +65,12 @@
         </div>
         <div class="form-group">
             <label for="width">Width</label>
+            <span ng-show="model.myForm.width.$invalid">
+                <h6>{{model.widthalert}}</h6>
+            </span>
             <input type="text"
+                   name="width"
+                   required
                    class="form-control"
                    id="width"
                    placeholder="Width of the video"
@@ -75,7 +89,7 @@
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
-                <a href="#/user/{{model.userId}}">
+                <a href="#/user">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </p>

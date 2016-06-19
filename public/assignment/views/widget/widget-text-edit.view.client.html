@@ -26,31 +26,42 @@
 </nav>
 <!--Header End-->
 <div class="container">
-    <div>
-        <label for="widget-name">Name</label>
-        <input ng-model="model.widget.name"
-               type="text"
-               class="form-control"
-               id="widget-name"
-               placeholder="Name">
+    <div ng-show="model.error"
+         class="alert alert-danger">
+        {{model.error}}
     </div>
-    Text
-    <input ng-model="model.widget.text" class="form-control"/>
-    Rows
-    <input ng-model="model.widget.rows" class="form-control" type="number"/>
-    Placeholder
-    <input ng-model="model.widget.placeholder"
-           class="form-control"/>
-    <div class="input-group">
-        <input type="text"
-               readonly
-               value="Formatted"
+    <form novalidate name="model.myForm">
+        <div>
+            <label for="widget-name">Name</label>
+            <span ng-show="model.myForm.name.$invalid">
+                <h6>{{model.alert}}</h6>
+            </span>
+            <input ng-model="model.widget.name"
+                   type="text"
+                   name="name"
+                   required
+                   class="form-control"
+                   id="widget-name"
+                   placeholder="Name">
+        </div>
+        Text
+        <input ng-model="model.widget.text" class="form-control"/>
+        Rows
+        <input ng-model="model.widget.rows" class="form-control" type="number"/>
+        Placeholder
+        <input ng-model="model.widget.placeholder"
                class="form-control"/>
-        <span class="input-group-addon">
-            <input ng-model="model.widget.formatted"
-                   type="checkbox"/>
-        </span>
-    </div>
+        <div class="input-group">
+            <input type="text"
+                   readonly
+                   value="Formatted"
+                   class="form-control"/>
+            <span class="input-group-addon">
+                <input ng-model="model.widget.formatted"
+                       type="checkbox"/>
+            </span>
+        </div>
+    </form>
     <p></p>
     <a class="btn btn-danger btn-block"
        ng-click="model.deleteWidget(model.widgetId)"
@@ -64,7 +75,7 @@
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
-                <a href="#/user/{{model.userId}}">
+                <a href="#/user">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </p>

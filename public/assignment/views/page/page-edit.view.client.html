@@ -30,11 +30,18 @@
 <!--Header End-->
 
 <div class="container">
+    <div ng-show="model.error"
+         class="alert alert-danger">{{model.error}}</div>
 
-    <form>
+    <form novalidate name="model.myForm">
         <div class="form-group">
             <label for="page-name">Name</label>
+            <span ng-show="model.myForm.name.$invalid">
+                <h6>{{model.alert}}</h6>
+            </span>
             <input type="text"
+                   name="name"
+                   required
                    class="form-control"
                    id="page-name"
                    placeholder="Page Name"
@@ -61,7 +68,7 @@
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
-                <a href="#/user/{{model.userId}}">
+                <a href="#/user">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </p>
