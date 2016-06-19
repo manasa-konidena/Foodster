@@ -94,9 +94,11 @@ module.exports = function(app, models) {
                 function (user) {
 
                     if(user && bcrypt.compareSync(password, user.password)){
+                        // console.log(user);
                         done(null,user);
+
                     }else {
-                        done(null, "Error in login");
+                        done(null, "Error in login!");
                     }
                 },
                 function(err) {
@@ -110,6 +112,7 @@ module.exports = function(app, models) {
     }
 
     function deserializeUser(user, done) {
+        // console.log(user);
         userModel
             .findUserById(user._id)
             .then(
@@ -125,6 +128,7 @@ module.exports = function(app, models) {
 
 
     function login ( req, res){
+        console.log(req);
         var user = req.user;
         res.json(user);
     }
