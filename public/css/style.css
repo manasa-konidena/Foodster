@@ -1133,9 +1133,15 @@ img.mfp-img{
 
 
 .prices{
-  background: url(../img/bg/prices.jpg) 50% no-repeat;
+  background: url(../img/bg/food.jpg) 50% no-repeat;
   background-size: cover;
 }
+
+.assignment{
+  background: url(../img/bg/wam.png) 50% no-repeat;
+  background-size: cover;
+}
+
 
 .col-price{
   width: 100%;
