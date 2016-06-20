@@ -1,310 +1,492 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>CS5610 - Web Development</title>
-    <meta charset="utf-8">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="viewport" content="initial-scale=1.25, user-scalable = no">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <style>
-        .jumbotron {
-            background-color: #d88db4;
-            color: white;
-            padding: 100px 25px;
-        }
-        .container-fluid {
-            padding: 60px 50px;
-        }
-        h2 {
-            font-size: 24px;
-            text-transform: uppercase;
-            color: #303030;
-            font-weight: 600;
-            margin-bottom: 30px;
-        }
+<!DOCTYPE HTML>
+<html>
 
-        .bg-1 {
-            background-color: #ffc2c2;
-        }
-        .bg-2 {
-            background-color: #ffd1c2;
-        }
-        .bg-3 {
-            background-color: #ffe0c2;
-        }
-        .bg-4 {
-            background-color: #ffe4c4;
-        }
-        .bg-5 {
-            background-color: #fff0c2;
-        }
-        .bg-6 {
-            background-color: #ffffc2;
-        }
-        @media screen and (max-width: 768px) {
-            .col-sm-4 {
-                text-align: center;
-                margin: 25px 0;
-            }
-        }
-        .logo {
-            color: #f4511e;
-            font-size: 200px;
-        }
-        .panel {
-            border: 1px solid #f4511e;
-            border-radius:0 !important;
-            transition: box-shadow 0.5s;
-        }
-        .panel:hover {
-            box-shadow: 5px 0px 40px rgba(0,0,0, .2);
-        }
-        .panel-footer .btn:hover {
-            border: 1px solid #f4511e;
-            background-color: #fff !important;
-            color: #f4511e;
-        }
-        .panel-heading {
-            color: #fff !important;
-            background-color: #f4511e !important;
-            padding: 25px;
-            border-bottom: 1px solid transparent;
-            border-top-left-radius: 0px;
-            border-top-right-radius: 0px;
-            border-bottom-left-radius: 0px;
-            border-bottom-right-radius: 0px;
-        }
-        .panel-footer {
-            background-color: white !important;
-        }
-        .panel-footer h3 {
-            font-size: 32px;
-        }
-        .panel-footer h4 {
-            color: #aaa;
-            font-size: 14px;
-        }
-        .panel-footer .btn {
-            margin: 15px 0;
-            background-color: #f4511e;
-            color: #fff;
-        }
-        .navbar {
-            margin-bottom: 0;
-            background-color: #34495e;
-            z-index: 9999;
-            border: 0;
-            font-size: 12px !important;
-            line-height: 1.42857143 !important;
-            letter-spacing: 4px;
-            border-radius: 0;
-        }
-        .navbar li a, .navbar .navbar-brand {
-            color: #fff !important;
-        }
-        .navbar-nav li a:hover, .navbar-nav li.active a {
-            color: black !important;
-            background-color: #fff !important;
-        }
-        .navbar-default .navbar-toggle {
-            border-color: transparent;
-            color: #fff !important;
-        }
-        footer .glyphicon {
-            font-size: 20px;
-            margin-bottom: 20px;
-            color: #cc33a6;
-        }
-    </style>
+<!-- Mirrored from murren.ru/templates/vanessa/vanessa-demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 19 Jun 2016 22:40:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta  charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Development - CS 5610</title>
+
+    <!-- Favicons -->
+
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+
+    <!-- Fonts -->
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+
+    <!-- Styles -->
+
+    <link href="css/style.css" rel="stylesheet"  media="screen">
 
 </head>
-<body> id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<body>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#myPage">Home</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="scroll"><a href="#Project">Project</a></li>
-                <li class="scroll"><a href="#Assignment">Assignment</a></li>
-                <li class="scroll"><a href="#Openshift">My Openshift</a></li>
-                <li class="scroll"><a href="#Github">My Github CS5610</a></li>
-                <li class="scroll"><a href="#about">About Me</a></li>
-                <li class="scroll"><a href="#contact">Contact Me</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<!-- Loader -->
 
-<div class="jumbotron text-center">
-<h1>Web Devolopment - CS5610</h1>
-
-    </div>
-
-<div class="container-fluid text-center bg-grey">
-    <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img class="img-responsive center-block" src="images/homepage.JPG" class="img-rounded" alt="Display Picture" width="500" height="400">
-            </div>
-            <div class="item">
-                <img class="img-responsive center-block" src="homepage3.JPG" class="img-rounded" alt="Display Picture" width="500" height="400">
-            </div>
-            <div class="item">
-                <img class="img-responsive center-block" src="homepage4.JPG" class="img-rounded" alt="Display Picture" width="500" height="400">
-            </div>
-        </div>
-
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
+<div class="loader">
+    <div class="loader-brand"><img alt="" class="img-responsive center-block" src="img/brand_white.gif"></div>
 </div>
 
+<div id="layout" class="layout">
 
+    <!-- Header -->
 
-
-<div id = "Project" class="container-fluid text-center bg-1">
-    <div class="row">
-        <div class="col-sm-8">
-    <h2>Project</h2>
-    <a href="project/index.html">Project</a>
+    <header id="top" class="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#layout" class="brand js-target-scroll">
+                    <img class="brand-img-white" alt="" width="80" src="img/home.png">
+                    <img class="brand-img" alt="" width="80" src="img/home.png">
+                </a>
             </div>
-            <div class="col-sm-4">
-                <span style="font-size:7em;" class="glyphicon glyphicon-globe logo"></span>
-            </div>
-        </div>
-    </div>
-
-<div id = "Assignment" class="container-fluid text-center bg-2">
-    <div class="row">
-        <div class="col-sm-8">
-    <h2>Assignment</h2>
-    <a href="assignment/index.html">Assignments</a>
-        </div>
-        <div class="col-sm-4">
-            <span style="font-size:7em;" class="glyphicon glyphicon-book logo"></span>
-        </div>
-    </div>
-</div>
-
-<div id = "MongoDB" class="container-fluid text-center bg-3">
-    <div class="row">
-        <div class="col-sm-8">
-    <h2>Test MongoDB</h2>
-    <a href="test/index.html">Test MongoDB</a></div>
-            <div class="col-sm-4">
-                <span style="font-size:7em;" class="glyphicon glyphicon-folder-open logo"></span>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#layout" class="js-target-scroll">Home</a></li>
+                    <li><a href="#assignment" class="js-target-scroll">Assignment</a></li>
+                    <li><a href="#project" class="js-target-scroll">Project</a></li>
+                    <li><a href="#openshift" class="js-target-scroll">Openshift</a></li>
+                    <li><a href="#github" class="js-target-scroll">Github</a></li>
+                    <li><a href="#about" class="js-target-scroll">About Me</a></li>
+                    <li><a href="#contacts" class="js-target-scroll">Contact Me</a></li>
+                </ul>
             </div>
         </div>
-    </div>
+    </header>
 
-<div id = "Github" class="container-fluid text-center bg-4">
-    <div class="row">
-        <div class="col-sm-8">
-    <h2>My Github CS5610</h2>
-    <a href="https://github.com/manasa-konidena/manasa-konidena-web-dev">My Github CS5610</a>
-        </div>
-        <div class="col-sm-4">
-            <span style="font-size:7em;" class="glyphicon glyphicon-hdd logo"></span>
-        </div>
-    </div>
-</div>
+    <!-- Home -->
 
-<div id = "Openshift" class="container-fluid text-center bg-5">
-    <div class="row">
-        <div class="col-sm-8">
-    <h2>My Openshift</h2>
-    <a href="http://webdev-manasakonidena.rhcloud.com/">My Openshift</a>
-        </div>
-        <div class="col-sm-4">
-            <span style="font-size:7em;" class="glyphicon glyphicon-cloud logo"></span>
-        </div>
-    </div>
-</div>
-
-<div id = "about" class="container-fluid text-center bg-1">
-    <div class="row">
-        <div class="col-sm-8">
-    <h2>About Me</h2>
-    <!-- <a href="http://webdev-manasakonidena.rhcloud.com/">My Openshift</a> -->
-    <p>I'm Manasa Konidena, a graduate student at Northeastern University in Computer Science.
-    </p></div>
-        <div class="col-sm-4">
-            <span style="font-size:7em;" class="glyphicon glyphicon-user logo"></span>
-        </div>
-    </div>
-</div>
-
-<div id="contact" class="container-fluid bg-3">
-    <h2 class="text-center">CONTACT</h2>
-    <div class="row">
-        <div class="col-sm-4">
-            <h3><span class="glyphicon glyphicon-map-marker"></span> Northeastern University</h3>
-            <h3><span class="glyphicon glyphicon-phone"></span> (617) - 459 - 0421</h3>
-            <h3><span class="glyphicon glyphicon-envelope"></span> <a
-                    href="mailto:konidena.m@husky.neu.edu"> konidena.m@husky.neu.edu</a></h3>
-            <h3><img src="images/facebook.jpg" alt="Facebook" width="25" height="25"> <a
-                    href="https://www.facebook.com/profile.php?id=100000262766571"> Facebook</a></h3>
-            <h3><img src="images/linkedin.png" alt="Linkedin" width="25" height="25"> <a
-                    href="https://www.linkedin.com/in/manasakonidena"> Linkedin</a></h3>
-        </div>
+    <main id="home" class="masthead masked">
+        <div class="opener rel-1">
+            <div class="container">
+                <div class="row">
+                    <div class="lead col-lg-6">
+                        <h1 class="wow fadeInDown">Web Development - CS5610</h1>
+                        <p class="lead-text"><strong>This page is primarily built as an assignment for a graduate course in Web App Development. The course mainly focussed on MEAN stack development for mobile first web applications.</strong></p>
+                        <!--<div class="lead-controls">-->
+                            <!--<a href="#request" class="btn-lead btn" data-toggle="modal">Get start now</a>-->
+                            <!--<a href="http://www.youtube.com/watch?v=ANwf8AE3_d0" class="text-white play-home js-play">-->
+                                <!--<i class="fa fa-play-circle"></i>-->
+                                <!--Watch video-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    </div>
+                </div>
             </div>
+        </div>
+    </main>
+
+    <!-- Content -->
+
+    <div class="content">
+
+        <!-- Partners  -->
+
+        <section id="partners" class="partners bgc-light">
+            <div class="container">
+                <div class="row">
+                    <div class="partners-carousel">
+                        <div class="partner">
+                            <img alt="" class="img-responsive" width="80" height="80" src="img/meanimages/mongodb.png">
+                        </div>
+                        <div class="partner">
+                            <img alt="" class="img-responsive" width="80" height="80" src="img/meanimages/expressjs.png">
+                        </div>
+                        <div class="partner">
+                            <img alt="" class="img-responsive" width="100" height="100" src="img/meanimages/angularjs.png">
+                        </div>
+                        <div class="partner">
+                            <img alt="" class="img-responsive" width="80" height="80" src="img/meanimages/nodejs.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About  -->
+
+        <section id="about" class="about text-center section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <h2 class="section-title">About Me</h2>
+                        <p>I'm a graduate student pursuing Master of Sciences in Computer Science.
+                            I come with an experience of 30 months in various roles including
+                            Catalog Quality Specialist, Ontology Analyst and Data Analyst at
+                            Amazon India Development Solutions. I have successfully finished
+                            courses like Programming Design Paradigm and Relational
+                            Database Management Sytems and am currently pursuing Web Development.
+                            I enjoy cooking and music as past time activities.</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="row row-columns row-padding">
+                        <a href="https://www.facebook.com/profile.php?id=100000262766571">
+                            <div class="column column-padding col-md-4">
+                                <i class="icon fa fa-5x fa-facebook"></i>
+                                <h3>Facebook</h3>
+
+                            </div></a>
+                        <a href="https://www.linkedin.com/in/manasakonidena">
+                            <div class="column column-padding col-md-4">
+                                <i class="icon fa fa-5x fa-linkedin"></i>
+                                <h3>Linkedin</h3>
+
+                            </div></a>
+                        <a href="https://twitter.com/ManasaKonidena">
+                            <div class="column column-padding col-md-4">
+                                <i class="icon fa fa-5x fa-twitter"></i>
+                                <h3>Twitter</h3>
+
+                            </div></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Project Video Maybe -->
+
+        <!--<section id="video-section" class="video-section text-white masked section-lg">-->
+            <!--<div class="container rel-1">-->
+                <!--<div class="row">-->
+                    <!--<div class="col-md-6">-->
+                        <!--<h2 class="text-white section-title">Watch our video</h2>-->
+                        <!--<p class="text-opacity">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas harum, hic officiis commodi reprehenderit explicabo tenetur eos! Excepturi adipisci consequatur quisquam error, velit, pariatur</p>-->
+                        <!--<p class="top-space">-->
+                            <!--<a  href="http://www.youtube.com/watch?v=ANwf8AE3_d0" class="text-white play js-play"><i class="text-white fa fa-3x fa-play-circle"></i> Watch our video</a>-->
+                        <!--</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</section>-->
+
+        <!-- Features 1 -->
+
+        <section id="assignment" class="features bgc-light section">
+            <div class="container">
+                <div class="row-columns row-padding row">
+                    <div class="col-feature-img column column-padding col-md-5 text-center wow fadeInLeft">
+                        <img alt="" class="feature-img" src="img/feature-img.png">
+                    </div>
+                    <div class="col-feature column column-padding col-md-6">
+                        <h2 class="section-title">Assignments - Web App Maker</h2>
+                        <p>For the 6 asignments which constitute 42% of the course grade, we made a web application
+                        called Web App Maker. The assignments started from client side and ended in server side.
+                        The following are the technologies that were explored through the course.</p>
+                        <div class="section-body">
+                            <div class="column">
+                                <div class="media-left">
+                                    <i class="fa fa-2x fa-cogs"></i>
+                                </div>
+                                <div class="media-right">
+                                    <h4>View Designing</h4>
+                                    <p>Using HTML, Boostrap, CSS</p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="media-left">
+                                    <i class="fa fa-2x fa-cogs"></i>
+                                </div>
+                                <div class="media-right">
+                                    <h4>Client Side Development - Angular JS</h4>
+                                    <p>Using JavaScript - AngularJS</p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="media-left">
+                                    <i class="fa fa-2x fa-cogs"></i>
+                                </div>
+                                <div class="media-right">
+                                    <h4>Server Side Development</h4>
+                                    <p>Using NodeJS</p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="media-left">
+                                    <i class="fa fa-2x fa-cogs"></i>
+                                </div>
+                                <div class="media-right">
+                                    <h4>Database Development</h4>
+                                    <p>Using MongoDB</p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="media-left">
+                                    <i class="fa fa-2x fa-cogs"></i>
+                                </div>
+                                <div class="media-right">
+                                    <h4>Security</h4>
+                                    <p>Exploring PassportJS</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- OpenShift -->
+
+        <section id="openshift" class="text-white bgc-primary section-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2 class="banner-title text-white">Want to Learn More?</h2>
+                    </div>
+                    <div class="col-md-5">
+                        <span class="text-opacity">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas harum, hic officiis commodi reprehenderit explicabo</span>
+                    </div>
+                    <div class="col-md-3 top-space-sm"><a href="#request" class="btn btn-b-white" data-toggle="modal">Get started</a></div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Prices -->
+
+        <section id="project" class="prices text-center masked section" data-stellar-background-ratio="0.7">
+            <div class="container rel-1">
+                <div class="row">
+                    <div class="text-center text-white col-md-6 col-md-offset-3">
+                        <h2 class="text-white section-title">Choose your plan</h2>
+                        <p class="text-opacity">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="row-price">
+                        <div class="col-price wow fadeInLeft">
+                            <div class="price-box">
+                                <div class="price-body">
+                                    <div class="price-inner">
+                                        <header class="price-header">
+                                            <h4 class="price-title">Basic</h4>
+                                            <div class="price">
+                                                <strong class="price-currency">$</strong>
+                                                <strong class="price-amount">60</strong><span class="price-delimiter">/</span><strong class="price-period">mo</strong>
+                                            </div>
+                                        </header>
+                                        <div class="price-features">
+                                            <ul>
+                                                <li>Enhanced Security</li>
+                                                <li>No Time Tracking</li>
+                                                <li>Enhanced Security</li>
+                                            </ul>
+                                        </div>
+                                        <a href="#request" class="btn" data-toggle="modal">Get started</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leading col-price">
+                            <div class="price-box">
+                                <div class="price-body">
+                                    <div class="price-inner">
+                                        <header class="price-header">
+                                            <h4 class="price-title">Classic</h4>
+                                            <div class="price">
+                                                <strong class="price-currency">$</strong>
+                                                <strong class="price-amount">100</strong><span class="price-delimiter">/</span><strong class="price-period">mo</strong>
+                                            </div>
+                                        </header>
+                                        <div class="price-features">
+                                            <ul>
+                                                <li>Enhanced Security</li>
+                                                <li>No Time Tracking</li>
+                                                <li>Enhanced Security</li>
+                                            </ul>
+                                        </div>
+                                        <a href="#request" class="btn" data-toggle="modal">Get started</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-price wow fadeInRight">
+                            <div class="price-box">
+                                <div class="price-body">
+                                    <div class="price-inner">
+                                        <header class="price-header">
+                                            <h4 class="price-title">Premium</h4>
+                                            <div class="price">
+                                                <strong class="price-currency">$</strong>
+                                                <strong class="price-amount">150</strong><span class="price-delimiter">/</span><strong class="price-period">mo</strong>
+                                            </div>
+                                        </header>
+                                        <div class="price-features">
+                                            <ul>
+                                                <li>Enhanced Security</li>
+                                                <li>No Time Tracking</li>
+                                                <li>Enhanced Security</li>
+                                            </ul>
+                                        </div>
+                                        <a href="#request" class="btn" data-toggle="modal">Get started</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Github Link-->
+
+        <section id="github" class="text-white bgc-primary section-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2 class="banner-title text-white">Want to Learn More?</h2>
+                    </div>
+                    <div class="col-md-5">
+                        <span class="text-opacity">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas harum, hic officiis commodi reprehenderit explicabo</span>
+                    </div>
+                    <div class="col-md-3 top-space-sm"><a href="#request" class="btn btn-b-white" data-toggle="modal">Get started</a></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+
+        <section id="contacts" class="contacts text-center section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <h2 class="section-title">Contact Me</h2>
+                        <p><strong> I'm an individual of Indian nationality living as a student in the United States.
+                            I hail from the southern part of India and currently live in the amazing city of
+                            Boston, Massachussets.</strong></p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="row row-columns row-padding">
+                        <div class="col-contact column column-padding col-md-4">
+                            <i class="icon fa fa-3x fa-phone"></i>
+                            <h3>Phone</h3>
+                            <p>+1(617)-459-0421</p>
+                        </div>
+                        <div class="col-contact column column-padding col-md-4">
+                            <i class="icon fa fa-3x fa-map-marker"></i>
+                            <h3>Address</h3>
+                            <p>619 Massachussets Avenue,<br>Apt #2, Boston, MA 02115</p>
+                        </div>
+                        <div class="col-contact column column-padding col-md-4">
+                            <i class="icon fa fa-3x fa-envelope"></i>
+                            <h3>Email</h3>
+                            <p>manasa.v.konidena@gmail.com<br>konidena.m@husky.neu.edu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="section-body map-layer">-->
+                <!--<div id="map" class="map"></div>-->
+            <!--</div>-->
+        </section>
     </div>
 
-<footer class="container-fluid text-center">
-    <a href="#" title="To Top">
-        <span class="glyphicon glyphicon-chevron-up"></span>
-    </a>
+    <!-- Footer -->
+
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+            <div class="social">
+                <a class="fa fa-2x fa-star"></a>
+                <a class="fa fa-2x fa-star"></a>
+                <a class="fa fa-2x fa-star"></a>
+                <a class="fa fa-2x fa-star"></a>
+            </div>
+
+        </div>
+        <div class="copy">
+            © 2016 Manasa Konidena. All rights reserved by me.
+        </div>
     </footer>
+</div>
 
-<script>
-    $(document).ready(function(){
-        // Add smooth scrolling to all links in navbar + footer link
-        $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+<!-- Modals -->
 
-            // Prevent default anchor click behavior
-            event.preventDefault();
+<div id="request" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" data-dismiss="modal" aria-label="Close">&times;</span>
+                <h2 class="modal-title">Get start now</h2>
+            </div>
+            <div class="modal-body text-center">
+                <form class="form-request js-ajax-form">
+                    <div class="row-fields row">
+                        <div class="form-group col-field col-sm-6">
+                            <input type="text" class="form-control" name="name" required placeholder="Name *">
+                        </div>
+                        <div class="form-group col-field col-sm-6">
+                            <input type="email" class="form-control" name="email" required placeholder="Email *">
+                        </div>
+                        <div class="form-group col-field col-sm-12">
+                            <textarea class="form-control" rows="3" name="message" placeholder="Message"></textarea>
+                        </div>
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-b-white" data-text-hover="Submit">Send request</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-            // Store hash
-            var hash = this.hash;
+<!-- Modals success -->
 
-            // Using jQuery's animate() method to add smooth page scroll
-            // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top
-            }, 900, function(){
+<div id="success" class="modal modal-message fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+                <h2 class="modal-title">Thank you</h2>
+                <p class="modal-subtitle">Your message is successfully sent...</p>
+            </div>
+        </div>
+    </div>
+</div>
 
-                // Add hash (#) to URL when done scrolling (default click behavior)
-                window.location.hash = hash;
-            });
-        });
-    })
-</script>
+<!-- Modals error -->
 
+<div id="error" class="modal modal-message fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+                <h2 class="modal-title">Sorry</h2>
+                <p class="modal-subtitle"> Something went wrong </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
+<script src="js/jquery.easypiechart.min.js"></script>
+<script src="js/jquery.ajaxchimp.min.js"></script>
+<script src="js/interface.js"></script>
+<!--<script src="../../../../maps.googleapis.com/maps/api/js2b23?v=3.exp.js"></script>-->
 </body>
+
+<!-- Mirrored from murren.ru/templates/vanessa/vanessa-demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 19 Jun 2016 22:41:03 GMT -->
 </html>

@@ -33,6 +33,7 @@
                 .findWidgetsByPageId(vm.pageId)
                 .then(function (response) {
                     var widgetList = response.data;
+                    console.log(widgetList);
                     for(var w in widgetList){
                         if(widgetList[w].type === "YOUTUBE" || widgetList[w].type === "IMAGE"){
                             widgetList[w].width += "%";
