@@ -13,11 +13,13 @@
                 templateUrl: "views/user/prologin.view.client.html"
             })
             .when("/register", {
-                templateUrl: "views/user/proregister.view.client.html"
+                templateUrl: "views/user/proregister.view.client.html",
+                controller: "RegisterController",
+                controllerAs: "model"
             })
             // Changed routing for real purposes - changed it back
 
-            
+
             .when("/searchresults/:searchtext", {
                 templateUrl: "views/user/searchresults.view.client.html",
                 controller: "SearchController",
