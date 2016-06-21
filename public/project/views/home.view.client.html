@@ -3,20 +3,23 @@
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button type="button"
+                    class="navbar-toggle"
+                    data-toggle="collapse"
+                    ng-init="isCollapsed = true"
+                    ng-click="isCollapsed = !isCollapsed">
+                    <!--data-target="#bs-example-navbar-collapse-1">-->
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#page-top">
-            <a class="navbar-brand" href="#page-top">
-            FOODSTER
-            </a>
+            <a class="navbar-brand" href="#page-top">Foodster</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+        <div class="navbar-collapse" ng-class="{collapse: isCollapsed}">
             <ul class="nav navbar-nav navbar-right">
                 <li class="hidden">
                     <a href="#page-top"></a>
@@ -48,21 +51,14 @@
                     <hr class="star-light">
                     <span class="skills">Find any recipe you crave! Create and share your own!</span>
                     <div class="input-group">
-                        <input ng-model="searchText"
+                        <input ng-model="model.searchText"
                                type="text"
                                placeholder="Search with an ingredient, dish.."
                                class="form-control">
                         <span class="input-group-btn">
-                            <a class="btn btn-info" type="button">
+                            <a href="#/searchresults/{{model.searchText}}"
+                               class="btn btn-info" type="button">
                                 <span><strong>Search Recipes</strong></span>
-                            </a>
-                        </span>
-                    </div>
-                    <p></p>
-                    <div class="input-group">
-                        <span class="input-group-btn">
-                            <a class="btn btn-primary btn-block" type="button">
-                                <span><strong>Create Recipe</strong></span>
                             </a>
                         </span>
                     </div>
@@ -71,4 +67,62 @@
         </div>
     </div>
 </header>
+
+<section id="project" class="prices text-center masked section" data-stellar-background-ratio="0.7">
+    <div class="container rel-1">
+        <div class="row">
+            <div class="text-center text-white col-md-6 col-md-offset-3">
+                <!--<a href="http://localhost:3000/project/#/"><h1 class="text-white section-title">Project - Foodster App</h1></a>-->
+                <p class="text-opacity">Foodster is a mobile first web application that allows users to search for recipes and create their own.
+                    Users can follow each other, buld a repetoire of their favorite recipes and build grovery lists.</p>
+            </div>
+        </div>
+        <div class="section-body">
+            <div class="row-price">
+                <div class="col-price wow fadeInLeft">
+                    <div class="price-box">
+                        <div class="price-body">
+                            <div class="price-inner">
+                                <header class="price-header">
+                                    <h4 class="price-title">Search recipes and create and share your own.</h4>
+
+                                </header>
+                                <p></p>
+                                <span class="fa fa-2x fa-pencil"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="leading col-price">
+                    <div class="price-box">
+                        <div class="price-body">
+                            <div class="price-inner">
+                                <header class="price-header">
+                                    <h4 class="price-title">Follow your favourite people and favourite your recipes.</h4>
+
+                                </header>
+                                <p></p>
+                                <span class="fa fa-2x fa-heart"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-price wow fadeInRight">
+                    <div class="price-box">
+                        <div class="price-body">
+                            <div class="price-inner">
+                                <header class="price-header">
+                                    <h4 class="price-title">Like a recipe? Build a grocery list to make that in your kitchen</h4>
+
+                                </header>
+                                <p></p>
+                                <span class="fa fa-2x fa-list"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 

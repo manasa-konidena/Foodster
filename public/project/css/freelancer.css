@@ -1,4 +1,4 @@
-/*!
+/*/
  * Freelancer v1.0.6 (http://startbootstrap.com/template-overviews/freelancer)
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
@@ -114,26 +114,26 @@ header .intro-text .skills {
     font-size: 1.75em;
   }
 }
-@media (min-width: 768px) {
-  .navbar-fixed-top {
-    padding: 25px 0;
-    -webkit-transition: padding 0.3s;
-    -moz-transition: padding 0.3s;
-    transition: padding 0.3s;
-  }
-  .navbar-fixed-top .navbar-brand {
-    font-size: 2em;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-  }
-  .navbar-fixed-top.navbar-shrink {
-    padding: 10px 0;
-  }
-  .navbar-fixed-top.navbar-shrink .navbar-brand {
-    font-size: 1.5em;
-  }
-}
+/*@media (min-width: 768px) {*/
+  /*.navbar-fixed-top {*/
+    /*padding: 25px 0;*/
+    /*-webkit-transition: padding 0.3s;*/
+    /*-moz-transition: padding 0.3s;*/
+    /*transition: padding 0.3s;*/
+  /*}*/
+  /*.navbar-fixed-top .navbar-brand {*/
+    /*font-size: 2em;*/
+    /*-webkit-transition: all 0.3s;*/
+    /*-moz-transition: all 0.3s;*/
+    /*transition: all 0.3s;*/
+  /*}*/
+  /*.navbar-fixed-top.navbar-shrink {*/
+    /*padding: 10px 0;*/
+  /*}*/
+  /*.navbar-fixed-top.navbar-shrink .navbar-brand {*/
+    /*font-size: 1.5em;*/
+  /*}*/
+/*}*/
 .navbar {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
@@ -407,6 +407,110 @@ footer .footer-below {
   text-align: center;
 }
 
-p.navbar-header.pull-left{
-  padding-top: 20px;
+.for-padding{
+  padding-top: 50px;
+  padding-bottom: 80px;
+}
+
+.banner {
+  background-color: #18bc9c;
+  /*height: 3cm ;*/
+
+}
+
+.inside-banner{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+span.details{
+  align-content: center;
+}
+
+/*p.navbar-header.pull-left{*/
+  /*padding-top: 20px;*/
+/*}*/
+
+/*From the home index for search results*/
+.prices{
+  /*background: url(../img/bg/food.jpg) 50% no-repeat;*/
+  background-size: cover;
+}
+
+.glyphicon{
+  font-size: 30px;
+}
+
+
+
+.col-price{
+  width: 100%;
+  max-width: 500px;
+  display:inline-block;
+  position: relative;
+  padding: 7px;
+  text-align: center;
+}
+
+.price-box{
+  position: relative;
+  background-color: rgba(255,255,255,0.9);
+}
+
+.price-inner{
+  padding-bottom: 40px;
+}
+
+.price-title{
+  padding:20px;
+  margin-bottom: 0;
+}
+
+.price{
+  padding: 40px 0;
+  line-height: 1;
+  color: #000;
+  background-color:#DEDEDE;
+}
+
+.price-currency{
+  display: inline-block;
+  vertical-align: top;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.price-amount{
+  font-size: 60px;
+}
+
+.price-delimiter{
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.price-period{
+  font-size: 20px;
+}
+
+.price-features{
+  padding:30px 0;
+}
+
+.price-features ul{
+  margin-top: 0;
+}
+
+.price-features ul li{
+  padding: 8px 0;
+}
+
+.col-price.leading{
+  z-index: 1;
+}
+
+.col-price.leading .price{
+  color: #fff;
+  /*background-color: #ec7550;*/
+  background-color: #18bc9c;
 }

@@ -1,30 +1,9 @@
 
 <!--Header-->
 <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
 
 
-        <p class="navbar-header pull-left">
-            <a class="navbar-brand">
-                Welcome!!
-            </a>
-        </p>
 
-        <p class="navbar-text pull-right">
-            <a href="#/login"
-               class="navbar-link">
-                <span class="glyphicon glyphicon-log-out"></span>
-            </a>
-        </p>
-
-        <p class="navbar-text pull-right">
-            <a href="#/profile"
-               class="navbar-link">
-                User's Name
-            </a>
-        </p>
-
-    </div>
 </nav>
 <!--Header End-->
 
@@ -32,46 +11,77 @@
     <div class="body-nonindex">
         <h4>Search with any cuisine, ingredient, dish. Basically, anything food!!</h4>
         <div class="input-group">
-            <input ng-model="searchText"
+            <input ng-model="model.searchText"
                    type="text"
                    placeholder="Search with an ingredient, dish.."
                    class="form-control">
                         <span class="input-group-btn">
-                            <a ng-click="model.searchRecipes(searchText)"
-                               class="btn btn-info" type="button">
+                            <a href="#/searchresults/{{model.searchText}}"
+                               class="btn btn-info"
+                               type="button">
                                 <span><strong>Search Recipes</strong></span>
                             </a>
                         </span>
         </div>
+        <p></p>
+        <a href="#/createrecipe"
+                class="btn btn-block btn-warning">Create Recipe</a>
+
+        <h2 class="center-any-text">My Links</h2>
+        <div class="list-group">
+            <a href="#/personalinfo">
+                <span class="list-group-item">
+                    <strong>Personal Information</strong>
+                    <div class="fa fa-user fa-2x pull-right"></div>
+                </span>
+            </a>
+            <a href="#/favourites">
+                <span class="list-group-item">
+                    <strong>My Favourites</strong>
+                    <div class="fa fa-heart fa-2x pull-right"></div>
+                </span>
+            </a>
+            <a href="#/followers">
+                <span class="list-group-item">
+                    <strong>Followers</strong>
+                    <div class="fa fa-users fa-2x pull-right"></div>
+                </span>
+            </a>
+            <a  href="#/followedby">
+                <span
+                      class="list-group-item">
+                    <strong>Followed by me</strong>
+                    <div class="fa fa-user-plus fa-2x pull-right"></div>
+                </span>
+            </a>
+            <a href="#/createdrecipes">
+                <span  class="list-group-item">
+                    <strong>Recipes I created</strong>
+                    <div class="glyphicon glyphicon-glass pull-right"></div>
+                </span>
+            </a>
+            <a href="#/cookedrecipes">
+                <span
+                      class="list-group-item">
+                    <strong>Recipes I cooked</strong>
+                    <div class="fa fa-user fa-2x pull-right"></div>
+                </span>
+            </a>
+            <a href="#/grocerylist">
+                <span
+                      class="list-group-item">
+                    <strong>My Grocery List</strong>
+                    <div class="fa fa-list fa-2x pull-right"></div>
+                </span>
+            </a>
+        </div>
     </div>
+
+
 </div>
 
-<div class="container">
-    <div ng-repeat="recipe in model.recipes"
-        class="list-group">
-        <a href="#/recipe/{{recipe.id}}">
-            <h4>{{recipe.recipeName}}</h4>
-            <div class="row">
-                <div class="col-xs-4">
-                <img ng-src="{{recipe.smallImageUrls[0]}}"
-                     width="100%"
-                     class="img-thumbnail"
-                     class="img-responsive"/>
-                </div>
-                <div class="col-xs-8">
-                    <div class="list-group">
-                        <h6 class="list-group-item">Rating: {{recipe.rating}}/5</h6>
-                        <h6 class="list-group-item">Cooking Time: {{recipe.totalTimeInSeconds / 60}} mins</h6>
-                        <h6 class="list-group-item">No. of Ingredients: {{recipe.ingredients.length + 1}}</h6>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
-</div>
 
 <!--Footer-->
-
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-footer">

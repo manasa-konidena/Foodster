@@ -6,7 +6,8 @@
     function Config($routeProvider) {
         $routeProvider
             .when("/", {
-                templateUrl: "views/home.view.client.html"
+                templateUrl: "views/home.view.client.html",
+                
             })
             .when("/login", {
                 templateUrl: "views/user/prologin.view.client.html"
@@ -16,8 +17,11 @@
             })
             // Changed routing for real purposes - changed it back
 
-            .when("/profile", {
-                templateUrl: "views/user/proprofile.view.client.html"
+            
+            .when("/searchresults/:searchtext", {
+                templateUrl: "views/user/searchresults.view.client.html",
+                controller: "SearchController",
+                controllerAs: "model"
             })
             .when("/myrecipes", {
                 templateUrl: "views/recipe/myrecipes.view.client.html"
@@ -44,6 +48,9 @@
             })
             .when("/personalinfo", {
                 templateUrl: "views/user/personalinfo.view.client.html"
+            })
+            .when("/createrecipe", {
+                templateUrl: "views/recipe/createrecipe.view.client.html"
             })
             .when("/recipe/:recipeId", {
                 templateUrl: "views/recipe/recipe.view.client.html",

@@ -1,14 +1,15 @@
 (function () {
     angular
         .module("FoodsterApp")
-        .controller("WelcomePageController", WelcomePageController);
+        .controller("SearchController", SearchController);
 
-    function WelcomePageController(YummlyService, $location) {
+    function SearchController(YummlyService, $routeParams, $location) {
         var vm = this;
         vm.searchRecipes = searchRecipes;
         
-
-        function searchRecipes(searchText) {
+        var searchText = $routeParams.searchtext;
+        
+        function init() {
             YummlyService
                 .searchRecipes(searchText)
                 .then(function (response) {
@@ -19,7 +20,13 @@
                     // data = data.substring(0,data.length - 1);
                     // data = JSON.parse(data);
                     // vm.photos = data.photos;
-                });
+                }); 
+        }
+        init();
+
+
+        function searchRecipes(searchText) {
+           $location.url("/searchresults/"+ searchText);
         }
     }
 })();
