@@ -28,11 +28,14 @@
                 controllerAs: "model"
             })
             .when("/myrecipes", {
-                templateUrl: "views/recipe/myrecipes.view.client.html"
+                templateUrl: "views/recipe/myrecipes.view.client.html",
+                controller: "RecipeListController",
+                controllerAs: "model",
+                resolve: {
+                    loggedIn: checkLoggedIn
+                }
             })
-            .when("/myphotos", {
-                templateUrl: "views/photo/myphotos.view.client.html"
-            })
+            
             .when("/followers", {
                 templateUrl: "views/user/followers.view.client.html"
             })
@@ -50,13 +53,15 @@
                     loggedIn: checkLoggedIn
                 }
             })
-            .when("/cookedrecipes", {
-                templateUrl: "views/recipe/cookedrecipes.view.client.html"
+            .when("/addingredients/", {
+                templateUrl: "views/ingredient/addingr.view.client.html",
+                controller: "AddIngrController",
+                controllerAs: "model"
             })
             .when("/personalinfo", {
                 templateUrl: "views/user/personalinfo.view.client.html"
             })
-            .when("/createrecipe", {
+            .when("/createrecipe/:recipeId", {
                 templateUrl: "views/recipe/createrecipe.view.client.html",
                 controller: "CreateRecipeController",
                 controllerAs: "model",

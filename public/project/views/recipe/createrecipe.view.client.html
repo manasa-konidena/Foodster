@@ -15,64 +15,118 @@
 
 
 </nav>
+
 <div class="container top">
 
-<form novalidate name="model.myForm">
-    <div class="form-group">
-        <label for="recipe-name">Name</label>
-            <!--<span ng-show="model.myForm.name.$invalid">-->
-                <!--<h6>{{model.alert}}</h6>-->
-            <!--</span>-->
-        <input type="text"
-               name="name"
-               required
-               class="form-control"
-               id="recipe-name"
-               placeholder="Name"
-               ng-model="model.recipe.name">
-    </div>
-    <div class="form-group">
-        <label for="cuisine">Cuisine</label>
-        <input type="text"
-               class="form-control"
-               id="cuisine"
-               placeholder="Cuisine"
-               ng-model="model.recipe.cuisine">
-    </div>
-    <div class="form-group">
-        <label for="servings">Servings</label>
-        <input type="text"
-               class="form-control"
-               id="servings"
-               placeholder="Servings"
-               ng-model="model.recipe.servings">
-    </div>
-    <div class="form-group">
-        <label for="course">Course</label>
-        <input type="url"
-               class="form-control"
-               id="course"
-               placeholder="Course"
-               ng-model="model.recipe.course">
-    </div>
-    <div>
-        <label for="prep-steps">Preparation Steps</label>
-        <textarea class="form-control"
-                  id="prep-steps"
-                  placeholder="Prep Steps"
-                  ng-model="model.recipe.preparationsteps"></textarea>
-    </div>
+    <form novalidate name="model.myForm">
+        <div class="form-group">
+            <label for="recipe-name">Name</label>
+                <!--<span ng-show="model.myForm.name.$invalid">-->
+                    <!--<h6>{{model.alert}}</h6>-->
+                <!--</span>-->
+            <input type="text"
+                   name="name"
+                   required
+                   class="form-control"
+                   id="recipe-name"
+                   placeholder="Name"
+                   ng-model="model.recipe.name">
+        </div>
+        <div class="form-group">
+            <label for="cuisine">Cuisine</label>
+            <input type="text"
+                   class="form-control"
+                   id="cuisine"
+                   placeholder="Cuisine"
+                   ng-model="model.recipe.cuisine">
+        </div>
+        <div class="form-group">
+            <label for="servings">Servings</label>
+            <input type="number"
+                   class="form-control"
+                   id="servings"
+                   placeholder="Servings"
+                   ng-model="model.recipe.servings">
+        </div>
+        <div class="form-group">
+            <label for="course">Course</label>
+            <input type="url"
+                   class="form-control"
+                   id="course"
+                   placeholder="Course"
+                   ng-model="model.recipe.course">
+        </div>
+        <div class="form-group">
+            <label for="imageurl">Add an Image</label>
+            <input type="url"
+                   class="form-control"
+                   id="imageurl"
+                   placeholder="URL of the image"
+                   ng-model="model.recipe.imageurl">
+        </div>
+        <div class="form-group">
+            <label for="preptime">Prep Time</label>
+            <input type="number"
+                   class="form-control"
+                   id="preptime"
+                   placeholder="Prep time"
+                   ng-model="model.recipe.preptime">
+        </div>
+        <div class="form-group">
+            <label for="cooktime">Cook Time</label>
+            <input type="number"
+                   class="form-control"
+                   id="cooktime"
+                   placeholder="Cook time"
+                   ng-model="model.recipe.cooktime">
+        </div>
+        <!--<div class="row">-->
+            <!--<div class="col-xs-6">-->
+                <!--<div class="form-group">-->
+                    <!--<label for="ingredient">Ingredients</label>-->
+                    <!--<input type="text"-->
+                           <!--class="form-control"-->
+                           <!--id="ingredient"-->
+                           <!--placeholder="Ingredient Name"-->
+                           <!--ng-model="ingredientName">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-xs-3">-->
+                <!--<div class="form-group">-->
+                    <!--<label for="quantity">Quantity</label>-->
+                    <!--<input type="text"-->
+                           <!--class="form-control"-->
+                           <!--id="quantity"-->
+                           <!--placeholder="Quanity"-->
+                           <!--ng-model="ingredientQuantity">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-xs-3">-->
+                <!--<div class="form-group">-->
+                    <!--<label for="button">Add</label>-->
+                    <!--<a id="button"-->
+                       <!--class="btn btn-block btn-success">Add Ingredient</a>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div>
+            <label for="prep-steps">Preparation Steps</label>
+            <textarea class="form-control"
+                      id="prep-steps"
+                      placeholder="Prep Steps"
+                      ng-model="model.recipe.preparationsteps"></textarea>
+        </div>
 
-    <!--<div class="form-group">-->
-    <!--<label for="upload">Upload</label>-->
-    <!--<input type="file"-->
-    <!--class="form-control"-->
-    <!--id="upload">-->
-    <!--</div>-->
+        <!--<div class="form-group">-->
+        <!--<label for="upload">Upload</label>-->
+        <!--<input type="file"-->
+        <!--class="form-control"-->
+        <!--id="upload">-->
+        <!--</div>-->
 
-</form>
-    <a ng-click="model.createRecipe(model.recipe)"
-            class="btn btn-block btn-success">Create Recipe</a>
+    </form>
+        <a ng-click="model.updateRecipe(model.recipe)"
+                class="btn btn-block btn-success">Go ahead and add ingredients to finish!</a>
 </div>
 
 

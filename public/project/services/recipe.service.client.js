@@ -27,13 +27,10 @@
 
         
         function createRecipe(userId, recipe) {
+            recipe._user = userId;
+            console.log(recipe);
             var url = "/api/user/"+ userId +"/recipe";
-            var newRecipe = {
-                name: recipe.name,
-                _user: userId
-            };
-
-            return $http.post(url, newRecipe);
+            return $http.post(url, recipe);
         }
 
         function findRecipeById(recipeId) {

@@ -3,20 +3,20 @@
         .module("FoodsterApp")
         .controller("CreateRecipeController", CreateRecipeController);
 
-    function CreateRecipeController(RecipeService, $rootScope, $location) {
+    function CreateRecipeController(RecipeService, $routeParams, $location) {
         var vm = this;
 
-        var userId = $rootScope.currentUser._id;
-        vm.createRecipe = createRecipe;
+        var recipeId = $routeParams.recipeId;
+        vm.updateRecipe = updateRecipe;
 
-        function createRecipe(recipe) {
+        function updateRecipe(recipe) {
             RecipeService
-                .createRecipe(userId, recipe)
+                .updateRecipe(recipeId, recipe)
                 .then(
                     function (response) {
                         var result = response.data;
                         if(result) {
-                            $location.url("/myrecipes");
+                            $location.url("/addingredients/"+ recipeId);
                         } else{
                             vm.error = "Oh SNAP! Not able to create a recipe";
                         }

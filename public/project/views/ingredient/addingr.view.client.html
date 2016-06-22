@@ -1,0 +1,88 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+
+
+        <p class="navbar-header pull-left">
+            <a class="navbar-brand">
+                Add Ingredients
+            </a>
+        </p>
+
+
+
+    </div>
+
+
+</nav>
+
+<div class="container top">
+
+    <form novalidate name="model.myForm">
+
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label for="ingredient">Ingredients</label>
+                    <input type="text"
+                           class="form-control"
+                           id="ingredient"
+                           placeholder="Ingredient Name"
+                           ng-model="model.ingredient.name">
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="text"
+                           class="form-control"
+                           id="quantity"
+                           placeholder="Quanity"
+                           ng-model="model.ingredient.quantity">
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="form-group">
+                    <label for="button">Add Ingredient</label>
+                    <a id="button"
+                       ng-click="model.addIngredient(model.ingredient)"
+                       class="btn btn-block btn-success"><span class="fa fa-plus"></span></a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+        <div ng-repeat="ingredient in model.ingredients"
+             class="container-fluid">
+            <a>{{ingredient.name}} - {{ingredient.quantity}}</a>
+            <p class="pull-right">
+                <a href="#/recipe/{[recipe._id}}">
+                    <span class="fa fa-minus"></span>
+                </a>
+            </p>
+        </div>
+
+
+
+
+    <a href="/recipe/{{model.recipeId}}"
+       class="btn btn-block btn-success">View Full Recipe</a>
+</div>
+
+
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-footer">
+            <p class="navbar-text pull-right">
+                <a href="#/welcomepage">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+

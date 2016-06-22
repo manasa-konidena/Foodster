@@ -8,7 +8,7 @@ module.exports = function () {
     var api = {
         createRecipe: createRecipe,
         findRecipeById: findRecipeById,
-
+        findAllRecipesforUser: findAllRecipesforUser,
         updateRecipe: updateRecipe,
         deleteRecipe: deleteRecipe,
         findAllRecipes: findAllRecipes
@@ -17,9 +17,15 @@ module.exports = function () {
     return api;
 
 
+    function findAllRecipesforUser(userId) {
+        return Recipe.find({_user: userId});
+    }
+
     function findAllRecipes() {
         return Recipe.find();
     }
+
+    
     function createRecipe(recipe) {
         console.log(recipe);
         return Recipe.create(recipe);

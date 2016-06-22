@@ -5,7 +5,47 @@
 </nav>
 
 
-<div class="container for-padding">
+
+<div ng-if="model.userrecipe" class="container top">
+
+    <h2>{{model.userrecipe.name}}</h2>
+    <a class="btn btn-success btn-block">
+        <span class="fa fa fa-heart"></span>Add to favourites</a>
+    <div class="row">
+        <div class="col-xs-4">
+            <h5>Servings: {{model.userrecipe.servings}}</h5>
+        </div>
+        <div class="col-xs-4">
+            <h5>Rating: {{model.userrecipe.rating}}</h5>
+        </div>
+        <div class="col-xs-4">
+            <h5>Course: {{model.userrecipe.course}}</h5>
+        </div>
+    </div>
+    <img ng-src="{{model.userrecipe.imageurl}}"
+         class="img-responsive"
+         width="100%"/>
+    <div class="row">
+        <div class="col-xs-4">
+            <h5>Holiday: {{model.userrecipe.cuisine}}</h5>
+        </div>
+        <div class="col-xs-4">
+            <h5>Prep-Time: {{model.userrecipe.preptime} min</h5>
+        </div>
+        <div class="col-xs-4">
+            <h5>Total-Time: {{model.recipe.cooktime}} min</h5>
+        </div>
+    </div>
+    <h3>Ingredients:</h3>
+    <div ng-repeat="ing in model.userrecipe.ingredients"
+         class="list-group">
+        <div>{{ing}}<span class="fa fa-2x fa-plus-square pull-right"></span></div>
+    </div>
+</div>
+
+
+<div ng-if="model.recipe" class="container top">
+
 
     <h2>{{model.recipe.name}}</h2>
 

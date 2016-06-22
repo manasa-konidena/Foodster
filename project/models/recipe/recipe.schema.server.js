@@ -11,14 +11,22 @@ module.exports = function() {
         _user: {type: mongoose.Schema.ObjectId, ref: "ProUser"},
         name: String,
         servings: Number,
-        rating: Number,
+        rating: {type: String, default: "Unrated"},
+        imageurl: String,
         course: String,
         cuisine: String,
-        holiday: String,
-
+        preptime: Number,
+        cooktime: Number,
+        ingredients: [
+            {
+                name: String,
+                quantity: String
+            }
+        ],
         preparationsteps: String,
 
-        likedby: Number
+        likedby: Number,
+        dateCreated: {type: Date, default: Date.now}
     }, {collection: "project.recipe"});
 
     return RecipeSchema;
