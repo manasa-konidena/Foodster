@@ -1,9 +1,9 @@
 module.exports = function (app) {
 
-    var models = require("./models/models.server")();
+    var promodels = require("../project/models/models.server")();
     
-    require("./services/user.service.server.js")(app, models);
-    require("./services/recipe.service.server.js")(app, models);
+    require("../project/services/user.service.server")(app, promodels);
+    require("../project/services/recipe.service.server")(app, promodels);
     
 
     app.get("/say/:something", function (req, res) {

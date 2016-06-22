@@ -2,9 +2,9 @@
 (function () {
     angular
         .module("FoodsterApp")
-        .controller("RegisterController", RegisterController);
+        .controller("ProRegisterController", ProRegisterController);
 
-    function RegisterController($location, UserService){
+    function ProRegisterController($location, UserService){
         var vm = this;
 
 

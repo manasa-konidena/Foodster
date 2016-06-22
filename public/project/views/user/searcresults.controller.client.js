@@ -6,6 +6,7 @@
     function SearchController(YummlyService, $routeParams, $location) {
         var vm = this;
         vm.searchRecipes = searchRecipes;
+
         
         var searchText = $routeParams.searchtext;
         

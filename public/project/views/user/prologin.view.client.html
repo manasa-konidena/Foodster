@@ -1,23 +1,45 @@
 
-<div class="container">
+<div class="container top">
 
-    <div ng-if="model.error"
+    <div ng-show="model.error"
          class="alert alert-danger">{{model.error}}</div>
 
     <h1 class="center-any-text">Login</h1>
-    <input ng-model="username"
-           type="text"
-           class="form-control"
-           placeholder="Username"/>
-    <input ng-model="password"
-           type="password"
-           class="form-control"
-           placeholder="Password"/>
-    <a href="#/welcomepage"
-       class="btn btn-primary btn-block">Login</a>
+    <form novalidate name="model.myForm">
+        <!--<h6>* Required Field</h6>-->
+         <span ng-show="model.myForm.username.$invalid">
+            <h6>{{model.alert}}</h6>
+        </span>
+        <input ng-model="username"
+               name="username"
+               type="text"
+               class="form-control"
+               placeholder="Username"
+               autocomplete="off"
+               autocorrect="off"
+               autocapitalize="off"
+               required/>
+        <span class="form-alerts"
+              ng-show="model.myForm.password.$invalid">
+            <h6>{{model.alert}}</h6>
+        </span>
+        <input ng-model="password"
+               name="password"
+               type="password"
+               class="form-control"
+               placeholder="Password"
+               required/>
+        <button ng-click="model.login(username, password)"
+                class="btn btn-primary btn-block"
+                type="submit">Login</button>
+    </form>
+
+    <p></p>
     <a href="#/register" class="btn btn-success btn-block">Register</a>
-    <h3 class="center-any-text">OR</h3>
-    <a class="btn btn-primary btn-block">Login with <strong>Facebook</strong></a>
-    <a class="btn btn-danger btn-block">Login with <strong>Google+</strong></a>
+    <p></p>
+    <h1 class="center-any-text">OR</h1>
+    <a class="btn btn-danger btn-block">
+        <span class="fa fa-google-plus-square"></span>Google Login</a>
+
 
 </div>

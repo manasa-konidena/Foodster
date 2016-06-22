@@ -2,7 +2,7 @@
 
 
 
-<div class="container">
+<div class="container top">
 
     <div ng-show="model.error"
          class="alert alert-danger">{{model.error}}</div>
@@ -12,7 +12,7 @@
     <!--<strong>Oops!</strong> There are errors in the form. Please correct them and submit.-->
     <!--</div>-->
 
-    <h1>Register</h1>
+    <h1 class="center-any-text">Register</h1>
     <form novalidate name="model.myForm">
         <span ng-show="model.myForm.username.$invalid">
             <h6>{{model.alert}}</h6>

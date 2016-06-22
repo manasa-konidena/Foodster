@@ -441,6 +441,10 @@ span.details{
   font-size: 30px;
 }
 
+div.top{
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
 
 
 .col-price{
@@ -514,3 +518,6 @@ span.details{
   /*background-color: #ec7550;*/
   background-color: #18bc9c;
 }
+
+
+

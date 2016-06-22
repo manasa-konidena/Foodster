@@ -1,52 +1,68 @@
 <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
 
+
+
+        <p class="navbar-header pull-left">
+            <a class="navbar-brand">
+                Create Recipe
+            </a>
+        </p>
+
+
+
+    </div>
 
 
 </nav>
+<div class="container top">
 
 <form novalidate name="model.myForm">
     <div class="form-group">
-        <label for="widget-name">Name</label>
-            <span ng-show="model.myForm.name.$invalid">
-                <h6>{{model.alert}}</h6>
-            </span>
+        <label for="recipe-name">Name</label>
+            <!--<span ng-show="model.myForm.name.$invalid">-->
+                <!--<h6>{{model.alert}}</h6>-->
+            <!--</span>-->
         <input type="text"
                name="name"
                required
                class="form-control"
-               id="widget-name"
+               id="recipe-name"
                placeholder="Name"
-               ng-model="model.widget.name">
+               ng-model="model.recipe.name">
     </div>
     <div class="form-group">
-        <label for="heading-text">Text</label>
+        <label for="cuisine">Cuisine</label>
         <input type="text"
                class="form-control"
-               id="heading-text"
-               placeholder="Text"
-               ng-model="model.widget.text">
+               id="cuisine"
+               placeholder="Cuisine"
+               ng-model="model.recipe.cuisine">
     </div>
     <div class="form-group">
-        <label for="url">URL</label>
+        <label for="servings">Servings</label>
+        <input type="text"
+               class="form-control"
+               id="servings"
+               placeholder="Servings"
+               ng-model="model.recipe.servings">
+    </div>
+    <div class="form-group">
+        <label for="course">Course</label>
         <input type="url"
                class="form-control"
-               id="url"
-               placeholder="URL of the Image"
-               ng-model="model.widget.url">
+               id="course"
+               placeholder="Course"
+               ng-model="model.recipe.course">
     </div>
-    <div class="form-group">
-        <label for="width">Width</label>
-            <span ng-show="model.myForm.width.$invalid">
-                <h6>{{model.widthalert}}</h6>
-            </span>
-        <input type="text"
-               name="width"
-               required
-               class="form-control"
-               id="width"
-               placeholder="Width of the Image"
-               ng-model="model.widget.width">
+    <div>
+        <label for="prep-steps">Preparation Steps</label>
+        <textarea class="form-control"
+                  id="prep-steps"
+                  placeholder="Prep Steps"
+                  ng-model="model.recipe.preparationsteps"></textarea>
     </div>
+
     <!--<div class="form-group">-->
     <!--<label for="upload">Upload</label>-->
     <!--<input type="file"-->
@@ -55,30 +71,12 @@
     <!--</div>-->
 
 </form>
-<strong>File Upload</strong>
-<form action="/api/upload"  method="post" enctype="multipart/form-data">
-    <input  name="myFile"   type="file" class="form-control"/>
-    <input  name="width"    value="{{model.widget.width}}" style="display: none"/>
-    <input  name="widgetId" value="{{model.widget._id}}"   style="display: none"/>
-    <input  name="userId" value="{{model.userId}}"   style="display: none"/>
-    <input  name="websiteId" value="{{model.websiteId}}"   style="display: none"/>
-    <input  name="pageId" value="{{model.pageId}}"   style="display: none"/>
-    <button type="submit"   class="btn btn-block btn-primary">Upload Image</button>
-</form>
-<!--<a class="btn btn-primary btn-block"-->
-<!--href="#"-->
-<!--role="button">Upload Image</a>-->
-<p></p>
-<a class="btn btn-primary btn-block"
-   href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}/flickr"
-   role="button">Upload Flickr Image</a>
-<p></p>
-<a class="btn btn-danger btn-block"
-   ng-click="model.deleteWidget(model.widgetId)"
-   role="button">Delete</a>
-
-
+    <a ng-click="model.createRecipe(model.recipe)"
+            class="btn btn-block btn-success">Create Recipe</a>
 </div>
+
+
+
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">

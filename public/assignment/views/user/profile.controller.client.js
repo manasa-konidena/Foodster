@@ -23,6 +23,7 @@
                     }
                 );
         }
+        
         function init(){
             UserService
                 .findUserById(id)

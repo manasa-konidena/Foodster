@@ -10,11 +10,13 @@
                 
             })
             .when("/login", {
-                templateUrl: "views/user/prologin.view.client.html"
+                templateUrl: "views/user/prologin.view.client.html",
+                controller: "ProLoginController",
+                controllerAs: "model"
             })
             .when("/register", {
                 templateUrl: "views/user/proregister.view.client.html",
-                controller: "RegisterController",
+                controller: "ProRegisterController",
                 controllerAs: "model"
             })
             // Changed routing for real purposes - changed it back
@@ -43,7 +45,10 @@
             .when("/welcomepage", {
                 templateUrl: "views/user/welcomepage.view.client.html",
                 controller: "WelcomePageController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    loggedIn: checkLoggedIn
+                }
             })
             .when("/cookedrecipes", {
                 templateUrl: "views/recipe/cookedrecipes.view.client.html"
@@ -52,12 +57,44 @@
                 templateUrl: "views/user/personalinfo.view.client.html"
             })
             .when("/createrecipe", {
-                templateUrl: "views/recipe/createrecipe.view.client.html"
+                templateUrl: "views/recipe/createrecipe.view.client.html",
+                controller: "CreateRecipeController",
+                controllerAs: "model",
+                resolve: {
+                    loggedIn: checkLoggedIn
+                }
             })
             .when("/recipe/:recipeId", {
                 templateUrl: "views/recipe/recipe.view.client.html",
                 controller: "RecipeController",
-                controllerAs: "model"
-            })
+                controllerAs: "model",
+                resolve: {
+                    loggedIn: checkLoggedIn
+                }
+            });
+
+        function checkLoggedIn(UserService, $location, $q, $rootScope) {
+
+            var deferred = $q.defer();
+            UserService
+                .loggedIn()
+                .then(
+                    function (response) {
+                        var user = response.data;
+                        if(user == '0'){
+                            $rootScope.currentUser = null;
+                            deferred.reject();
+                            $location.url("/login");
+                        } else {
+                            $rootScope.currentUser = user;
+                            deferred.resolve();
+                        }
+                    },
+                    function (err) {
+                        $location.url("/login");
+                    }
+                );
+            return deferred.promise;
+        }
     }
 })();

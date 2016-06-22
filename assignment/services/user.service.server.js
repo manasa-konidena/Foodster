@@ -39,8 +39,8 @@ module.exports = function(app, models) {
 
     passport.use('facebook', new FacebookStrategy(facebookConfig, facebookLogin));
     passport.use('wam', new LocalStrategy(localStrategy));
-    passport.serializeUser(serializeUser);
-    passport.deserializeUser(deserializeUser);
+    // passport.serializeUser(serializeUser);
+    // passport.deserializeUser(deserializeUser);
 
 
     function logout(req, res) {
@@ -128,7 +128,6 @@ module.exports = function(app, models) {
 
 
     function login ( req, res){
-        console.log(req);
         var user = req.user;
         res.json(user);
     }

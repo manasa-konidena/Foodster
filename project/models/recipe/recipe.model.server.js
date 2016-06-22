@@ -21,6 +21,7 @@ module.exports = function () {
         return Recipe.find();
     }
     function createRecipe(recipe) {
+        console.log(recipe);
         return Recipe.create(recipe);
     }
 

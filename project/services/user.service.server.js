@@ -1,30 +1,30 @@
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+var ProjectPassport = require('passport');
+var ProLocalStrategy = require('passport-local').Strategy;
 
 // var passport         = require('passport');
 // var FacebookStrategy = require('passport-facebook').Strategy;
 
 var bcrypt = require("bcrypt-nodejs");
 
-module.exports = function(app, models) {
+module.exports = function(app, promodels) {
 
-    var userModel = models.userModel;
+    var prouserModel = promodels.proUserModel;
  
-    app.get("/api/user", getUsers);
+    app.get("/api/project/user", getUsers);
 
-    app.post("/api/logout", logout);
-    app.get("/api/loggedIn", loggedIn);
-    app.post("/api/register", register);
-    app.post("/api/login", passport.authenticate('foodap'), login);//created afer introduction of sessions/passport
-    app.get("/api/user/:userId", findUserById);
-    app.delete("/api/user/:userId", deleteUser);
-    app.post("/api/user", createUser);
-    app.put("/api/user/:userId", updateUser);
+    app.post("/api/project/logout", logout);
+    app.get("/api/project/loggedIn", prologgedIn);
+    app.post("/api/project/register", register);
+    app.post("/api/project/login", ProjectPassport.authenticate('foodap'), prologin);//created afer introduction of sessions/passport
+    app.get("/api/project/user/:userId", findUserById);
+    app.delete("/api/project/user/:userId", deleteUser);
+    app.post("/api/project/user", createUser);
+    app.put("/api/project/user/:userId", updateUser);
 
 
-    passport.use('foodap', new LocalStrategy(localStrategy));
-    passport.serializeUser(serializeUser);
-    passport.deserializeUser(deserializeUser);
+    ProjectPassport.use('foodap', new ProLocalStrategy(localStrategy));
+    ProjectPassport.serializeUser(proserializeUser);
+    ProjectPassport.deserializeUser(prodeserializeUser);
 
 
     function logout(req, res) {
@@ -36,7 +36,7 @@ module.exports = function(app, models) {
         var username = req.body.username;
         var password = req.body.password;
 
-        userModel
+        prouserModel
             .findUserByUsername(username)
             .then(
                 function (user) {
@@ -72,13 +72,13 @@ module.exports = function(app, models) {
     }
 
     function localStrategy(username, password, done) {
-        userModel
+        prouserModel
             .findUserByUsername(username)
             .then(
                 function (user) {
 
                     if(user && bcrypt.compareSync(password, user.password)){
-                        // console.log(user);
+                        console.log(user);
                         done(null,user);
 
                     }else {
@@ -91,13 +91,13 @@ module.exports = function(app, models) {
     }
 
 
-    function serializeUser(user, done) {
+    function proserializeUser(user, done) {
         done(null, user);
     }
 
-    function deserializeUser(user, done) {
+    function prodeserializeUser(user, done) {
         // console.log(user);
-        userModel
+        prouserModel
             .findUserById(user._id)
             .then(
                 function(user){
@@ -111,14 +111,15 @@ module.exports = function(app, models) {
 
 
 
-    function login ( req, res){
-        console.log(req);
+    function prologin ( req, res){
+        console.log(req.user);
         var user = req.user;
         res.json(user);
     }
 
-    function loggedIn(req, res) {
+    function prologgedIn(req, res) {
         if(req.isAuthenticated()){
+            console.log(req.user);
             res.json(req.user);
         }else{
             res.send('0');
@@ -130,8 +131,8 @@ module.exports = function(app, models) {
     function updateUser(req, res) {
         var id = req.params.userId;
         var user = req.body;
-        
-        userModel
+
+        prouserModel
             .updateUser(id, user)
             .then(
                 function (stats) {
@@ -146,7 +147,7 @@ module.exports = function(app, models) {
     function createUser(req, res) {
         var user = req.body;
 
-        userModel
+        prouserModel
             .createUser(user)
             .then(
                 function (user) {
@@ -161,7 +162,7 @@ module.exports = function(app, models) {
     function deleteUser(req,res) {
         var id = req.params.userId;
 
-        userModel
+        prouserModel
             .deleteUser(id)
             .then(
                 function (stats) {
@@ -187,7 +188,7 @@ module.exports = function(app, models) {
     }
     
     function findAllUsers() {
-        userModel
+        prouserModel
             .findAllUsers()
             .then(
                 function (users) {
@@ -202,7 +203,7 @@ module.exports = function(app, models) {
 
 
     function findUserByUsername(username, res) {
-        userModel
+        prouserModel
             .findUserByUsername(username)
             .then(
                 function (user) {
@@ -217,7 +218,7 @@ module.exports = function(app, models) {
     function findUserById(req, res) {
         var id = req.params.userId;
 
-        userModel
+        prouserModel
             .findUserById(id)
             .then(
                 function (user) {

@@ -23,16 +23,17 @@
                 username: newUser.username,
                 password: newUser.password
             };
-            var url = "/api/register";
+            var url = "/api/project/register";
             return $http.post(url, brandNewUser);
         }
         
         function loggedIn() {
-            var url = "/api/loggedIn";
+            var url = "/api/project/loggedIn";
             return $http.get(url);
         }
+        
         function logout() {
-            var url = "/api/logout";
+            var url = "/api/project/logout";
             return $http.post(url);
         }
         
@@ -41,7 +42,7 @@
                 username: username,
                 password: password
             };
-            var url = "/api/login";
+            var url = "/api/project/login";
             return $http.post(url, user);
         }
 
@@ -55,27 +56,27 @@
 
 
         function findUserByCredentials(username, password){
-            var url = "/api/user?username="+username+"&password="+password;
+            var url = "/api/project/user?username="+username+"&password="+password;
             return $http.get(url);
         }
 
         function findUserById(userId) {
-            var url = "/api/user/"+ userId;
+            var url = "/api/project/user/"+ userId;
             return $http.get(url);
         }
 
         function findUserByUsername(username){
-            var url = "/api/user?username="+ username;
+            var url = "/api/project/user?username="+ username;
             return $http.get(url);
         }
 
         function updateUser(userId, newUser) {
-            var url = "/api/user/" + userId;
+            var url = "/api/project/user/" + userId;
             return $http.put(url, newUser);
         }
 
         function deleteUser(userId) {
-            var url = "/api/user/" + userId;
+            var url = "/api/project/user/" + userId;
             return $http.delete(url);
         }
     }

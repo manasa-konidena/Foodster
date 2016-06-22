@@ -2,8 +2,8 @@
 module.exports = function () {
 
     var mongoose = require("mongoose");
-    var UserSchema = require("./user.schema.server")();
-    var User = mongoose.model("User", UserSchema);
+    var ProUserSchema = require("../user/user.schema.server")();
+    var ProUser = mongoose.model("ProUser", ProUserSchema);
 
     var api = {
         createUser: createUser,
@@ -12,7 +12,7 @@ module.exports = function () {
         findUserByUsername: findUserByUsername,
         updateUser: updateUser,
         deleteUser: deleteUser,
-        findAllUsers: findAllUsers,
+        findAllUsers: findAllUsers
         // findFacebookUser: findFacebookUser
     };
     return api;
@@ -22,26 +22,26 @@ module.exports = function () {
     // }
     
     function findAllUsers() {
-        return User.find();
+        return ProUser.find();
     }
     function createUser(user) {
-        return User.create(user);
+        return ProUser.create(user);
     }
 
     function findUserById(userId) {
-        return User.findById(userId);
+        return ProUser.findById(userId);
     }
     
     function findUserByCredentials(username, password) {
-        return User.findOne({username: username, password: password});
+        return ProUser.findOne({username: username, password: password});
     }
 
     function findUserByUsername(username) {
-        return User.findOne({username: username});
+        return ProUser.findOne({username: username});
     }
 
     function updateUser(userId, user) {
-        return User
+        return ProUser
             .update({_id: userId},{
                 $set: {
                     firstName: user.firstName,
@@ -51,7 +51,7 @@ module.exports = function () {
     }
 
     function deleteUser(userId){
-        return User.remove({_id: userId});
+        return ProUser.remove({_id: userId});
     }
 
 

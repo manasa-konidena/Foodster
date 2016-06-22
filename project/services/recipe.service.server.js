@@ -72,9 +72,10 @@ module.exports = function(app, models) {
         function createRecipe(req, res) {
             var uid = req.params.userId;
             var newRecipe = req.body;
+            console.log(newRecipe);
 
             recipeModel
-                .createRecipe(uid, newRecipe)
+                .createRecipe(newRecipe)
                 .then(
                     function (recipe) {
                         res.json(recipe);
