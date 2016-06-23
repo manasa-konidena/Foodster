@@ -20,7 +20,6 @@
         return api;
         
         function addToFavs(userId, fav) {
-            console.log("client");
             var url = "/api/user/" + userId + "/fav";
             return $http.put(url, fav);
         }

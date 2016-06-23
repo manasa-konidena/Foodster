@@ -22,11 +22,37 @@
                 .then(
                     function (response) {
                         vm.sucess = "Added";
+                        UserService
+                            .findFavRecipeForUser(recipeId, userId)
+                            .then(
+                                function (response) {
+                                    var result = response.data;
+                                    if(result._id){
+                                        vm.liked = true;
+                                        vm.notliked = false;
+                                    } else {
+                                        vm.notliked= true;
+                                        vm.liked = false;
+                                    }
+                                }
+                            );
                     }
                 );
         }
 
         function init() {
+            UserService
+                .findFavRecipeForUser(recipeId, userId)
+                .then(
+                    function (response) {
+                        var result = response.data;
+                        if(result._id){
+                            vm.liked = true;
+                        } else {
+                            vm.notliked= true;
+                        }
+                    }
+                );
             if(recipeId.indexOf("-") > -1){
                 YummlyService
                     .getFullRecipe(recipeId)

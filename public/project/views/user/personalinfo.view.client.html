@@ -19,16 +19,19 @@
 
 
     <div class="container top">
+        <div ng-show="model.success"
+             class="alert alert-info">
+            {{model.success}}
+        </div>
 
-        <h4>Please spend some time updating your profile or get started by clicking below</h4>
-        <a href="/welcomepage" class="btn btn-block btn-success">Get Started!!</a>
+        <a href="/welcomepage" class="btn btn-block btn-success">Go Straight to welcome page!</a>
 
         <!--<div ng-show="model.success"-->
         <!--class="alert alert-success">{{model.success}}</div>-->
 
         <!--<div ng-show="model.error"-->
         <!--class="alert alert-danger">{{model.error}}</div>-->
-
+        <h3>Update your profile so that we could get to know you better!!</h3>
         <form>
             <div class="form-group">
                 <label for="username">Username</label>
@@ -91,10 +94,10 @@
             </div>
         </form>
         <a class="btn btn-primary btn-block"
-           href="#">Save Changes</a>
+           ng-click="model.updateUser(model.user)">Save Changes</a>
         <a class="btn btn-danger btn-block"
-           href="#/register"
-           role="button">Unregister</a>
+           ng-click="model.logout()"
+           role="button">Logout</a>
     </div>
 
 

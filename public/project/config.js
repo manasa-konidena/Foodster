@@ -66,7 +66,12 @@
                 }
             })
             .when("/personalinfo", {
-                templateUrl: "views/user/personalinfo.view.client.html"
+                templateUrl: "views/user/personalinfo.view.client.html",
+                controller: "PersonalInfoController",
+                controllerAs: "model",
+                resolve: {
+                    loggedIn: checkLoggedIn
+                }
             })
             .when("/createrecipe/:recipeId", {
                 templateUrl: "views/recipe/createrecipe.view.client.html",

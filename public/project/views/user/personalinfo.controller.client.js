@@ -1,12 +1,11 @@
 (function(){
     angular
-        .module("WebAppMaker")
-        .controller("ProfileController", ProfileController);
+        .module("FoodsterApp")
+        .controller("PersonalInfoController", PersonalInfoController);
 
-    function ProfileController($location, $routeParams, UserService, $rootScope){
+    function PersonalInfoController($location, UserService, $rootScope){
         var vm = this;
         vm.updateUser = updateUser;
-        vm.unregister = unregister;
         vm.logout = logout;
 
         var id = $rootScope.currentUser._id;

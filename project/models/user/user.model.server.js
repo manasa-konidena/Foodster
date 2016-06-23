@@ -34,7 +34,6 @@ module.exports = function () {
     }
     
     function addToFavs(userId, fav) {
-        console.log("model");
         return ProUser.update(
             {_id: userId},
             {$push: {favrecipes: fav}}
@@ -51,12 +50,10 @@ module.exports = function () {
     }
 
     function updateUser(userId, user) {
+        delete user._id;
         return ProUser
             .update({_id: userId},{
-                $set: {
-                    firstName: user.firstName,
-                    lastName: user.lastName
-                }
+                $set: user
             });
     }
 

@@ -215,7 +215,6 @@ module.exports = function(app, promodels) {
     function addToFavs(req, res) {
         var fav = req.body;
         var userId = req.params.userId;
-        console.log("server");
         prouserModel
             .addToFavs(userId, fav)
             .then(
