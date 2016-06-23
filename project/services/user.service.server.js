@@ -22,7 +22,43 @@ module.exports = function(app, promodels) {
     app.put("/api/project/user/:userId", updateUser);
     app.put("/api/user/:userId/fav", addToFavs);
     app.delete("/api/user/:userId/recipe/:recipeId/fav", removeFromFavs);
-    app.get("/api/user/:userId/recipe/:recipeId/fav", findFavRecipeForUser)
+    app.get("/api/user/:userId/recipe/:recipeId/fav", findFavRecipeForUser);
+    app.put("/api/user/:loggeduserId/follow", follow);
+    app.delete("/api/user/:loggeduserId/unfollowuser/:unfollowuserId", unfollow);
+    app.put("/api/user/:userId/followedby", followedBy);
+    app.delete("/api/user/:userId/unfollowedby/:unfollowedByUserId", unfollowedBy)
+
+    function followedBy(req, res) {
+        var userId = req.params.userId;
+        var followedByUser = req.body;
+
+        prouserModel
+            .followedBy(userId, followedByUser)
+            .then(
+                function (stats) {
+                    res.sendStatus(200);
+                },
+                function (err) {
+                    res.sendStatus(400);
+                }
+            );
+    }
+
+    function unfollowedBy(req, res) {
+        var userId = req.params.userId;
+        var unfollowedByUserId = req.params.unfollowedByUserId;
+
+        prouserModel
+            .unfollowedBy(userId, unfollowedByUserId)
+            .then(
+                function (stats) {
+                    res.sendStatus(200);
+                },
+                function (err) {
+                    res.sendStatus(400);
+                }
+            );
+    }
 
 
     ProjectPassport.use('foodap', new ProLocalStrategy(localStrategy));
@@ -182,15 +218,16 @@ module.exports = function(app, promodels) {
         } else if(username){
             findUserByUsername(username, res);
         }else {
-            findAllUsers();
+            findAllUsers(res);
         }
     }
     
-    function findAllUsers() {
+    function findAllUsers(res) {
         prouserModel
             .findAllUsers()
             .then(
                 function (users) {
+                    // console.log(users);
                     res.json(users);
                 },
                 function (error) {
@@ -242,6 +279,38 @@ module.exports = function(app, promodels) {
                     res.sendStatus(400);
                 }
             )
+    }
+
+    function follow(req, res) {
+        var loggedInId = req.params.loggeduserId;
+        var followingUser = req.body;
+
+        prouserModel
+            .follow(loggedInId, followingUser)
+            .then(
+                function (stats) {
+                    res.sendStatus(200);
+                },
+                function (err) {
+                    res.sendStatus(400);
+                }
+            );
+    }
+
+    function unfollow(req, res) {
+        var loggedInId = req.params.loggeduserId;
+        var unfollowId = req.params.unfollowuserId;
+
+        prouserModel
+            .unfollow(loggedInId, unfollowId)
+            .then(
+                function (stats) {
+                    res.sendStatus(200);
+                },
+                function (err) {
+                    res.sendStatus(400);
+                }
+            );
     }
 
     function findFavRecipeForUser(req, res) {

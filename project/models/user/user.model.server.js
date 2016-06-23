@@ -14,7 +14,11 @@ module.exports = function () {
         deleteUser: deleteUser,
         findAllUsers: findAllUsers,
         addToFavs: addToFavs,
-        removeFromFavs: removeFromFavs
+        removeFromFavs: removeFromFavs,
+        follow: follow,
+        unfollow: unfollow,
+        followedBy: followedBy,
+        unfollowedBy: unfollowedBy
         // findFacebookUser: findFacebookUser
     };
     return api;
@@ -24,9 +28,47 @@ module.exports = function () {
     // }
 
 
+    function followedBy(userId, followedByUser) {
+        return ProUser.update({_id: userId},
+            {$push: {followedByUsers: followedByUser}})
+    }
+    
+
+    function unfollowedBy(unfollowedByUserId, userId) {
+        return ProUser.update(
+            {_id: userId},
+            {
+                $pull: {
+                    followedByUsers:
+                    {
+                        userId: unfollowedByUserId
+                    }
+                }
+            }
+        );
+    }
 
     function findAllUsers() {
         return ProUser.find();
+    }
+
+    function follow(loggedInId, followingUser) {
+        return ProUser.update({_id: loggedInId},
+            {$push: {followingUsers: followingUser}})
+    }
+
+    function unfollow(loggedInId, unfollowId) {
+        return ProUser.update(
+            {_id: loggedInId},
+            {
+                $pull: {
+                    followingUsers:
+                    {
+                        userId: unfollowId
+                    }
+                }
+            }
+        );
     }
 
     function removeFromFavs(userId, recipeId) {

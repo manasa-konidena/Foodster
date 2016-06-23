@@ -6,7 +6,7 @@
     function Config($routeProvider) {
         $routeProvider
             .when("/", {
-                templateUrl: "views/home.view.client.html",
+                templateUrl: "views/home.view.client.html"
                 
             })
             .when("/login", {
@@ -39,12 +39,37 @@
                     loggedIn: checkLoggedIn
                 }
             })
-            
+            .when("/allrecipes", {
+                templateUrl: "views/recipe/allrecipes.view.client.html",
+                controller: "AllRecipeController",
+                controllerAs: "model",
+                resolve: {
+                    loggedIn: checkLoggedIn
+                }
+            })
+            .when("/allusers", {
+                templateUrl: "views/user/allusers.view.client.html",
+                controller: "AllUserController",
+                controllerAs: "model",
+                resolve: {
+                    loggedIn: checkLoggedIn
+                }
+            })
             .when("/followers", {
-                templateUrl: "views/user/followers.view.client.html"
+                templateUrl: "views/user/followers.view.client.html",
+                controller: "FollowersController",
+                controllerAs: "model",
+                resolve: {
+                    loggedIn:checkLoggedIn
+                }
             })
             .when("/following", {
-                templateUrl: "views/user/following.view.client.html"
+                templateUrl: "views/user/following.view.client.html",
+                controller: "FollowingController",
+                controllerAs: "model",
+                resolve: {
+                    loggedIn:checkLoggedIn
+                }
             })
             .when("/favourites", {
                 templateUrl: "views/recipe/favourites.view.client.html",

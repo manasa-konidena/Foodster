@@ -6,7 +6,7 @@
 
         <p class="navbar-header pull-left">
             <a class="navbar-brand">
-                I'm following!
+                Our Foodsters!
             </a>
         </p>
 
@@ -15,13 +15,23 @@
 </nav>
 <!--Header End-->
 
-<!--{{model.user}}-->
+
 
 
 <div class="container top">
-    <div ng-repeat="user in model.user.followingUsers"
+
+
+    <div ng-repeat="user in model.users"
          class="list-group">
-        <a class="list-group-item" href="#/user/{{user.userId}}">{{user.username}}</a>
+        <a href="#/user/{{user._id}}"><h3>{{user.username}}</h3></a>
+        <h3>{{user.firstName}} {{user.lastName}}</h3>
+        <h5>{{user.username}}'s Foodster thought:</h5>
+        <a><h6>{{user.foodiethought}}</h6></a>
+        <h6>{{user.username}}'s Favorite Recipes:</h6>
+        <div ng-repeat="recipe in user.favrecipes"
+             class="list-group">
+            <a href="#/recipe/{{recipe.recipeId}}"><h5>{{recipe.recipeName}}</h5></a>
+        </div>
     </div>
 
 </div>

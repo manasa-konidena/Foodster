@@ -35,11 +35,8 @@
 
 <!--Header End-->
 
-<div class="container">
+<div class="container top">
 
-
-
-    <div class="body-nonindex">
 
         <h4>Search with any cuisine, ingredient, dish. Basically, anything food!!</h4>
         <div class="input-group">
@@ -57,7 +54,13 @@
         </div>
         <p></p>
         <a ng-click="model.createRecipe()"
-                class="btn btn-block btn-warning">Create Recipe</a>
+           class="btn btn-block btn-warning">Create Recipe</a>
+
+        <a href="#/allusers"
+           class="btn btn-block btn-primary">Explore other Foodsters!</a>
+
+        <a href="#/alluserrecipes"
+           class="btn btn-block btn-success">See what the Foodsters have been whipping up!</a>
 
         <h2 class="center-any-text">My Links</h2>
         <div class="list-group">
@@ -79,7 +82,7 @@
                     <div class="fa fa-users fa-2x pull-right"></div>
                 </span>
             </a>
-            <a  href="#/followedby">
+            <a  href="#/following">
                 <span
                       class="list-group-item">
                     <strong>Followed by me</strong>
@@ -92,22 +95,8 @@
                     <div class="glyphicon glyphicon-glass pull-right"></div>
                 </span>
             </a>
-            <a href="#/cookedrecipes">
-                <span
-                      class="list-group-item">
-                    <strong>Recipes I cooked</strong>
-                    <div class="fa fa-user fa-2x pull-right"></div>
-                </span>
-            </a>
-            <a href="#/grocerylist">
-                <span
-                      class="list-group-item">
-                    <strong>My Grocery List</strong>
-                    <div class="fa fa-list fa-2x pull-right"></div>
-                </span>
-            </a>
         </div>
-    </div>
+
 
 
 </div>

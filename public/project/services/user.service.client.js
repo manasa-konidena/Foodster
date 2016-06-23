@@ -17,9 +17,39 @@
             deleteUser: deleteUser,
             addToFavs: addToFavs,
             removeFromFavs: removeFromFavs,
-            findFavRecipeForUser: findFavRecipeForUser
+            findFavRecipeForUser: findFavRecipeForUser,
+            findAllUsers: findAllUsers,
+            follow: follow,
+            unfollow: unfollow,
+            followedBy: followedBy,
+            unfollowedBy: unfollowedBy
         };
         return api;
+
+        function findAllUsers() {
+            var url = "/api/project/user";
+            return $http.get(url);
+        }
+        
+        function follow(loggedInUser, followingUser) {
+            var url = "/api/user/"+loggedInUser+"/follow";
+            return $http.put(url, followingUser);
+        }
+        
+        function unfollow(loggedInUser, toBeUnfolloweduser) {
+            var url = "/api/user/"+loggedInUser+"/unfollowuser/"+toBeUnfolloweduser;
+            return $http.delete(url);
+        }
+
+        function followedBy(followedByUser, userId) {
+            var url = "/api/user/"+userId+"/followedby";
+            return $http.put(url, followedByUser);
+        }
+
+        function unfollowedBy(unfollowedByUserId, userId) {
+            var url = "/api/user/"+userId+"/unfollowedby/"+unfollowedByUserId;
+            return $http.delete(url);
+        }
 
         function findFavRecipeForUser(recipeId, userId) {
             var url = "/api/user/"+userId+ "/recipe/"+recipeId+ "/fav";

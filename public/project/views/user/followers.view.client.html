@@ -1,5 +1,44 @@
-<div class="body-nonindex">
+
+<!--Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <h1>Users following me</h1>
+
+
+        <p class="navbar-header pull-left">
+            <a class="navbar-brand">
+                My Followers
+            </a>
+        </p>
+
+
     </div>
+</nav>
+<!--Header End-->
+
+<!--{{model.user}}-->
+
+
+<div class="container top">
+    <div ng-repeat="user in model.user.followedByUsers"
+         class="list-group">
+        <a class="list-group-item" href="#/user/{{user.userId}}">{{user.username}}</a>
+    </div>
+
 </div>
+
+
+<!--Footer-->
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-footer">
+            <p class="navbar-text pull-right">
+                <a href="#/welcomepage">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<!--Footer End-->

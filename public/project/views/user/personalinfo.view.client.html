@@ -3,6 +3,11 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
 
+        <p class="navbar-text pull-left">
+            <a href="#/welcomepage" class="navbar-link">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </p>
 
         <p class="navbar-header pull-left">
             <a class="navbar-brand">
@@ -10,6 +15,13 @@
             </a>
         </p>
 
+
+        <p class="navbar-text pull-right">
+            <a ng-click="model.logout()"
+               class="navbar-link">
+                <span class="glyphicon glyphicon-log-out"></span>
+            </a>
+        </p>
 
     </div>
 </nav>
@@ -24,7 +36,7 @@
             {{model.success}}
         </div>
 
-        <a href="/welcomepage" class="btn btn-block btn-success">Go Straight to welcome page!</a>
+        <a href="#/welcomepage" class="btn btn-block btn-success">Go Straight to welcome page!</a>
 
         <!--<div ng-show="model.success"-->
         <!--class="alert alert-success">{{model.success}}</div>-->

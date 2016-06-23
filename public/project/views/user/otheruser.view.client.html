@@ -28,11 +28,11 @@
         <!--class="alert alert-danger">{{model.error}}</div>-->
         <h3>Name: {{model.user.firstName}} {{model.user.lastName}}</h3>
         <h3>Email: {{model.user.email}}</h3>
-        <h3>Check out the Recipes they created</h3>
+        <h3>Check out the Recipes {{model.user.username}} created:</h3>
         <div ng-repeat="recipe in model.createdRecipes"
              class="list-group">
             <a href="#/recipe/{{recipe._id}}">
-                <h4>{{recipe.recipeName}}</h4>
+                <h4>{{recipe.name}}</h4>
             </a>
         </div>
 
@@ -61,9 +61,15 @@
             </a>
         </div>
 
-        <a class="btn btn-danger btn-block"
+        <a ng-if="model.unfollowed"
+           ng-click="model.follow(model.user._id, model.user.username)"
+           class="btn btn-success btn-block">
+            <span class="fa fa fa-heart"></span>Follow</a>
 
-           role="button">Unfollow</a>
+        <a ng-if="model.followed" ng-click="model.unfollow(model.user._id)"
+           class="btn btn-danger btn-block">
+            <span class="fa fa fa-trash"></span>Unfollow</a>
+
     </div>
 
 
