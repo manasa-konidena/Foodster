@@ -7,9 +7,9 @@
 
 
 <div ng-if="model.userrecipe" class="container top">
-
-    <h2>{{model.userrecipe.name}}</h2>
-    <a class="btn btn-success btn-block">
+    <h2>{{model.userrecipe.name}} - Created by <a href="/user/{{model.user._id}}">{{model.user.username}}</a></h2>
+    <a ng-click="addToFavs(model.userrecipe.name, model.userrecipe._id, model.userrecipe.rating)"
+       class="btn btn-success btn-block">
         <span class="fa fa fa-heart"></span>Add to favourites</a>
     <div class="row">
         <div class="col-xs-4">
@@ -27,19 +27,24 @@
          width="100%"/>
     <div class="row">
         <div class="col-xs-4">
-            <h5>Holiday: {{model.userrecipe.cuisine}}</h5>
+            <h5>Cuisine: {{model.userrecipe.cuisine}}</h5>
         </div>
         <div class="col-xs-4">
-            <h5>Prep-Time: {{model.userrecipe.preptime} min</h5>
+            <h5>Prep-Time: {{model.userrecipe.preptime}} min</h5>
         </div>
         <div class="col-xs-4">
-            <h5>Total-Time: {{model.recipe.cooktime}} min</h5>
+            <h5>Total-Time: {{model.userrecipe.cooktime}} min</h5>
         </div>
     </div>
     <h3>Ingredients:</h3>
-    <div ng-repeat="ing in model.userrecipe.ingredients"
+    <div ng-repeat="ing in model.ingredients"
          class="list-group">
-        <div>{{ing}}<span class="fa fa-2x fa-plus-square pull-right"></span></div>
+        <div>
+            <div class="row">
+                <div class="col-xs-6"><h5>{{ing.name}}</h5></div>
+                <div class="col-xs-6"><h5>{{ing.quantity}}</h5></div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -49,7 +54,8 @@
 
     <h2>{{model.recipe.name}}</h2>
 
-    <a class="btn btn-success btn-block">
+    <a ng-click="addToFavs(model.recipe.name, model.recipe.id, model.recipe.rating)"
+       class="btn btn-success btn-block">
         <span class="fa fa fa-heart"></span>Add to favourites</a>
     <div class="row">
         <div class="col-xs-4">

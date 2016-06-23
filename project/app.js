@@ -4,7 +4,8 @@ module.exports = function (app) {
     
     require("../project/services/user.service.server")(app, promodels);
     require("../project/services/recipe.service.server")(app, promodels);
-    
+    require("../project/services/ingredient.service.server")(app, promodels);
+
 
     app.get("/say/:something", function (req, res) {
         var msg = req.params['something'];

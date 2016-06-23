@@ -18,6 +18,7 @@
 
 <div class="container top">
 
+
     <form novalidate name="model.myForm">
 
         <div class="row">
@@ -45,7 +46,7 @@
                 <div class="form-group">
                     <label for="button">Add Ingredient</label>
                     <a id="button"
-                       ng-click="model.addIngredient(model.ingredient)"
+                       ng-click="model.createIngredient(model.ingredient)"
                        class="btn btn-block btn-success"><span class="fa fa-plus"></span></a>
                 </div>
             </div>
@@ -54,11 +55,12 @@
 
 
 
-        <div ng-repeat="ingredient in model.ingredients"
+        <div
+             ng-repeat="ingredient in model.ingredients"
              class="container-fluid">
             <a>{{ingredient.name}} - {{ingredient.quantity}}</a>
             <p class="pull-right">
-                <a href="#/recipe/{[recipe._id}}">
+                <a ng-click="model.deleteIngredient(ingredient._id)">
                     <span class="fa fa-minus"></span>
                 </a>
             </p>
@@ -67,7 +69,7 @@
 
 
 
-    <a href="/recipe/{{model.recipeId}}"
+    <a href="#/recipe/{{model.recipeId}}"
        class="btn btn-block btn-success">View Full Recipe</a>
 </div>
 

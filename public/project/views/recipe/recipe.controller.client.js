@@ -3,9 +3,28 @@
         .module("FoodsterApp")
         .controller("RecipeController", RecipeController);
 
-    function RecipeController(YummlyService, $routeParams, RecipeService) {
+    function RecipeController(YummlyService, $rootScope, $routeParams, RecipeService, IngredientService, UserService) {
         var vm = this;
         var recipeId = $routeParams.recipeId;
+        var userId = $rootScope.currentUser._id;
+        vm.addToFavs = addToFavs;
+
+        function addToFavs(recipeName, recipeId, recipeRating) {
+            var fav = {
+                recipeName: recipeName,
+                recipeId: recipeId,
+                recipeRating: recipeRating
+            };
+            
+
+            UserService
+                .addToFavs(userId, fav)
+                .then(
+                    function (response) {
+                        vm.sucess = "Added";
+                    }
+                );
+        }
 
         function init() {
             if(recipeId.indexOf("-") > -1){
@@ -21,9 +40,21 @@
                     .findRecipeById(recipeId)
                     .then(
                         function (response) {
-
                             vm.userrecipe = response.data;
-
+                            IngredientService
+                                .findIngredientsForRecipe(recipeId)
+                                .then(
+                                    function (response) {
+                                        vm.ingredients = response.data;
+                                        UserService
+                                            .findUserById(userId)
+                                            .then(
+                                              function (response) {
+                                                  vm.user = response.data;
+                                              }
+                                            );
+                                    }
+                                );
                         }
                     );
             }

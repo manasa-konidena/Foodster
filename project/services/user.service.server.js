@@ -20,6 +20,7 @@ module.exports = function(app, promodels) {
     app.delete("/api/project/user/:userId", deleteUser);
     app.post("/api/project/user", createUser);
     app.put("/api/project/user/:userId", updateUser);
+    app.put("/api/user/:userId/fav", addToFavs);
 
 
     ProjectPassport.use('foodap', new ProLocalStrategy(localStrategy));
@@ -45,7 +46,7 @@ module.exports = function(app, promodels) {
                         return;
                     } else {
                         req.body.password = bcrypt.hashSync(req.body.password);
-                        return userModel
+                        return prouserModel
                             .createUser(req.body)
                     }
                 },
@@ -78,7 +79,6 @@ module.exports = function(app, promodels) {
                 function (user) {
 
                     if(user && bcrypt.compareSync(password, user.password)){
-                        console.log(user);
                         done(null,user);
 
                     }else {
@@ -96,7 +96,6 @@ module.exports = function(app, promodels) {
     }
 
     function prodeserializeUser(user, done) {
-        // console.log(user);
         prouserModel
             .findUserById(user._id)
             .then(
@@ -112,14 +111,12 @@ module.exports = function(app, promodels) {
 
 
     function prologin ( req, res){
-        console.log(req.user);
         var user = req.user;
         res.json(user);
     }
 
     function prologgedIn(req, res) {
         if(req.isAuthenticated()){
-            console.log(req.user);
             res.json(req.user);
         }else{
             res.send('0');
@@ -213,6 +210,22 @@ module.exports = function(app, promodels) {
                     res.sendStatus(404).send(error);
                 }
             );
+    }
+
+    function addToFavs(req, res) {
+        var fav = req.body;
+        var userId = req.params.userId;
+        console.log("server");
+        prouserModel
+            .addToFavs(userId, fav)
+            .then(
+                function (stats) {
+                    res.sendStatus(200);
+                },
+                function (err) {
+                    res.sendStatus(400);
+                }
+            )
     }
 
     function findUserById(req, res) {

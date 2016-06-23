@@ -15,7 +15,7 @@ module.exports = function() {
             {
                 recipeName: String,
                 recipeId: String,
-                recipeRating: Number
+                recipeRating: String
             }
         ],
         followingUsers: [

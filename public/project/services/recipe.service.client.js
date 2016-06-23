@@ -28,7 +28,6 @@
         
         function createRecipe(userId, recipe) {
             recipe._user = userId;
-            console.log(recipe);
             var url = "/api/user/"+ userId +"/recipe";
             return $http.post(url, recipe);
         }

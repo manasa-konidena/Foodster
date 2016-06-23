@@ -27,7 +27,7 @@
 
 
         function searchRecipes(searchText) {
-           $location.url("/searchresults/"+ searchText);
+           $location.url("/project/#/searchresults/"+ searchText);
         }
     }
 })();

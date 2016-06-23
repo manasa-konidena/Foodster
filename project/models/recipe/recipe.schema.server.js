@@ -17,12 +17,6 @@ module.exports = function() {
         cuisine: String,
         preptime: Number,
         cooktime: Number,
-        ingredients: [
-            {
-                name: String,
-                quantity: String
-            }
-        ],
         preparationsteps: String,
 
         likedby: Number,

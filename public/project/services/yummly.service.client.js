@@ -21,7 +21,6 @@
                 .replace("app-key", appKey)
                 .replace("recipe_id", id);
 
-            console.log(url);
             return $http.get(url);
         }
         

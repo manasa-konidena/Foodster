@@ -25,7 +25,11 @@
             .when("/searchresults/:searchtext", {
                 templateUrl: "views/user/searchresults.view.client.html",
                 controller: "SearchController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve:{
+                    loggedIn: checkLoggedIn
+                }
+
             })
             .when("/myrecipes", {
                 templateUrl: "views/recipe/myrecipes.view.client.html",
@@ -53,10 +57,13 @@
                     loggedIn: checkLoggedIn
                 }
             })
-            .when("/addingredients/", {
+            .when("/addingredients/:recipeId", {
                 templateUrl: "views/ingredient/addingr.view.client.html",
                 controller: "AddIngrController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    loggedIn: checkLoggedIn
+                }
             })
             .when("/personalinfo", {
                 templateUrl: "views/user/personalinfo.view.client.html"

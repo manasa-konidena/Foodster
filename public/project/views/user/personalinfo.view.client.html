@@ -17,10 +17,11 @@
 
 <!--{{model.user}}-->
 
-<div class="body-nonindex">
 
+    <div class="container top">
 
-    <div class="container">
+        <h4>Please spend some time updating your profile or get started by clicking below</h4>
+        <a href="/welcomepage" class="btn btn-block btn-success">Get Started!!</a>
 
         <!--<div ng-show="model.success"-->
         <!--class="alert alert-success">{{model.success}}</div>-->
@@ -35,6 +36,7 @@
                        class="form-control"
                        id="username"
                        placeholder="pfitz"
+                       readonly
                        ng-model="model.user.username">
             </div>
             <div class="form-group">
@@ -94,7 +96,7 @@
            href="#/register"
            role="button">Unregister</a>
     </div>
-</div>
+
 
 <!--Footer-->
 

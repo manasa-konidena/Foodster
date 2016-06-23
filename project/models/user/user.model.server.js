@@ -12,7 +12,8 @@ module.exports = function () {
         findUserByUsername: findUserByUsername,
         updateUser: updateUser,
         deleteUser: deleteUser,
-        findAllUsers: findAllUsers
+        findAllUsers: findAllUsers,
+        addToFavs: addToFavs
         // findFacebookUser: findFacebookUser
     };
     return api;
@@ -32,11 +33,20 @@ module.exports = function () {
         return ProUser.findById(userId);
     }
     
+    function addToFavs(userId, fav) {
+        console.log("model");
+        return ProUser.update(
+            {_id: userId},
+            {$push: {favrecipes: fav}}
+        );
+    }
+    
     function findUserByCredentials(username, password) {
         return ProUser.findOne({username: username, password: password});
     }
 
     function findUserByUsername(username) {
+        console.log(username);
         return ProUser.findOne({username: username});
     }
 

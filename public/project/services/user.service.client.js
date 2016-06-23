@@ -14,9 +14,16 @@
             findUserById: findUserById,
             findUserByUsername: findUserByUsername,
             updateUser: updateUser,
-            deleteUser: deleteUser
+            deleteUser: deleteUser,
+            addToFavs: addToFavs
         };
         return api;
+        
+        function addToFavs(userId, fav) {
+            console.log("client");
+            var url = "/api/user/" + userId + "/fav";
+            return $http.put(url, fav);
+        }
         
         function register(newUser) {
             var brandNewUser = {
