@@ -7,7 +7,7 @@
 
 
 <div ng-if="model.userrecipe" class="container top">
-    <h2>{{model.userrecipe.name}} - Created by <a href="/user/{{model.user._id}}">{{model.user.username}}</a></h2>
+    <h2>{{model.userrecipe.name}} - Created by <a href="#/user/{{model.user._id}}">{{model.user.username}}</a></h2>
 
     <a ng-if="model.unliked"
        ng-click="model.addToFavs(model.userrecipe.name, model.userrecipe._id, model.userrecipe.rating)"

@@ -78,6 +78,14 @@
                     loggedIn: checkLoggedIn
                 }
             })
+            .when("/user/:userId", {
+                templateUrl: "views/user/otheruser.view.client.html",
+                controller: "OtherUserController",
+                controllerAs: "model",
+                resolve: {
+                    loggedIn: checkLoggedIn
+                }
+            })
             .when("/createrecipe/:recipeId", {
                 templateUrl: "views/recipe/createrecipe.view.client.html",
                 controller: "CreateRecipeController",

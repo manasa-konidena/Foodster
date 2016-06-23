@@ -1,0 +1,84 @@
+
+<!--Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+
+        <p class="navbar-header pull-left">
+            <a class="navbar-brand">
+                {{model.user.username}}'s Profile
+            </a>
+        </p>
+
+
+    </div>
+</nav>
+<!--Header End-->
+
+<!--{{model.user}}-->
+
+
+    <div class="container top">
+
+
+        <!--<div ng-show="model.success"-->
+        <!--class="alert alert-success">{{model.success}}</div>-->
+
+        <!--<div ng-show="model.error"-->
+        <!--class="alert alert-danger">{{model.error}}</div>-->
+        <h3>Name: {{model.user.firstName}} {{model.user.lastName}}</h3>
+        <h3>Email: {{model.user.email}}</h3>
+        <h3>Check out the Recipes they created</h3>
+        <div ng-repeat="recipe in model.createdRecipes"
+             class="list-group">
+            <a href="#/recipe/{{recipe._id}}">
+                <h4>{{recipe.recipeName}}</h4>
+            </a>
+        </div>
+
+        <h3>Favourites:</h3>
+
+        <div ng-repeat="recipe in model.user.favrecipes"
+             class="list-group">
+            <a href="#/recipe/{{recipe.recipeId}}">
+                <h4>{{recipe.recipeName}}</h4>
+            </a>
+        </div>
+
+        <h3>Followers:</h3>
+        <div ng-repeat="recipe in model.user.followedByUsers"
+             class="list-group">
+            <a href="#/user/{{user._id}}">
+                <h4>{{user.username}}</h4>
+            </a>
+        </div>
+
+        <h3>Following:</h3>
+        <div ng-repeat="recipe in model.user.followingUsers"
+             class="list-group">
+            <a href="#/user/{{user._id}}">
+                <h4>{{user.username}}</h4>
+            </a>
+        </div>
+
+        <a class="btn btn-danger btn-block"
+
+           role="button">Unfollow</a>
+    </div>
+
+
+<!--Footer-->
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-footer">
+            <p class="navbar-text pull-right">
+                <a href="#/welcomepage">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<!--Footer End-->
