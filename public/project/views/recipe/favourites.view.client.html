@@ -1,5 +1,48 @@
-<div class="body-nonindex">
+
+<!--Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <h1>My Favourites</h1>
+
+
+
+        <p class="navbar-header pull-left">
+            <a class="navbar-brand">
+                My favourite Recipes
+            </a>
+        </p>
+
+
+
+    </div>
+
+
+</nav>
+
+<!--Header End-->
+
+
+<div class="container top">
+    <div ng-repeat="recipe in model.favrecipes"
+         class="list-group">
+        <a href="#/recipe/{{recipe.recipeId}}">
+            <h4>{{recipe.recipeName}}</h4>
+        </a>
     </div>
 </div>
+
+
+<!--Footer-->
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-footer">
+            <p class="navbar-text pull-right">
+                <a href="#/welcomepage">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<!--Footer End-->

@@ -15,13 +15,25 @@
             findUserByUsername: findUserByUsername,
             updateUser: updateUser,
             deleteUser: deleteUser,
-            addToFavs: addToFavs
+            addToFavs: addToFavs,
+            removeFromFavs: removeFromFavs,
+            findFavRecipeForUser: findFavRecipeForUser
         };
         return api;
-        
+
+        function findFavRecipeForUser(recipeId, userId) {
+            var url = "/api/user/"+userId+ "/recipe/"+recipeId+ "/fav";
+            return $http.get(url)
+        }
+
         function addToFavs(userId, fav) {
             var url = "/api/user/" + userId + "/fav";
             return $http.put(url, fav);
+        }
+
+        function removeFromFavs(userId, recipeId) {
+            var url = "/api/user/"+ userId + "/recipe/" + recipeId + "/fav";
+            return $http.delete(url);
         }
         
         function register(newUser) {

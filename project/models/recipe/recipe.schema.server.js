@@ -18,8 +18,6 @@ module.exports = function() {
         preptime: Number,
         cooktime: Number,
         preparationsteps: String,
-
-        likedby: Number,
         dateCreated: {type: Date, default: Date.now}
     }, {collection: "project.recipe"});
 

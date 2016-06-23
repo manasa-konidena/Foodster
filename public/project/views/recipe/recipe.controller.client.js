@@ -8,14 +8,44 @@
         var recipeId = $routeParams.recipeId;
         var userId = $rootScope.currentUser._id;
         vm.addToFavs = addToFavs;
+        vm.removeFromFavs = removeFromFavs;
+
+
+        function removeFromFavs() {
+            UserService
+                .removeFromFavs(userId, recipeId)
+                .then(
+                    function (response) {
+                        vm.success = "Removed";
+                        UserService
+                            .findUserById(userId)
+                            .then(
+                                function (response) {
+                                    var user = response.data;
+                                    if(user) {
+                                        for (var i in user.favrecipes) {
+                                            if (user.favrecipes[i].recipeId === recipeId) {
+                                                vm.liked = true;
+                                                vm.unliked = false;
+                                                return;
+                                            }
+                                        }
+                                        vm.unliked = true;
+                                        vm.liked = false;
+                                    }
+                                }
+                            );
+                    }
+                );
+        }
 
         function addToFavs(recipeName, recipeId, recipeRating) {
+            console.log(recipeName);
             var fav = {
                 recipeName: recipeName,
                 recipeId: recipeId,
                 recipeRating: recipeRating
             };
-            
 
             UserService
                 .addToFavs(userId, fav)
@@ -23,15 +53,19 @@
                     function (response) {
                         vm.sucess = "Added";
                         UserService
-                            .findFavRecipeForUser(recipeId, userId)
+                            .findUserById(userId)
                             .then(
                                 function (response) {
-                                    var result = response.data;
-                                    if(result._id){
-                                        vm.liked = true;
-                                        vm.notliked = false;
-                                    } else {
-                                        vm.notliked= true;
+                                    var user = response.data;
+                                    if(user) {
+                                        for (var i in user.favrecipes) {
+                                            if (user.favrecipes[i].recipeId === recipeId) {
+                                                vm.liked = true;
+                                                vm.unliked = false;
+                                                return;
+                                            }
+                                        }
+                                        vm.unliked = true;
                                         vm.liked = false;
                                     }
                                 }
@@ -42,16 +76,22 @@
 
         function init() {
             UserService
-                .findFavRecipeForUser(recipeId, userId)
+                .findUserById(userId)
                 .then(
                     function (response) {
-                        var result = response.data;
-                        if(result._id){
-                            vm.liked = true;
-                        } else {
-                            vm.notliked= true;
+                        var user = response.data;
+                        if(user) {
+                            for (var i in user.favrecipes) {
+                                if (user.favrecipes[i].recipeId === recipeId) {
+                                        vm.liked = true;
+                                        vm.unliked = false;
+                                        return;
+                                }
+                            }
+                            vm.unliked = true;
+                            vm.liked = false;
+                            }
                         }
-                    }
                 );
             if(recipeId.indexOf("-") > -1){
                 YummlyService

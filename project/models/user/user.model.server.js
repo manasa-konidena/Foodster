@@ -13,7 +13,8 @@ module.exports = function () {
         updateUser: updateUser,
         deleteUser: deleteUser,
         findAllUsers: findAllUsers,
-        addToFavs: addToFavs
+        addToFavs: addToFavs,
+        removeFromFavs: removeFromFavs
         // findFacebookUser: findFacebookUser
     };
     return api;
@@ -21,10 +22,27 @@ module.exports = function () {
     // function findFacebookUser(id) {
     //     return User.findOne({"facebook.id": id});
     // }
-    
+
+
+
     function findAllUsers() {
         return ProUser.find();
     }
+
+    function removeFromFavs(userId, recipeId) {
+        return ProUser.update(
+            {_id: userId},
+            {
+                $pull: {
+                favrecipes: 
+                {
+                    recipeId: recipeId
+                }
+                }
+            }
+        );
+    }
+
     function createUser(user) {
         return ProUser.create(user);
     }

@@ -21,6 +21,8 @@ module.exports = function(app, promodels) {
     app.post("/api/project/user", createUser);
     app.put("/api/project/user/:userId", updateUser);
     app.put("/api/user/:userId/fav", addToFavs);
+    app.delete("/api/user/:userId/recipe/:recipeId/fav", removeFromFavs);
+    app.get("/api/user/:userId/recipe/:recipeId/fav", findFavRecipeForUser)
 
 
     ProjectPassport.use('foodap', new ProLocalStrategy(localStrategy));
@@ -225,6 +227,37 @@ module.exports = function(app, promodels) {
                     res.sendStatus(400);
                 }
             )
+    }
+
+    function removeFromFavs(req, res) {
+        var recipeId = req.params.recipeId;
+        var userId = req.params.userId;
+        prouserModel
+            .removeFromFavs(userId, recipeId)
+            .then(
+                function (stats) {
+                    res.sendStatus(200);
+                },
+                function (err) {
+                    res.sendStatus(400);
+                }
+            )
+    }
+
+    function findFavRecipeForUser(req, res) {
+        var userId = req.params.userId;
+        var recipeId = req.params.recipeId;
+        
+        prouserModel
+            .findFavRecipeForUser(userId, recipeId)
+            .then(
+                function (recipe) {
+                    res.json(recipe)
+                },
+                function (error) {
+                    res.sendStatus(404);
+                }
+            );
     }
 
     function findUserById(req, res) {

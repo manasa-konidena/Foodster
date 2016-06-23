@@ -47,7 +47,12 @@
                 templateUrl: "views/user/following.view.client.html"
             })
             .when("/favourites", {
-                templateUrl: "views/recipe/favourites.view.client.html"
+                templateUrl: "views/recipe/favourites.view.client.html",
+                controller: "FavController",
+                controllerAs: "model",
+                resolve: {
+                    loggedIn: checkLoggedIn
+                }
             })
             .when("/welcomepage", {
                 templateUrl: "views/user/welcomepage.view.client.html",
