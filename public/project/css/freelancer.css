@@ -427,6 +427,11 @@ span.details{
   align-content: center;
 }
 
+.navbar-header.pull-left{
+  padding-top : 10px;
+  padding-left: 30px;
+}
+
 /*p.navbar-header.pull-left{*/
   /*padding-top: 20px;*/
 /*}*/
