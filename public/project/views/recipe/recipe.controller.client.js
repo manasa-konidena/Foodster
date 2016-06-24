@@ -3,12 +3,17 @@
         .module("FoodsterApp")
         .controller("RecipeController", RecipeController);
 
-    function RecipeController(YummlyService, $rootScope, $routeParams, RecipeService, IngredientService, UserService) {
+    function RecipeController(YummlyService, $window, $rootScope, $routeParams, RecipeService, IngredientService, UserService) {
         var vm = this;
         var recipeId = $routeParams.recipeId;
         var userId = $rootScope.currentUser._id;
         vm.addToFavs = addToFavs;
         vm.removeFromFavs = removeFromFavs;
+        vm.goBack = goBack;
+
+        function goBack() {
+            $window.history.back();
+        }
 
 
         function removeFromFavs() {

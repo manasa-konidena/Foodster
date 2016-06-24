@@ -3,12 +3,15 @@
         .module("FoodsterApp")
         .controller("SearchController", SearchController);
 
-    function SearchController(YummlyService, $routeParams, $location) {
+    function SearchController(YummlyService, $routeParams, $location, $window) {
         var vm = this;
         vm.searchRecipes = searchRecipes;
-
         
         var searchText = $routeParams.searchtext;
+        
+        function goBack() {
+            $window.history.back();
+        }
         
         function init() {
             YummlyService
