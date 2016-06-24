@@ -9,6 +9,10 @@ module.exports = function() {
         phone: String,
         address: String,
         email: String,
+        google: {
+            id:    String,
+            token: String
+        },
         foodiethought: String,
         type: {type: String, enum: ['ENDUSER', 'ADMIN']},
         favrecipes: [

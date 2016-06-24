@@ -27,7 +27,7 @@
                 controller: "SearchController",
                 controllerAs: "model",
                 resolve:{
-                    loggedIn: checkLoggedIn
+                    loggedIn: checkLoggedIn     
                 }
 
             })

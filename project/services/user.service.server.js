@@ -1,10 +1,15 @@
 var ProjectPassport = require('passport');
 var ProLocalStrategy = require('passport-local').Strategy;
 
-// var passport         = require('passport');
-// var FacebookStrategy = require('passport-facebook').Strategy;
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 var bcrypt = require("bcrypt-nodejs");
+
+var googleConfig = {
+    clientID     : process.env.GOOGLE_CLIENT_ID,
+    clientSecret : process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL  : process.env.GOOGLE_CALLBACK_URL
+};
 
 module.exports = function(app, promodels) {
 
@@ -13,6 +18,7 @@ module.exports = function(app, promodels) {
     app.get("/api/project/user", getUsers);
 
     app.post("/api/project/logout", logout);
+    app.get('/auth/google', ProjectPassport.authenticate('google', { scope : ['profile', 'email'] }));
     app.get("/api/project/loggedIn", prologgedIn);
     app.post("/api/project/register", register);
     app.post("/api/project/login", ProjectPassport.authenticate('foodap'), prologin);//created afer introduction of sessions/passport
@@ -26,7 +32,53 @@ module.exports = function(app, promodels) {
     app.put("/api/user/:loggeduserId/follow", follow);
     app.delete("/api/user/:loggeduserId/unfollowuser/:unfollowuserId", unfollow);
     app.put("/api/user/:userId/followedby", followedBy);
-    app.delete("/api/user/:userId/unfollowedby/:unfollowedByUserId", unfollowedBy)
+    app.delete("/api/user/:userId/unfollowedby/:unfollowedByUserId", unfollowedBy);
+    app.get('/auth/google/callback',
+        ProjectPassport.authenticate('google', {
+            successRedirect: '/project/#/personalinfo',
+            failureRedirect: '/project/#/login'
+        }));
+
+
+    ProjectPassport.use(new GoogleStrategy(googleConfig, googleStrategy));
+    function googleStrategy(token, refreshToken, profile, done) {
+        prouserModel
+            .findUserByGoogleId(profile.id)
+            .then(
+                function(user) {
+                    if(user) {
+                        return done(null, user);
+                    } else {
+                        var email = profile.emails[0].value;
+                        var emailParts = email.split("@");
+                        var newGoogleUser = {
+                            username:  emailParts[0],
+                            firstName: profile.name.givenName,
+                            lastName:  profile.name.familyName,
+                            email:     email,
+                            google: {
+                                id:    profile.id,
+                                token: token
+                            }
+                        };
+                        return prouserModel.createUser(newGoogleUser);
+                    }
+                },
+                function(err) {
+                    if (err) { return done(err); }
+                }
+            )
+            .then(
+                function(user){
+                    return done(null, user);
+                },
+                function(err){
+                    if (err) { return done(err); }
+                }
+            );
+    }
+
+
 
     function followedBy(req, res) {
         var userId = req.params.userId;

@@ -18,7 +18,8 @@ module.exports = function () {
         follow: follow,
         unfollow: unfollow,
         followedBy: followedBy,
-        unfollowedBy: unfollowedBy
+        unfollowedBy: unfollowedBy,
+        findUserByGoogleId: findUserByGoogleId
         // findFacebookUser: findFacebookUser
     };
     return api;
@@ -32,7 +33,10 @@ module.exports = function () {
         return ProUser.update({_id: userId},
             {$push: {followedByUsers: followedByUser}})
     }
-    
+
+    function findUserByGoogleId(id) {
+        return ProUser.findOne({"google.id": id});
+    }
 
     function unfollowedBy(unfollowedByUserId, userId) {
         return ProUser.update(
