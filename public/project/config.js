@@ -27,7 +27,7 @@
                 controller: "SearchController",
                 controllerAs: "model",
                 resolve:{
-                    loggedIn: checkLoggedIn     
+                    openView: openView
                 }
 
             })
@@ -140,6 +140,27 @@
                             $rootScope.currentUser = null;
                             deferred.reject();
                             $location.url("/login");
+                        } else {
+                            $rootScope.currentUser = user;
+                            deferred.resolve();
+                        }
+                    },
+                    function (err) {
+                        $location.url("/login");
+                    }
+                );
+            return deferred.promise;
+        }
+
+        function openView(UserService, $location, $q, $rootScope) {
+            var deferred = $q.defer();
+            UserService
+                .loggedIn()
+                .then(
+                    function (response) {
+                        var user = response.data;
+                        if(user == '0'){
+                            deferred.resolve();
                         } else {
                             $rootScope.currentUser = user;
                             deferred.resolve();

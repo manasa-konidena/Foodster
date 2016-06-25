@@ -2,11 +2,62 @@ module.exports = function(app, models) {
 
     var recipeModel = models.recipeModel;
 
+    var multer = require('multer'); // npm install multer --save
+    var upload = multer({ dest: __dirname+'/../../public/uploads' });
+
     app.get("/api/user/:userId/recipe", findAllRecipesforUser);
     app.get("/api/recipe/:recipeId", findRecipeById);
+    app.get("/api/recipe", findAllRecipes);
     // app.delete("/api/page/:pageId", deletePage);
     app.post("/api/user/:userId/recipe", createRecipe);
     app.put("/api/recipe/:recipeId", updateRecipe);
+    app.post ("/api/project/upload", upload.single('myFile'), uploadImage);
+
+
+    function uploadImage(req, res) {
+
+        var recipeId      = req.body.recipeId;
+        console.log(recipeId);
+        var userId      = req.body.userId;
+        var myFile        = req.file;
+
+        if(myFile == null){
+            res.redirect("/project/#/createrecipe/"+ recipeId);
+            return;
+        }
+
+        var originalname  = myFile.originalname; // file name on user's computer
+        var filename      = myFile.filename;     // new file name in upload folder
+        var path          = myFile.path;         // full path of uploaded file
+        var destination   = myFile.destination;  // folder where file is saved to
+        var size          = myFile.size;
+        var mimetype      = myFile.mimetype;
+
+        var recipe = {imageurl: "/uploads/"+ filename };
+
+        console.log(recipeId);
+        recipeModel
+            .updateRecipe(recipeId, recipe)
+            .then(
+                function (stats) {
+                    res.redirect("/project/#/createrecipe/"+ recipeId);
+                },
+                function (error) {
+                    res.sendStatus(404).send(err);
+                }
+            );
+    }
+    
+    function findAllRecipes(req, res) {
+        recipeModel
+            .findAllRecipes()
+            .then(
+              function (recipes) {
+                  res.json(recipes);
+              }  
+            );
+    }
+
 
     function findAllRecipesforUser(req, res) {
         var userId = req.params.userId;

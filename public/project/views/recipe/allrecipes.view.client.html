@@ -1,0 +1,69 @@
+
+<!--Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button"
+                    class="navbar-toggle"
+                    data-toggle="collapse"
+                    ng-init="isCollapsed = true"
+                    ng-click="isCollapsed = !isCollapsed">
+                <!--data-target="#bs-example-navbar-collapse-1">-->
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/welcomepage">FS</a>
+            <a class="navbar-brand">All Recipes</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+
+        <div class="navbar-collapse" ng-class="{collapse: isCollapsed}">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="page-scroll">
+                    <a ng-click="model.logout()">Logout</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="#/searchresults/cupcakes">Seach for Recipes</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<!--Header End-->
+
+<!--Header End-->
+
+
+<div class="container top">
+
+
+    <div ng-repeat="recipe in model.recipes"
+         class="list-group">
+        <a href="#/recipe/{{recipe.recipeId}}">
+            <h4>{{recipe.name}}</h4>
+        </a>
+    </div>
+</div>
+
+
+<!--Footer-->
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-footer">
+            <p class="navbar-text pull-right">
+                <a href="#/welcomepage">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<!--Footer End-->

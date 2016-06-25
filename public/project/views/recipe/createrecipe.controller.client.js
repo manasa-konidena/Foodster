@@ -7,7 +7,19 @@
         var vm = this;
 
         var recipeId = $routeParams.recipeId;
+        
         vm.updateRecipe = updateRecipe;
+
+        function init() {
+            RecipeService
+                .findRecipeById(recipeId)
+                .then(
+                    function (response) {
+                        vm.recipe = response.data;
+                    }
+                );
+        }
+        init();
 
         function updateRecipe(recipe) {
             RecipeService

@@ -16,7 +16,7 @@
             </button>
             <a class="navbar-brand"
                ng-click="model.goBack()">Back</a>
-            <a class="navbar-brand">Hungry? Search Away!!</a>
+            <a class="navbar-brand">Recipe View</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -31,6 +31,7 @@
                 </li>
             </ul>
         </div>
+
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
@@ -40,6 +41,8 @@
 
 
 <div ng-if="model.userrecipe" class="container top">
+
+
     <h2>{{model.userrecipe.name}} - Created by <a href="#/user/{{model.user._id}}">{{model.user.username}}</a></h2>
 
     <a ng-if="model.unliked"

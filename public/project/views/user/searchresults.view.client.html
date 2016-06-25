@@ -18,13 +18,24 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
 
-        <div class="navbar-collapse" ng-class="{collapse: isCollapsed}">
+        <div ng-if="model.loggedIn" class="navbar-collapse" ng-class="{collapse: isCollapsed}">
             <ul class="nav navbar-nav navbar-right">
                 <li class="page-scroll">
                     <a ng-click="model.logout()">Logout</a>
                 </li>
                 <li class="page-scroll">
                     <a href="#/welcomepage">Home</a>
+                </li>
+            </ul>
+        </div>
+
+        <div ng-if="model.notLoggedIn" class="navbar-collapse" ng-class="{collapse: isCollapsed}">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="page-scroll">
+                    <a href="#/login">Login</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="#/register">Sign Up</a>
                 </li>
             </ul>
         </div>

@@ -35,6 +35,8 @@
 </nav>
 <!--Header End-->
 
+
+
 <div class="container top">
 
     <form novalidate name="model.myForm">
@@ -144,6 +146,14 @@
         <!--</div>-->
 
     </form>
+    <p></p>
+    <form action="/api/project/upload"  method="post" enctype="multipart/form-data">
+        <input  name="myFile"   type="file" class="form-control"/>
+        <input  name="recipeId" value="{{model.recipe._id}}"   style="display: none"/>
+        <input  name="userId" value="{{model.recipe._user}}"   style="display: none"/>
+        <button type="submit"   class="btn btn-block btn-primary">Upload Image</button>
+    </form>
+    <p></p>
     <a ng-click="model.updateRecipe(model.recipe)"
        class="btn btn-block btn-success">Go ahead and add ingredients to finish!</a>
 </div>

@@ -11,7 +11,8 @@
             findRecipeById: findRecipeById,
             createRecipe: createRecipe,
             deleteRecipe: deleteRecipe,
-            updateRecipe: updateRecipe
+            updateRecipe: updateRecipe,
+            findAllRecipes: findAllRecipes
         };
         return api;
         
@@ -39,6 +40,11 @@
         
         function findRecipesByUser(userId) {
             var url = "/api/user/"+ userId + "/recipe";
+            return $http.get(url);
+        }
+
+        function findAllRecipes() {
+            var url = "/api/recipe";
             return $http.get(url);
         }
     }

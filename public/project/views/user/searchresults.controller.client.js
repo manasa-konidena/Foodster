@@ -3,11 +3,27 @@
         .module("FoodsterApp")
         .controller("SearchController", SearchController);
 
-    function SearchController(YummlyService, $routeParams, $location, $window) {
+    function SearchController(YummlyService, UserService, $rootScope, $routeParams, $location, $window) {
         var vm = this;
         vm.searchRecipes = searchRecipes;
+        vm.logout = logout;
         
         var searchText = $routeParams.searchtext;
+
+
+        function logout() {
+            UserService
+                .logout()
+                .then(
+                    function (response) {
+                        $rootScope.currentUser = null;
+                        $location.url("/login");
+                    },
+                    function () {
+                        $location.url("/login");
+                    }
+                );
+        }
         
         function goBack() {
             $window.history.back();
@@ -24,7 +40,13 @@
                     // data = data.substring(0,data.length - 1);
                     // data = JSON.parse(data);
                     // vm.photos = data.photos;
-                }); 
+                });
+
+            if($rootScope.currentUser){
+                vm.loggedIn = "True";
+            } else {
+                vm.notLoggedIn = "True";
+            }
         }
         init();
 
