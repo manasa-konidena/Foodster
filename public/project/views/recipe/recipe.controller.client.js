@@ -14,6 +14,7 @@
         vm.addToFavs = addToFavs;
         vm.removeFromFavs = removeFromFavs;
         vm.goBack = goBack;
+        vm.addToGrocList = addToGrocList;
         
 
         function goBack() {
@@ -49,11 +50,12 @@
                 );
         }
 
-        function addToFavs(recipeName, recipeId, recipeRating) {
+        function addToFavs(recipeName, recipeId, recipeRating, imageurl) {
             var fav = {
                 recipeName: recipeName,
                 recipeId: recipeId,
-                recipeRating: recipeRating
+                recipeRating: recipeRating,
+                imageurl: imageurl
             };
 
             UserService
@@ -136,6 +138,24 @@
                 }
             
         }
-        init(); 
+        init();
+
+        function addToGrocList(ing) {
+            var toBeAdded = null;
+            if(ing.quantity){
+                toBeAdded = { ingredient: ing.name + ing.quantity};
+            } else {
+                toBeAdded = { ingredient: ing};
+
+            }
+
+           UserService
+                .addToGrocList(toBeAdded, userId)
+                .then(
+                    function (response) {
+                        vm.groc = "Added to your grocery list";
+                    }
+                )
+        }
     }
 })();

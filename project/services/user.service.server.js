@@ -29,10 +29,12 @@ module.exports = function(app, promodels) {
     app.put("/api/user/:userId/fav", addToFavs);
     app.delete("/api/user/:userId/recipe/:recipeId/fav", removeFromFavs);
     app.get("/api/user/:userId/recipe/:recipeId/fav", findFavRecipeForUser);
+    app.put("/api/user/:userId/grocerylist", addToGrocList);
     app.put("/api/user/:loggeduserId/follow", follow);
     app.delete("/api/user/:loggeduserId/unfollowuser/:unfollowuserId", unfollow);
     app.put("/api/user/:userId/followedby", followedBy);
     app.delete("/api/user/:userId/unfollowedby/:unfollowedByUserId", unfollowedBy);
+    app.delete("/api/user/:userId/grocerylist/:itemId", deleteItem),
     app.get('/auth/google/callback',
         ProjectPassport.authenticate('google', {
             successRedirect: '/project/#/personalinfo',
@@ -380,7 +382,43 @@ module.exports = function(app, promodels) {
                 }
             );
     }
+    
+    function addToGrocList(req, res) {
+        var userId = req.params.userId;
+        var ing = req.body;
 
+        prouserModel
+            .addToGrocList(userId, ing)
+            .then(
+                function (stats) {
+                    
+                    res.sendStatus(200);
+                },
+                function (err) {
+                    res.sendStatus(400);
+                }
+            )
+    }
+
+    function deleteItem(req, res) {
+        var userId = req.params.userId;
+        var itemId = req.params.itemId;
+        
+        prouserModel
+            .deleteItem(userId, itemId)
+            .then(
+                function (stats) {
+
+                    res.sendStatus(200);
+                },
+                function (err) {
+                    res.sendStatus(400);
+                }
+                
+            )
+            
+    }
+    
     function findUserById(req, res) {
         var id = req.params.userId;
 

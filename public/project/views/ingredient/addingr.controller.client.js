@@ -3,13 +3,19 @@
         .module("FoodsterApp")
         .controller("AddIngrController", AddIngrController);
 
-    function AddIngrController(IngredientService, $routeParams, $location) {
+    function AddIngrController(IngredientService, $routeParams, $location, $window) {
         var vm = this;
 
         var recipeId = $routeParams.recipeId;
         vm.recipeId = recipeId;
         vm.createIngredient = createIngredient;
         vm.deleteIngredient = deleteIngredient;
+
+        vm.goBack = goBack;
+
+        function goBack() {
+            $window.history.back();
+        }
         
         function init() {
             IngredientService

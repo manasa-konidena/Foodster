@@ -14,7 +14,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#/welcomepage">FS</a>
+            <a class="navbar-brand" href="#/welcomepage"><span class="fa fa-home"></span></a>
             <a class="navbar-brand">My Followers</a>
         </div>
 
@@ -23,10 +23,10 @@
         <div class="navbar-collapse" ng-class="{collapse: isCollapsed}">
             <ul class="nav navbar-nav navbar-right">
                 <li class="page-scroll">
-                    <a ng-click="model.logout()">Logout</a>
+                    <a ng-click="model.logout()"><span class="fa fa-sign-out"></span>Logout</a>
                 </li>
                 <li class="page-scroll">
-                    <a href="#/searchresults/cupcakes">Seach for Recipes</a>
+                    <a href="#/searchresults/cupcakes"><span class="fa fa-search"></span>Search</a>
                 </li>
             </ul>
         </div>
@@ -41,7 +41,10 @@
 <div class="container top">
     <div ng-repeat="user in model.user.followedByUsers"
          class="list-group">
-        <a class="list-group-item" href="#/user/{{user.userId}}">{{user.username}}</a>
+        <a href="#/user/{{user.userId}}">
+            <h4>{{user.username}}</h4></a>
+            <h5>Foodiethought: {{user.foodiethought}}</h5>
+
     </div>
 
 </div>
@@ -51,12 +54,8 @@
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
-        <div class="navbar-footer">
-            <p class="navbar-text pull-right">
-                <a href="#/welcomepage">
-                    <span class="glyphicon glyphicon-user"></span>
-                </a>
-            </p>
+        <div class="navbar-text">
+            Food is awesome!
         </div>
     </div>
 </nav>

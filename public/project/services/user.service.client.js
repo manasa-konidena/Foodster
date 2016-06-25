@@ -22,9 +22,21 @@
             follow: follow,
             unfollow: unfollow,
             followedBy: followedBy,
-            unfollowedBy: unfollowedBy
+            unfollowedBy: unfollowedBy,
+            addToGrocList: addToGrocList,
+            deleteItem: deleteItem
         };
         return api;
+
+        function deleteItem(itemId, userId) {
+            var url = "/api/user/"+ userId + "/grocerylist/"+ itemId;
+            return $http.delete(url);
+        }
+
+        function addToGrocList(ing, userId) {
+            var url = "/api/user/"+ userId + "/grocerylist";
+            return $http.put(url, ing);
+        }
 
         function findAllUsers() {
             var url = "/api/project/user";

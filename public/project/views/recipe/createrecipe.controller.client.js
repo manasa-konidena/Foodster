@@ -7,8 +7,9 @@
         var vm = this;
 
         var recipeId = $routeParams.recipeId;
-        
+        vm.recipeId = recipeId;
         vm.updateRecipe = updateRecipe;
+        vm.deleteRecipe= deleteRecipe;
 
         function init() {
             RecipeService
@@ -20,6 +21,16 @@
                 );
         }
         init();
+
+        function deleteRecipe(recipeId) {
+            RecipeService
+                .deleteRecipe(recipeId)
+                .then(
+                    function (response) {
+                        $location.url("/welcomepage");
+                    }
+                )
+        }
 
         function updateRecipe(recipe) {
             RecipeService

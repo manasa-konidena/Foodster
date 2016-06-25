@@ -13,8 +13,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" ng-click="model.goBack()"><span class="fa fa-backward"></span></a>
-            <a class="navbar-brand">Add Ingredients</a>
+            <a class="navbar-brand" href="#/grocerylist"><span class="fa fa-home"></span></a>
+            <a class="navbar-brand">Grocery List</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -36,60 +36,39 @@
 <!--Header End-->
 
 <div class="container top">
-
-
     <form novalidate name="model.myForm">
 
         <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-8">
                 <div class="form-group">
-                    <label for="ingredient">Ingredients</label>
+                    <label for="item">Item Name</label>
                     <input type="text"
                            class="form-control"
-                           id="ingredient"
-                           placeholder="Ingredient Name"
-                           ng-model="model.ingredient.name">
+                           id="item"
+                           placeholder="Item name"
+                           ng-model="model.item">
                 </div>
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-4">
                 <div class="form-group">
-                    <label for="quantity">Quantity</label>
-                    <input type="text"
-                           class="form-control"
-                           id="quantity"
-                           placeholder="Quanity"
-                           ng-model="model.ingredient.quantity">
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="form-group">
-                    <label for="button">Add Ingredient</label>
+                    <label for="button">Add Item</label>
                     <a id="button"
-                       ng-click="model.createIngredient(model.ingredient)"
+                       ng-click="model.addToGrocList(model.item)"
                        class="btn btn-block btn-success"><span class="fa fa-plus"></span></a>
                 </div>
             </div>
         </div>
     </form>
-
-
-
-        <div
-             ng-repeat="ingredient in model.ingredients"
-             class="container-fluid">
-            <a>{{ingredient.name}} - {{ingredient.quantity}}</a>
-            <p class="pull-right">
-                <a ng-click="model.deleteIngredient(ingredient._id)">
-                    <span class="fa fa-minus"></span>
-                </a>
-            </p>
-        </div>
-
-
-
-
-    <a href="#/recipe/{{model.recipeId}}"
-       class="btn btn-block btn-success">View Full Recipe</a>
+    <div
+            ng-repeat="item in model.user.groceryList"
+            class="container-fluid">
+        <a>{{item.ingredient}}</a>
+        <p class="pull-right">
+            <a ng-click="model.deleteItem(item._id)">
+                <span class="fa fa-minus"></span>
+            </a>
+        </p>
+    </div>
 </div>
 
 

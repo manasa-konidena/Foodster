@@ -8,7 +8,7 @@ module.exports = function(app, models) {
     app.get("/api/user/:userId/recipe", findAllRecipesforUser);
     app.get("/api/recipe/:recipeId", findRecipeById);
     app.get("/api/recipe", findAllRecipes);
-    // app.delete("/api/page/:pageId", deletePage);
+    app.delete("/api/recipe/:recipeId", deleteRecipe);
     app.post("/api/user/:userId/recipe", createRecipe);
     app.put("/api/recipe/:recipeId", updateRecipe);
     app.post ("/api/project/upload", upload.single('myFile'), uploadImage);
@@ -105,26 +105,24 @@ module.exports = function(app, models) {
                 );
         }
 
-    //     function deletePage(req, res) {
-    //         var pid = req.params.pageId;
-    //
-    //         pageModel
-    //             .deletePage(pid)
-    //             .then(
-    //                 function (stats) {
-    //                     res.sendStatus(200);
-    //                 },
-    //                 function (error) {
-    //                     res.sendStatus(404).send(error);
-    //                 }
-    //             );
-    //     }
-    //
+        function deleteRecipe(req, res) {
+            var recipeId = req.params.recipeId;
+
+            recipeModel
+                .deleteRecipe(recipeId)
+                .then(
+                    function (stats) {
+                        res.sendStatus(200);
+                    },
+                    function (error) {
+                        res.sendStatus(404).send(error);
+                    }
+                );
+        }
+
         function createRecipe(req, res) {
             var uid = req.params.userId;
             var newRecipe = req.body;
-            console.log(newRecipe);
-
             recipeModel
                 .createRecipe(newRecipe)
                 .then(

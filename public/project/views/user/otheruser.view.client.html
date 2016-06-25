@@ -15,7 +15,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#/welcomepage">FS</a>
+            <a class="navbar-brand" ng-click="model.goBack()"><span class="fa fa-backward"></span></a>
             <a class="navbar-brand">{{model.user.username}}'s Profile</a>
         </div>
 
@@ -24,10 +24,10 @@
         <div class="navbar-collapse" ng-class="{collapse: isCollapsed}">
             <ul class="nav navbar-nav navbar-right">
                 <li class="page-scroll">
-                    <a ng-click="model.logout()">Logout</a>
+                    <a ng-click="model.logout()"><span class="fa fa-sign-out"></span>Logout</a>
                 </li>
                 <li class="page-scroll">
-                    <a href="#/searchresults/cupcakes">Seach for Recipes</a>
+                    <a href="#/searchresults/spaghetti"><span class="fa fa-search"></span>Search</a>
                 </li>
             </ul>
         </div>
@@ -45,43 +45,77 @@
 
         <!--<div ng-show="model.error"-->
         <!--class="alert alert-danger">{{model.error}}</div>-->
-        <h3>Name: {{model.user.firstName}} {{model.user.lastName}}</h3>
-        <h3>Email: {{model.user.email}}</h3>
+        <h3>{{model.user.firstName}} {{model.user.lastName}}</h3>
+        <h4>{{model.user.email}}</h4>
         <h3>Check out the Recipes {{model.user.username}} created:</h3>
-        <div ng-repeat="recipe in model.createdRecipes"
-             class="list-group">
-            <a href="#/recipe/{{recipe._id}}">
-                <h4>{{recipe.name}}</h4>
-            </a>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4"
+                 ng-repeat="recipe in model.createdRecipes">
+                <a href="#/recipe/{{recipe._id}}">
+                    <h4>{{recipe.name}}</h4>
+
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <img ng-src="{{recipe.imageurl}}"
+                             width="100%"
+                             class="img-responsive image-style"/></div>
+
+                    <div class="row">
+
+                        <h6 class="col-xs-4">Servings: {{recipe.servings}}</h6>
+                        <h6 class="col-xs-4">Cooking Time: {{recipe.preptime}}+{{recipe.cooktime}} mins</h6>
+                        <h6 class="col-xs-4">Course: {{recipe.course}}</h6>
+
+                    </div>
+
+                </a>
+
+            </div>
         </div>
 
         <h3>Favourites:</h3>
 
-        <div ng-repeat="recipe in model.user.favrecipes"
-             class="list-group">
-            <a href="#/recipe/{{recipe.recipeId}}">
-                <h4>{{recipe.recipeName}}</h4>
-            </a>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4"
+                 ng-repeat="recipe in model.user.favrecipes">
+                <a href="#/recipe/{{recipe.recipeId}}">
+                    <h4>{{recipe.recipeName}}</h4>
+
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <img ng-src="{{recipe.imageurl}}"
+                             width="100%"
+                             class="img-responsive image-style"/></div>
+
+                    <div class="row">
+
+                         <h6 class="col-xs-12">Course: {{recipe.course}}</h6>
+
+                    </div>
+
+                </a>
+
+            </div>
         </div>
 
         <h3>Followers:</h3>
-        <div ng-repeat="recipe in model.user.followedByUsers"
+        <div ng-repeat="user in model.user.followedByUsers"
              class="list-group">
             <a href="#/user/{{user._id}}">
-                <h4>{{user.username}}</h4>
-            </a>
+                <h4>{{user.username}}</h4></a>
+                <h5>Foodiethought: {{user.foodiethought}}</h5>
+
         </div>
 
         <h3>Following:</h3>
-        <div ng-repeat="recipe in model.user.followingUsers"
+        <div ng-repeat="user in model.user.followingUsers"
              class="list-group">
             <a href="#/user/{{user._id}}">
-                <h4>{{user.username}}</h4>
-            </a>
+                <h4>{{user.username}}</h4></a>
+                <h5>Foodiethought: {{user.foodiethought}}</h5>
+
         </div>
 
         <a ng-if="model.unfollowed"
-           ng-click="model.follow(model.user._id, model.user.username)"
+           ng-click="model.follow(model.user._id, model.user.username, model.user.foodiethought)"
            class="btn btn-success btn-block">
             <span class="fa fa fa-heart"></span>Follow</a>
 
@@ -99,7 +133,7 @@
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
                 <a href="#/welcomepage">
-                    <span class="glyphicon glyphicon-user"></span>
+                    <span class="glyphicon glyphicon-home"></span>
                 </a>
             </p>
         </div>

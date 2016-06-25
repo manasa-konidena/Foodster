@@ -15,7 +15,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#/welcomepage">FS</a>
+            <a class="navbar-brand" href="#/welcomepage"><span class="fa fa-home"></span></a>
             <a class="navbar-brand">My Recipes</a>
         </div>
 
@@ -24,10 +24,10 @@
         <div class="navbar-collapse" ng-class="{collapse: isCollapsed}">
             <ul class="nav navbar-nav navbar-right">
                 <li class="page-scroll">
-                    <a ng-click="model.logout()">Logout</a>
+                    <a ng-click="model.logout()"><span class="fa fa-sign-out"></span>Logout</a>
                 </li>
                 <li class="page-scroll">
-                    <a href="#/searchresults/cupcakes">Seach for Recipes</a>
+                    <a href="#/searchresults/burgers"><span class="fa fa-search"></span>Search</a>
                 </li>
             </ul>
         </div>
@@ -41,18 +41,30 @@
 
 
 <div class="container top">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4"
+             ng-repeat="recipe in model.recipes">
+            <a href="#/recipe/{{recipe._id}}">
+                <h4>{{recipe.name}}</h4>
 
-        <div ng-repeat="recipe in model.recipes"
-             class="container-fluid">
-            <a href="#/recipe/{{recipe._id}}">{{recipe.name}}</a>
-            <p class="pull-right">
-                <a href="#/recipe/{[recipe._id}}">
-                    <span class="fa fa-cogs"></span>
-                </a>
-            </p>
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img ng-src="{{recipe.imageurl}}"
+                         width="100%"
+                         class="img-responsive image-style"/></div>
+
+                <div class="row">
+
+                    <h6 class="col-xs-4">Servings: {{recipe.servings}}</h6>
+                    <h6 class="col-xs-4">Cooking Time: {{recipe.preptime}}+{{recipe.cooktime}} mins</h6>
+                    <h6 class="col-xs-4">Course: {{recipe.course}}</h6>
+
+                </div>
+                <a href="#/createrecipe/{{recipe._id}}" class="btn btn-block btn-warning">Edit Recipe</a>
+
+            </a>
+
         </div>
-
-
+    </div>
 </div>
 
 <!--Footer-->
@@ -61,9 +73,7 @@
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
-                <a href="#/welcomepage">
-                    <span class="glyphicon glyphicon-user"></span>
-                </a>
+                Food is the best!
             </p>
         </div>
     </div>

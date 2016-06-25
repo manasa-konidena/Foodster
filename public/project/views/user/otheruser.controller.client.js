@@ -3,26 +3,34 @@
         .module("FoodsterApp")
         .controller("OtherUserController", OtherUserController);
 
-    function OtherUserController(UserService, $routeParams, $rootScope, RecipeService){
+    function OtherUserController(UserService, $routeParams, $rootScope, RecipeService, $window){
         var vm = this;
 
         var userId = $routeParams.userId;
         vm.follow = follow;
         vm.unfollow = unfollow;
+        vm.goBack = goBack;
 
-        var currentUser =$rootScope.currentUser;
+        function goBack() {
+            $window.history.back();
+        }
+
+
+        var currentUser = $rootScope.currentUser;
         var loggedInUser = $rootScope.currentUser._id;
 
 
-        function follow(toBeFollowedId, toBeFollowedUsername) {
+        function follow(toBeFollowedId, toBeFollowedUsername, foodiethought) {
            var followingUser = {
                 userId: toBeFollowedId,
-                username: toBeFollowedUsername
+                username: toBeFollowedUsername,
+                foodiethought: foodiethought
            };
 
             var followedByUser = {
                 userId : currentUser._id,
-                username: currentUser.username
+                username: currentUser.username,
+                foodiethought: currentUser.foodiethought
             };
 
             UserService

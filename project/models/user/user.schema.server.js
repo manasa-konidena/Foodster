@@ -19,21 +19,29 @@ module.exports = function() {
             {
                 recipeName: String,
                 recipeId: String,
-                recipeRating: String
+                course: String,
+                imageurl: String
             }
         ],
         followingUsers: [
             {
                 userId: String,
-                username: String
+                username: String,
+                foodiethought: String
 
             }
         ],
         followedByUsers: [
             {
                 userId: String,
-                username: String
+                username: String,
+                foodiethought: String
 
+            }
+        ],
+        groceryList: [
+            {
+                ingredient: String
             }
         ],
         dateCreated: {type: Date, default: Date.now}

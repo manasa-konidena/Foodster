@@ -44,7 +44,7 @@
                 controller: "AllRecipeController",
                 controllerAs: "model",
                 resolve: {
-                    loggedIn: checkLoggedIn
+                    openView: openView
                 }
             })
             .when("/allusers", {
@@ -114,6 +114,14 @@
             .when("/createrecipe/:recipeId", {
                 templateUrl: "views/recipe/createrecipe.view.client.html",
                 controller: "CreateRecipeController",
+                controllerAs: "model",
+                resolve: {
+                    loggedIn: checkLoggedIn
+                }
+            })
+            .when("/grocerylist", {
+                templateUrl: "views/ingredient/grocerylist.view.client.html",
+                controller: "GroceryListController",
                 controllerAs: "model",
                 resolve: {
                     loggedIn: checkLoggedIn

@@ -17,7 +17,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#/welcomepage">FS</a>
+            <a class="navbar-brand" href="#/welcomepage"><span class="fa fa-home"></a>
             <a class="navbar-brand">Our Foodsters</a>
         </div>
 
@@ -26,10 +26,10 @@
         <div class="navbar-collapse" ng-class="{collapse: isCollapsed}">
             <ul class="nav navbar-nav navbar-right">
                 <li class="page-scroll">
-                    <a ng-click="model.logout()">Logout</a>
+                    <a ng-click="model.logout()"><span class="fa fa-sign-out"></span>Logout</a>
                 </li>
                 <li class="page-scroll">
-                    <a href="#/searchresults/cupcakes">Seach for Recipes</a>
+                    <a href="#/searchresults/cupcakes"><span class="fa fa-search"></span>Search</a>
                 </li>
             </ul>
         </div>
@@ -50,12 +50,7 @@
         <a href="#/user/{{user._id}}"><h3>{{user.username}}</h3></a>
         <h3>{{user.firstName}} {{user.lastName}}</h3>
         <h5>{{user.username}}'s Foodster thought:</h5>
-        <a><h6>{{user.foodiethought}}</h6></a>
-        <h6>{{user.username}}'s Favorite Recipes:</h6>
-        <div ng-repeat="recipe in user.favrecipes"
-             class="list-group">
-            <a href="#/recipe/{{recipe.recipeId}}"><h5>{{recipe.recipeName}}</h5></a>
-        </div>
+        <h6>{{user.foodiethought}}</h6>
     </div>
 
 </div>

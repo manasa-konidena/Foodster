@@ -19,19 +19,34 @@ module.exports = function () {
         unfollow: unfollow,
         followedBy: followedBy,
         unfollowedBy: unfollowedBy,
-        findUserByGoogleId: findUserByGoogleId
-        // findFacebookUser: findFacebookUser
+        findUserByGoogleId: findUserByGoogleId,
+        addToGrocList: addToGrocList,
+        deleteItem: deleteItem
     };
     return api;
 
-    // function findFacebookUser(id) {
-    //     return User.findOne({"facebook.id": id});
-    // }
 
+    function addToGrocList(userId, ing) {
+
+        return ProUser.update({_id: userId},
+            {$push: {groceryList: ing}});
+    }
+
+    function deleteItem(userId, itemId) {
+        return ProUser.update({_id: userId},
+            {
+                $pull: {
+                    groceryList:
+                    {
+                        _id: itemId
+                    }
+                }
+            })
+    }
 
     function followedBy(userId, followedByUser) {
         return ProUser.update({_id: userId},
-            {$push: {followedByUsers: followedByUser}})
+            {$push: {followedByUsers: followedByUser}});
     }
 
     function findUserByGoogleId(id) {

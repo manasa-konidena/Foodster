@@ -15,7 +15,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand"
-               ng-click="model.goBack()">Back</a>
+               ng-click="model.goBack()"><span class="fa fa-backward"></span></a>
             <a class="navbar-brand">Recipe View</a>
         </div>
 
@@ -24,10 +24,10 @@
         <div class="navbar-collapse" ng-class="{collapse: isCollapsed}">
             <ul class="nav navbar-nav navbar-right">
                 <li class="page-scroll">
-                    <a ng-click="model.logout()">Logout</a>
+                    <a ng-click="model.logout()"><span class="fa fa-sign-out"></span>Logout</a>
                 </li>
                 <li class="page-scroll">
-                    <a href="#/welcomepage">Home</a>
+                    <a href="#/searchresults/lobster"><span class="fa fa-search"></span>Search</a>
                 </li>
             </ul>
         </div>
@@ -46,7 +46,7 @@
     <h2>{{model.userrecipe.name}} - Created by <a href="#/user/{{model.user._id}}">{{model.user.username}}</a></h2>
 
     <a ng-if="model.unliked"
-       ng-click="model.addToFavs(model.userrecipe.name, model.userrecipe._id, model.userrecipe.rating)"
+       ng-click="model.addToFavs(model.userrecipe.name, model.userrecipe._id, model.userrecipe.rating, model.userrecipe.imageurl)"
        class="btn btn-success btn-block">
         <span class="fa fa fa-heart"></span>Add to favourites</a>
 
@@ -84,8 +84,9 @@
          class="list-group">
         <div>
             <div class="row">
-                <div class="col-xs-6"><h5>{{ing.name}}</h5></div>
-                <div class="col-xs-6"><h5>{{ing.quantity}}</h5></div>
+                <div class="col-xs-5"><h5>{{ing.name}}</h5></div>
+                <div class="col-xs-5"><h5>{{ing.quantity}}</h5></div>
+                <a ng-click="model.addToGrocList(ing)"><div class="col-xs-2"><span class="fa fa-2x fa-plus-square pull-right"></span></div></a>
             </div>
         </div>
     </div>
@@ -97,7 +98,7 @@
 
     <h2>{{model.recipe.name}}</h2>
 
-    <a ng-if="model.unliked" ng-click="model.addToFavs(model.recipe.name, model.recipe.id, model.recipe.rating)"
+    <a ng-if="model.unliked" ng-click="model.addToFavs(model.recipe.name, model.recipe.id, model.recipe.rating, model.recipe.images[0].hostedLargeUrl)"
        class="btn btn-success btn-block">
         <span class="fa fa fa-heart"></span>Add to favourites</a>
 
@@ -131,9 +132,9 @@
         </div>
     </div>
     <h3>Ingredients:</h3>
-    <div ng-repeat="ing in model.recipe.ingredientLines"
+    <div ng-repeat="ing in model.recipe.ingredientLines  track by $index"
          class="list-group">
-         <div>{{ing}}<span class="fa fa-2x fa-plus-square pull-right"></span></div>
+         <div>{{ing}}<a ng-click="model.addToGrocList(ing)"><span class="fa fa-2x fa-plus-square pull-right"></span></a></div>
     </div>
 
     <a type="button"
@@ -157,7 +158,7 @@
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
                 <a href="#/welcomepage">
-                    <span class="glyphicon glyphicon-user"></span>
+                    <span class="glyphicon glyphicon-home"></span>
                 </a>
             </p>
         </div>
