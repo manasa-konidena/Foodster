@@ -3,13 +3,29 @@
         .module("FoodsterApp")
         .controller("CreateRecipeController", CreateRecipeController);
 
-    function CreateRecipeController(RecipeService, $routeParams, $location) {
+    function CreateRecipeController(UserService, $rootScope, RecipeService, $routeParams, $location) {
         var vm = this;
 
         var recipeId = $routeParams.recipeId;
         vm.recipeId = recipeId;
         vm.updateRecipe = updateRecipe;
         vm.deleteRecipe= deleteRecipe;
+
+        vm.logout = logout;
+
+        function logout() {
+            UserService
+                .logout()
+                .then(
+                    function (response) {
+                        $rootScope.currentUser = null;
+                        $location.url("/login");
+                    },
+                    function () {
+                        $location.url("/login");
+                    }
+                );
+        }
 
         function init() {
             RecipeService

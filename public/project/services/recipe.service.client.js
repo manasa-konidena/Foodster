@@ -12,10 +12,22 @@
             createRecipe: createRecipe,
             deleteRecipe: deleteRecipe,
             updateRecipe: updateRecipe,
-            findAllRecipes: findAllRecipes
+            findAllRecipes: findAllRecipes,
+            flagAsSpam: flagAsSpam,
+            setFlaggedFalse: setFlaggedFalse
         };
         return api;
-        
+
+        function setFlaggedFalse(recipeId) {
+            var url = "/api/recipe/"+ recipeId +"/unflag";
+            return $http.put(url);
+        }
+
+        function flagAsSpam(recipeId) {
+            var url = "/api/recipe/" + recipeId + "/flag";
+            return $http.put(url);
+        }
+
         function updateRecipe(recipeId, recipe) {
             var url = "/api/recipe/" + recipeId;
             return $http.put(url, recipe);

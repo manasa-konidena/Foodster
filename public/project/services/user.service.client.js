@@ -81,7 +81,8 @@
         function register(newUser) {
             var brandNewUser = {
                 username: newUser.username,
-                password: newUser.password
+                password: newUser.password,
+                type: newUser.type
             };
             var url = "/api/project/register";
             return $http.post(url, brandNewUser);
@@ -107,11 +108,7 @@
         }
 
         function createUser(newUser){
-                 var brandNewUser = {
-                    username: newUser.username,
-                    password: newUser.password
-                };
-                return $http.post("/api/user", brandNewUser);
+            return $http.post("/api/project/user", newUser);
         }
 
 

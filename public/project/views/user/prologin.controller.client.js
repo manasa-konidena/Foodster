@@ -4,7 +4,7 @@
         .controller("ProLoginController", LoginController);
 
 
-    function LoginController($location, UserService) {
+    function LoginController($location, UserService, $rootScope) {
         var vm = this;
 
         vm.login = login;
@@ -16,12 +16,18 @@
             } else {
             UserService
                 .login(username, password)
-                .then(function(response){
+                .then(function(response) {
                 var user = response.data;
                 if(user._id){
-                    $location.url("/welcomepage");
+                    if($rootScope.previousUrl){
+                        $location.url($rootScope.previousUrl);
+                        $rootScope.previousUrl = null;
+                    } else {
+                        $location.url("/welcomepage")
+                    }
+
                 } else{
-                    vm.error = response.data;
+                    vm.error = "Hell's naw!"
                 }
             });
             }

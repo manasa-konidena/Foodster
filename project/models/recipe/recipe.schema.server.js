@@ -15,6 +15,8 @@ module.exports = function() {
         imageurl: String,
         course: String,
         cuisine: String,
+        flagged: {type: String, default: "False"},
+        flaggedCount: {type: Number, default: 0},
         preptime: Number,
         cooktime: Number,
         preparationsteps: String,

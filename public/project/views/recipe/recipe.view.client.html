@@ -48,11 +48,12 @@
     <a ng-if="model.unliked"
        ng-click="model.addToFavs(model.userrecipe.name, model.userrecipe._id, model.userrecipe.rating, model.userrecipe.imageurl)"
        class="btn btn-success btn-block">
-        <span class="fa fa fa-heart"></span>Add to favourites</a>
+        <span class="fa fa-heart"></span>Add to favourites</a>
 
     <a ng-if="model.liked" ng-click="model.removeFromFavs(model.userrecipe._id)"
        class="btn btn-danger btn-block">
-        <span class="fa fa fa-trash"></span>Remove from favourites</a>
+        <span class="fa fa-trash"></span>Remove from favourites</a>
+
 
     <div class="row">
         <div class="col-xs-4">
@@ -79,6 +80,9 @@
             <h5>Total-Time: {{model.userrecipe.cooktime}} min</h5>
         </div>
     </div>
+    <div ng-if="model.groc" class="alert alert-success">
+        {{model.groc}}
+    </div>
     <h3>Ingredients:</h3>
     <div ng-repeat="ing in model.ingredients"
          class="list-group">
@@ -90,6 +94,10 @@
             </div>
         </div>
     </div>
+
+    <a ng-click="model.flagAsSpam(model.userrecipe._id)"
+       class="btn btn-danger btn-block">
+        <span class="fa fa-trash-o"></span>Report As Spam</a>
 </div>
 
 

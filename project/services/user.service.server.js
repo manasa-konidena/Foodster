@@ -34,7 +34,7 @@ module.exports = function(app, promodels) {
     app.delete("/api/user/:loggeduserId/unfollowuser/:unfollowuserId", unfollow);
     app.put("/api/user/:userId/followedby", followedBy);
     app.delete("/api/user/:userId/unfollowedby/:unfollowedByUserId", unfollowedBy);
-    app.delete("/api/user/:userId/grocerylist/:itemId", deleteItem),
+    app.delete("/api/user/:userId/grocerylist/:itemId", deleteItem);
     app.get('/auth/google/callback',
         ProjectPassport.authenticate('google', {
             successRedirect: '/project/#/personalinfo',
@@ -128,6 +128,7 @@ module.exports = function(app, promodels) {
     function register(req, res) {
         var username = req.body.username;
         var password = req.body.password;
+        var type = req.body.type;
 
         prouserModel
             .findUserByUsername(username)
@@ -234,18 +235,37 @@ module.exports = function(app, promodels) {
     }
 
     function createUser(req, res) {
-        var user = req.body;
-
+        
+        var username = req.body.username;
+        
         prouserModel
-            .createUser(user)
+            .findUserByUsername(username)
             .then(
                 function (user) {
-                    res.json(user);
+                    if(user){
+                        res.send("Username already in use");
+                        return;
+                    } else {
+                        req.body.password = bcrypt.hashSync(req.body.password);
+                        return prouserModel
+                            .createUser(req.body)
+                    }
                 },
-                function (error) {
-                    res.sendStatus(404).send(error);
+                function (err) {
+                    res.sendStatus(400).send(err);
+                }
+            )
+            .then(
+                function (user) {
+                    if(user){
+                        res.sendStatus(200);
+                    }
+                },
+                function (err) {
+                    res.sendStatus(400).send(err);
                 }
             );
+
     }
 
     function deleteUser(req,res) {
@@ -281,7 +301,6 @@ module.exports = function(app, promodels) {
             .findAllUsers()
             .then(
                 function (users) {
-                    // console.log(users);
                     res.json(users);
                 },
                 function (error) {

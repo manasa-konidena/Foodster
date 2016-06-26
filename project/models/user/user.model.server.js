@@ -124,7 +124,6 @@ module.exports = function () {
     }
 
     function findUserByUsername(username) {
-        console.log(username);
         return ProUser.findOne({username: username});
     }
 

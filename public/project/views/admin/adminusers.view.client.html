@@ -1,0 +1,156 @@
+
+<!--Header-->
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button"
+                    class="navbar-toggle"
+                    data-toggle="collapse"
+                    ng-init="isCollapsed = true"
+                    ng-click="isCollapsed = !isCollapsed">
+                <!--data-target="#bs-example-navbar-collapse-1">-->
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/adminview"><span class="fa fa-home"></span></a>
+            <a class="navbar-brand">Users</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+
+        <div class="navbar-collapse" ng-class="{collapse: isCollapsed}">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="page-scroll">
+                    <a ng-click="model.logout()"><span class="fa fa-sign-out"></span>Logout</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<!--Header End-->
+
+<div class="container top">
+
+    <div ng-if="model.success" class="alert alert-success">
+        {{model.success}}
+    </div>
+
+    <div ng-if="model.warning" class="alert alert-warning">
+        {{model.warning}}
+    </div>
+
+    <div ng-if="model.createsuccess" class="alert alert-success">
+        {{model.createsuccess}}
+    </div>
+
+    <h3>USER CREATION</h3>
+    <p></p>
+    <h5>CREATE ENDUSER</h5>
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <input type="text"
+                   class="form-control"
+                   placeholder="enduser username"
+                   ng-model="model.enduser_username"/>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <input type="password"
+                   class="form-control"
+                   placeholder="enduser password"
+                   ng-model="model.enduser_password"/>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <a ng-click="model.createEndUser(model.enduser_username, model.enduser_password )"
+               class="btn btn-block btn-primary">
+                Create
+            </a>
+        </div>
+    </div>
+    <p></p>
+    <h5>CREATE ADMIN</h5>
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <input type="text"
+                   class="form-control"
+                   placeholder="admin username"
+                   ng-model="model.admin_username"/>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <input type="password"
+                   class="form-control"
+                   placeholder="admin password"
+                   ng-model="model.admin_password"/>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <a ng-click="model.createAdmin(model.admin_username, model.admin_password)"
+               class="btn btn-block btn-success">
+                Create
+            </a>
+        </div>
+    </div>
+
+    <p></p>
+    <br/>
+
+    <h3>USER DATA</h3>
+    <div class="table-responsive">
+    <table class="table table-hover">
+        <th>Username</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>User Type</th>
+        <th>Edit User</th>
+        <th>Delete User</th>
+
+        <tr ng-repeat="user in model.users">
+                <td><a href="#/user/{{user._id}}">{{user.username}}</a></td>
+                <td><input type="text"
+                           ng-model="user.firstName"
+                           placeholder="First Name"/></td>
+            <td><input type="text"
+                       ng-model="user.lastName"
+                       placeholder="Last Name"/></td>
+            <td><input type="text"
+                       ng-model="user.phone"
+                       placeholder="Phone"/></td>
+            <td><input type="text"
+                       ng-model="user.email"
+                       placeholder="Email"/></td>
+            <td><input type="text"
+                       ng-model="user.address"
+                       placeholder="Address"/></td>
+            <td><input type="text"
+                       ng-model="user.type"
+                       placeholder="User Type"/></td>
+                <td><a class="fa fa-check-circle" ng-click="model.updateUser(user._id, user)"></a>
+                </td>
+                <td><a class="fa fa-trash" ng-click="model.deleteUser(user._id)"></a>
+                </td>
+        </tr>
+    </table>
+    </div>
+
+</div>
+
+
+<!--Footer-->
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-footer">
+
+        </div>
+    </div>
+</nav>
+
+<!--Footer End-->

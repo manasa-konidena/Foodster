@@ -3,8 +3,22 @@
         .module("FoodsterApp")
         .controller("AllUserController", AllUserController);
 
-    function AllUserController(UserService){
+    function AllUserController(UserService, $location){
         var vm = this;
+        vm.logout = logout;
+
+        function logout() {
+            UserService
+                .logout()
+                .then(
+                    function (response) {
+                        $location.url("/login")
+                    },
+                    function (err) {
+                        $location.url("/login")
+                    }
+                )
+        }
         function init(){
             UserService
                 .findAllUsers()

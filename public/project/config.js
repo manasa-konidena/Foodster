@@ -127,6 +127,30 @@
                     loggedIn: checkLoggedIn
                 }
             })
+            .when("/adminview", {
+                templateUrl: "views/admin/admin.view.client.html",
+                controller: "AdminController",
+                controllerAs: "model",
+                resolve: {
+                    loggedIn: checkLoggedIn
+                }
+            })
+            .when("/adminusers", {
+                templateUrl: "views/admin/adminusers.view.client.html",
+                controller: "AdminUsersController",
+                controllerAs: "model",
+                resolve: {
+                    loggedIn: checkLoggedIn
+                }
+            })
+            .when("/adminrecipes", {
+                templateUrl: "views/admin/adminrecipes.view.client.html",
+                controller: "AdminRecipesController",
+                controllerAs: "model",
+                resolve: {
+                    loggedIn: checkLoggedIn
+                }
+            })
             .when("/recipe/:recipeId", {
                 templateUrl: "views/recipe/recipe.view.client.html",
                 controller: "RecipeController",

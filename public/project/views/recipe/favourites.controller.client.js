@@ -6,6 +6,21 @@
     function FavController(UserService, $rootScope) {
         var vm = this;
         var userId = $rootScope.currentUser._id;
+        vm.logout = logout;
+
+        function logout() {
+            UserService
+                .logout()
+                .then(
+                    function (response) {
+                        $rootScope.currentUser = null;
+                        $location.url("/login");
+                    },
+                    function () {
+                        $location.url("/login");
+                    }
+                );
+        }
 
         function init() {
             UserService

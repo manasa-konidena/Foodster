@@ -11,6 +11,16 @@
 
         var id = $rootScope.currentUser._id;
 
+        console.log($rootScope.currentUser.type)
+
+        if($rootScope.currentUser.type === "ENDUSER"){
+            vm.enduser = "True";
+        } else {
+            vm.admin = "True";
+        }
+
+        vm.type = $rootScope.currentUser.type;
+
         function init(){
             UserService
                 .findUserById(id)

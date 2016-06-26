@@ -8,13 +8,40 @@
         var recipeId = $routeParams.recipeId;
 
         
-         var userId = $rootScope.currentUser._id;
+        var userId = $rootScope.currentUser._id;
 
 
         vm.addToFavs = addToFavs;
         vm.removeFromFavs = removeFromFavs;
         vm.goBack = goBack;
         vm.addToGrocList = addToGrocList;
+        vm.flagAsSpam = flagAsSpam;
+        vm.logout = logout;
+
+
+        function flagAsSpam(recipeId) {
+            RecipeService
+                .flagAsSpam(recipeId)
+                .then(
+                    function (response) {
+                        vm.success = "Reported as Spam!";
+                    }
+                )
+        }
+
+        function logout() {
+            UserService
+                .logout()
+                .then(
+                    function (response) {
+                        $rootScope.currentUser = null;
+                        $location.url("/login");
+                    },
+                    function () {
+                        $location.url("/login");
+                    }
+                );
+        }
         
 
         function goBack() {

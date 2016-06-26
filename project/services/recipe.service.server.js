@@ -11,6 +11,8 @@ module.exports = function(app, models) {
     app.delete("/api/recipe/:recipeId", deleteRecipe);
     app.post("/api/user/:userId/recipe", createRecipe);
     app.put("/api/recipe/:recipeId", updateRecipe);
+    app.put("/api/recipe/:recipeId/flag", flagAsSpam);
+    app.put("/api/recipe/:recipeId/unflag", setFlaggedFalse);
     app.post ("/api/project/upload", upload.single('myFile'), uploadImage);
 
 
@@ -57,6 +59,56 @@ module.exports = function(app, models) {
               }  
             );
     }
+
+    function flagAsSpam(req, res) {
+        var recipeId = req.params.recipeId;
+
+        recipeModel
+            .findRecipeById(recipeId)
+            .then(
+                function (recipe) {
+                    var newCount = recipe.flaggedCount + 1;
+                    var newRecipe = {
+                        flagged: "True",
+                        flaggedCount: newCount
+                    };
+
+                    recipeModel
+                        .updateRecipe(recipeId, newRecipe)
+                        .then(
+                            function (stats) {
+                                res.sendStatus(200);
+                            }
+                        );
+                }
+            )
+    }
+
+    function setFlaggedFalse(req, res) {
+        var recipeId = req.params.recipeId;
+
+        recipeModel
+            .findRecipeById(recipeId)
+            .then(
+                function (recipe) {
+                    var newCount = 0;
+                    var newRecipe = {
+                        flagged: "False",
+                        flaggedCount: newCount
+                    };
+
+                    recipeModel
+                        .updateRecipe(recipeId, newRecipe)
+                        .then(
+                            function (stats) {
+                                res.sendStatus(200);
+                            }
+                        );
+                }
+            )
+    }
+
+
 
 
     function findAllRecipesforUser(req, res) {

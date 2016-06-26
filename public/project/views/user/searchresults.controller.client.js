@@ -7,9 +7,15 @@
         var vm = this;
         vm.searchRecipes = searchRecipes;
         vm.logout = logout;
+        vm.seeDetails = seeDetails;
         
         var searchText = $routeParams.searchtext;
 
+        function seeDetails(recipeId) {
+            $rootScope.previousUrl = "/searchresults/" +searchText;
+            $location.url("/recipe/"+ recipeId);
+
+        }
 
         function logout() {
             UserService

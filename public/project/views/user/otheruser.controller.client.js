@@ -3,13 +3,27 @@
         .module("FoodsterApp")
         .controller("OtherUserController", OtherUserController);
 
-    function OtherUserController(UserService, $routeParams, $rootScope, RecipeService, $window){
+    function OtherUserController(UserService, $routeParams, $rootScope, $location, RecipeService, $window){
         var vm = this;
 
         var userId = $routeParams.userId;
         vm.follow = follow;
         vm.unfollow = unfollow;
         vm.goBack = goBack;
+        vm.logout = logout;
+
+        function logout() {
+            UserService
+                .logout()
+                .then(
+                    function (response) {
+                        $location.url("/login")
+                    },
+                    function (err) {
+                        $location.url("/login")
+                    }
+                )
+        }
 
         function goBack() {
             $window.history.back();
