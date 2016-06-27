@@ -15,7 +15,9 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand"
-               ng-click="model.goBack()"><span class="fa fa-backward"></span></a>
+               href="#/welcomepage"><span class="fa fa-home"></span></a>
+            <a class="navbar-brand"
+               href="#/allrecipes"><span class="fa fa-list"></span></a>
             <a class="navbar-brand">Recipe View</a>
         </div>
 
@@ -60,7 +62,7 @@
             <h5>Servings: {{model.userrecipe.servings}}</h5>
         </div>
         <div class="col-xs-4">
-            <h5>Rating: {{model.userrecipe.rating}}</h5>
+            <h5>Prep Time: {{model.userrecipe.preptime}}</h5>
         </div>
         <div class="col-xs-4">
             <h5>Course: {{model.userrecipe.course}}</h5>
@@ -74,7 +76,7 @@
             <h5>Cuisine: {{model.userrecipe.cuisine}}</h5>
         </div>
         <div class="col-xs-4">
-            <h5>Prep-Time: {{model.userrecipe.preptime}} min</h5>
+            <h5>Cook Time: {{model.userrecipe.cooktime}} min</h5>
         </div>
         <div class="col-xs-4">
             <h5>Total-Time: {{model.userrecipe.cooktime}} min</h5>
@@ -83,6 +85,11 @@
     <div ng-if="model.groc" class="alert alert-success">
         {{model.groc}}
     </div>
+
+    <a href="#/grocerylist"
+       class="btn btn-primary btn-block">
+        <span class="fa fa-list"></span>View Grocery List</a>
+
     <h3>Ingredients:</h3>
     <div ng-repeat="ing in model.ingredients"
          class="list-group">
@@ -93,6 +100,10 @@
                 <a ng-click="model.addToGrocList(ing)"><div class="col-xs-2"><span class="fa fa-2x fa-plus-square pull-right"></span></div></a>
             </div>
         </div>
+    </div>
+    <div>
+        <h3>Preperation Steps:</h3>
+        <p>{{model.userrecipe.preparationsteps}}</p>
     </div>
 
     <a ng-click="model.flagAsSpam(model.userrecipe._id)"
@@ -139,6 +150,15 @@
             <h5>Total-Time: {{model.recipe.totalTime}}</h5>
         </div>
     </div>
+
+    <div ng-if="model.groc" class="alert alert-success">
+        {{model.groc}}
+    </div>
+
+    <a href="#/grocerylist"
+       class="btn btn-primary btn-block">
+        <span class="fa fa-list"></span>View Grocery List</a>
+
     <h3>Ingredients:</h3>
     <div ng-repeat="ing in model.recipe.ingredientLines  track by $index"
          class="list-group">

@@ -3,7 +3,7 @@
         .module("FoodsterApp")
         .controller("RecipeListController", RecipeListController);
 
-    function RecipeListController(RecipeService, $routeParams, $rootScope) {
+    function RecipeListController(RecipeService, UserService, $location, $rootScope) {
         var vm = this;
         var userId = $rootScope.currentUser._id;
         vm.logout = logout;

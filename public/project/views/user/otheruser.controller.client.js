@@ -70,6 +70,7 @@
                                     }
                                 }
                             );
+                        init();
                     }
                 );
 
@@ -105,7 +106,9 @@
                                         vm.unfollowed = true;
                                         vm.followed = false;
                                     }
+                                    init();
                                 }
+
                             );
                     }
                 );

@@ -54,13 +54,13 @@
         </div>
         <p></p>
         <a ng-click="model.createRecipe()"
-           class="btn btn-block btn-warning">Create Recipe</a>
+           class="btn btn-block btn-success">Create Recipe</a>
 
         <a href="#/allusers"
            class="btn btn-block btn-primary">Explore other Foodsters!</a>
 
         <a href="#/allrecipes"
-           class="btn btn-block btn-success">See what we have been whipping up!</a>
+           class="btn btn-block btn-info">See what we have been whipping up!</a>
 
         <h2 class="center-any-text">My Links</h2>
         <div class="list-group">
@@ -99,6 +99,12 @@
                 <span  class="list-group-item">
                     <strong>My Grocery list</strong>
                     <div class="glyphicon glyphicon-list-alt pull-right"></div>
+                </span>
+            </a>
+            <a href="#/user/{{model.userId}}">
+                <span  class="list-group-item">
+                    <strong>My Foodster Profile</strong>
+                    <div class="glyphicon glyphicon-user pull-right"></div>
                 </span>
             </a>
             <p></p>

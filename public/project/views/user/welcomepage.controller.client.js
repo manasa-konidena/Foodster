@@ -10,6 +10,7 @@
         vm.createRecipe = createRecipe;
 
         var id = $rootScope.currentUser._id;
+        vm.userId = id;
 
         console.log($rootScope.currentUser.type)
 
