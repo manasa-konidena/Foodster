@@ -158,6 +158,9 @@
                 resolve: {
                     loggedIn: checkLoggedIn
                 }
+            })
+            .otherwise({
+                templateUrl: "views/home.view.client.html"
             });
 
         function checkLoggedIn(UserService, $location, $q, $rootScope) {
