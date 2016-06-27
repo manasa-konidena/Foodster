@@ -54,19 +54,19 @@
     <p></p>
     <h5>CREATE ENDUSER</h5>
     <div class="row">
-        <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-4 col-sm-12 col-xs-12 stacked">
             <input type="text"
                    class="form-control"
                    placeholder="enduser username"
                    ng-model="model.enduser_username"/>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-4 col-sm-12 col-xs-12 stacked">
             <input type="password"
                    class="form-control"
                    placeholder="enduser password"
                    ng-model="model.enduser_password"/>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-4 col-sm-12 col-xs-12 stacked">
             <a ng-click="model.createEndUser(model.enduser_username, model.enduser_password )"
                class="btn btn-block btn-primary">
                 Create
@@ -76,19 +76,19 @@
     <p></p>
     <h5>CREATE ADMIN</h5>
     <div class="row">
-        <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-4 col-sm-12 col-xs-12 stacked">
             <input type="text"
                    class="form-control"
                    placeholder="admin username"
                    ng-model="model.admin_username"/>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-4 col-sm-12 col-xs-12 stacked">
             <input type="password"
                    class="form-control"
                    placeholder="admin password"
                    ng-model="model.admin_password"/>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-4 col-sm-12 col-xs-12 stacked">
             <a ng-click="model.createAdmin(model.admin_username, model.admin_password)"
                class="btn btn-block btn-success">
                 Create
@@ -132,9 +132,9 @@
             <td><input type="text"
                        ng-model="user.type"
                        placeholder="User Type"/></td>
-                <td><a class="fa fa-check-circle" ng-click="model.updateUser(user._id, user)"></a>
+                <td><a class="btn btn-small btn-success" ng-click="model.updateUser(user._id, user)"><span class="fa fa-check-circle"></span></a>
                 </td>
-                <td><a class="fa fa-trash" ng-click="model.deleteUser(user._id)"></a>
+                <td><a class="btn btn-small btn-danger" ng-click="model.deleteUser(user._id)"><span class="fa fa-trash-o"></span></a>
                 </td>
         </tr>
     </table>
