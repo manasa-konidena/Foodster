@@ -3,7 +3,7 @@
         .module("FoodsterApp")
         .controller("FavController", FavController);
 
-    function FavController(UserService, $rootScope) {
+    function FavController(UserService, $rootScope, $location) {
         var vm = this;
         var userId = $rootScope.currentUser._id;
         vm.logout = logout;

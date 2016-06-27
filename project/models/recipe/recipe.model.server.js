@@ -27,7 +27,6 @@ module.exports = function () {
 
     
     function createRecipe(recipe) {
-        console.log(recipe);
         return Recipe.create(recipe);
     }
 

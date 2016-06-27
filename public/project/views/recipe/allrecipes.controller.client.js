@@ -28,7 +28,6 @@
                 .findAllRecipes()
                 .then(
                     function (response) {
-                        console.log(response.data);
                         vm.recipes = response.data;
                     }
                 );

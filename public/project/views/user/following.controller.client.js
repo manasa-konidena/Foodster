@@ -29,7 +29,6 @@
                 .findUserById(userId)
                 .then(
                     function (response) {
-                        console.log(response.data);
                         vm.user = response.data;
                     }
                 )

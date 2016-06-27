@@ -12,7 +12,6 @@
         
         function register(newUser) {
             newUser.type = "ENDUSER";
-            console.log(newUser);
             if(vm.myForm.$invalid == true){
                 vm.error = "Please check the form and resubmit";
                 vm.alert = "* Required Field";

@@ -19,7 +19,6 @@ module.exports = function(app, models) {
     function uploadImage(req, res) {
 
         var recipeId      = req.body.recipeId;
-        console.log(recipeId);
         var userId      = req.body.userId;
         var myFile        = req.file;
 
@@ -37,7 +36,6 @@ module.exports = function(app, models) {
 
         var recipe = {imageurl: "/uploads/"+ filename };
 
-        console.log(recipeId);
         recipeModel
             .updateRecipe(recipeId, recipe)
             .then(

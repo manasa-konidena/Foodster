@@ -3,7 +3,7 @@
         .module("FoodsterApp")
         .controller("AdminRecipesController", AdminRecipesController);
 
-    function AdminRecipesController(UserService, RecipeService) {
+    function AdminRecipesController(UserService, RecipeService, $rootScope, $location) {
         var vm = this;
         vm.deleteRecipe = deleteRecipe;
         vm.setFlaggedFalse = setFlaggedFalse;

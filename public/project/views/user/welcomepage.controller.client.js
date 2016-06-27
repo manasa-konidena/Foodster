@@ -11,9 +11,7 @@
 
         var id = $rootScope.currentUser._id;
         vm.userId = id;
-
-        console.log($rootScope.currentUser.type)
-
+        
         if($rootScope.currentUser.type === "ENDUSER"){
             vm.enduser = "True";
         } else {

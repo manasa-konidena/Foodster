@@ -3,8 +3,25 @@
         .module("FoodsterApp")
         .controller("AdminController", AdminController);
 
-    function AdminController(RecipeService, UserService) {
+    function AdminController(RecipeService, UserService, $rootScope, $location) {
         var vm = this;
+
+        vm.logout = logout;
+
+
+        function logout() {
+            UserService
+                .logout()
+                .then(
+                    function (response) {
+                        $rootScope.currentUser = null;
+                        $location.url("/login");
+                    },
+                    function () {
+                        $location.url("/login");
+                    }
+                );
+        }
 
         function init() {
             RecipeService

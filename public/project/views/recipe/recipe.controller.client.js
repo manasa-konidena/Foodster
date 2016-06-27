@@ -138,7 +138,6 @@
                     YummlyService
                         .getFullRecipe(recipeId)
                         .then(function (response) {
-                            // console.log(response.data);
                             vm.recipe = response.data;
 
                         });
