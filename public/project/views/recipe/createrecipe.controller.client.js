@@ -43,7 +43,7 @@
                 .deleteRecipe(recipeId)
                 .then(
                     function (response) {
-                        $location.url("/welcomepage");
+                        $location.url("/myrecipes");
                     }
                 )
         }
