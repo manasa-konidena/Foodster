@@ -42,8 +42,11 @@
     <div ng-repeat="user in model.user.followingUsers"
          class="list-group">
         <a href="#/user/{{user.userId}}">
-            <h4>{{user.username}}</h4></a>
+            <h4>{{user.username}}</h4>
+        </a>
+        <div ng-if="user.foodiethought">
             <h5>Foodiethought: {{user.foodiethought}}</h5>
+        </div>
 
     </div>
 </div>

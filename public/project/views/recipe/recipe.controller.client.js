@@ -25,8 +25,10 @@
                 .then(
                     function (response) {
                         vm.success = "Reported as Spam!";
+                        vm.reported = "True";
                     }
-                )
+                );
+            
         }
 
         function logout() {

@@ -76,7 +76,7 @@
              class="list-group">
             <a href="#/user/{{user.userId}}">
                 <h4>{{user.username}}</h4></a>
-            <h5>Foodiethought: {{user.foodiethought}}</h5>
+            <div ng-if="user.foodiethought"><h5>Foodiethought: {{user.foodiethought}}</h5></div>
 
         </div>
 
@@ -111,7 +111,7 @@
              class="list-group">
             <a href="#/user/{{user.userId}}">
                 <h4>{{user.username}}</h4></a>
-                <h5>Foodiethought: {{user.foodiethought}}</h5>
+            <div ng-if="user.foodiethought"><h5>Foodiethought: {{user.foodiethought}}</h5></div>
 
         </div>
 

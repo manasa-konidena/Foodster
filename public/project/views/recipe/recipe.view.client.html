@@ -106,7 +106,8 @@
         <p>{{model.userrecipe.preparationsteps}}</p>
     </div>
 
-    <a ng-click="model.flagAsSpam(model.userrecipe._id)"
+    <div ng-if="model.success" class="alert alert-warning">{{model.success}}</div>
+    <a ng-hide="model.reported" ng-click="model.flagAsSpam(model.userrecipe._id)"
        class="btn btn-danger btn-block">
         <span class="fa fa-trash-o"></span>Report As Spam</a>
 </div>

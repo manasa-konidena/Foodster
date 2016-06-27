@@ -49,8 +49,8 @@
          class="list-group">
         <a href="#/user/{{user._id}}"><h3>{{user.username}}</h3></a>
         <h3>{{user.firstName}} {{user.lastName}}</h3>
-        <h5>{{user.username}}'s Foodster thought:</h5>
-        <h6>{{user.foodiethought}}</h6>
+        <div ng-if="user.foodiethought"><h5>{{user.username}}'s Foodie thought:</h5>
+        <h6>{{user.foodiethought}}</h6></div>
     </div>
 
 </div>
