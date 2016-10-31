@@ -1,4 +1,4 @@
-module.exports = function(app, models) {
+ module.exports = function(app, models) {
 
     var pageModel = models.pageModel;
 

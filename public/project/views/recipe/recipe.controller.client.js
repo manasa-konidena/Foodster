@@ -65,11 +65,13 @@
                                     if(user) {
                                         for (var i in user.favrecipes) {
                                             if (user.favrecipes[i].recipeId === recipeId) {
+                                                // to display "Remove from Favs" right after adding to favorites
                                                 vm.liked = true;
                                                 vm.unliked = false;
                                                 return;
                                             }
                                         }
+                                        // to display "Add to favs" if not already added.
                                         vm.unliked = true;
                                         vm.liked = false;
                                     }
@@ -100,11 +102,13 @@
                                     if(user) {
                                         for (var i in user.favrecipes) {
                                             if (user.favrecipes[i].recipeId === recipeId) {
+                                                // to display "Remove from Favs" right after adding to favorites
                                                 vm.liked = true;
                                                 vm.unliked = false;
                                                 return;
                                             }
                                         }
+                                        // to display "Add to favs" when not already added.
                                         vm.unliked = true;
                                         vm.liked = false;
                                     }
@@ -135,6 +139,7 @@
                     );
 
                 if(recipeId.indexOf("-") > -1){
+                    // Check if this is a user created recipe or web recipe
                     YummlyService
                         .getFullRecipe(recipeId)
                         .then(function (response) {
