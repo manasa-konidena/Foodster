@@ -9,15 +9,17 @@ var passport = require('passport');
 
 
 
-var connectionString = 'mongodb://127.0.0.1:27017/assignment5610';
+// var connectionString = 'mongodb://127.0.0.1:27017/assignment5610';
+var connectionString = 'mongodb://manasa:manasa@ds113835.mlab.com:13835/foodster';
 
-if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
-    connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
-        process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
-        process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
-        process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
-        process.env.OPENSHIFT_APP_NAME;
-}
+
+// if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
+//     connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+//         process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+//         process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+//         process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+//         process.env.OPENSHIFT_APP_NAME;
+// }
 
 var mongoose = require("mongoose");
 mongoose.connect(connectionString);
@@ -45,8 +47,9 @@ app.use(express.static(__dirname + '/public'));
 
 // require ("./test/app.js")(app);
 
-var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
-var port      = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+// var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
+// var port      = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+var port = process.env.PORT || 3000;
 
 var assignment = require("./assignment/app.js");
 assignment(app);
@@ -54,4 +57,6 @@ assignment(app);
 var project = require("./project/app.js");
 project(app);
 
-app.listen(port, ipaddress);
+//app.listen(port, ipaddress);
+
+app.listen(port,() => console.log(`API running on localhost:${port}`));
