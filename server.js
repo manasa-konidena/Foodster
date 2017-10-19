@@ -1,10 +1,7 @@
 var express = require('express');
 var app = express();
-
-
 var cookieParser = require('cookie-parser');
 var session      = require('express-session');
-
 var passport = require('passport');
 
 
@@ -43,13 +40,6 @@ app.use(express.static(__dirname + '/public'));
 // var mongoose = require('mongoose');
 // mongoose.connect('mongodb://localhost/assignment5610');
 
-
-
-
-// require ("./test/app.js")(app);
-
-// var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
-// var port      = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 var port = process.env.PORT || 3000;
 
 // var assignment = require("./assignment/app.js");

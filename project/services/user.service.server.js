@@ -5,21 +5,26 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 var bcrypt = require("bcrypt-nodejs");
 
-var googleConfig = {
-    clientID     : process.env.GOOGLE_CLIENT_ID,
-    clientSecret : process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL  : process.env.GOOGLE_CALLBACK_URL
-};
-
 // var googleConfig = {
-//     clientID     : "701231942022-rhrqgs9mlesk8c2s8g9uhcjo3ra114d6.apps.googleusercontent.com",
-//     clientSecret : "Fox0klWdFAqyILkHDbZat6UC",
-//     callbackURL  : "http://localhost:3000/auth/google/callback"
+//     clientID     : process.env.GOOGLE_CLIENT_ID,
+//     clientSecret : process.env.GOOGLE_CLIENT_SECRET,
+//     callbackURL  : process.env.GOOGLE_CALLBACK_URL
 // };
+
+var googleConfig = {
+    clientID     : "701231942022-rhrqgs9mlesk8c2s8g9uhcjo3ra114d6.apps.googleusercontent.com",
+    clientSecret : "Fox0klWdFAqyILkHDbZat6UC",
+    callbackURL  : "http://localhost:3000/auth/google/callback"
+};
 
 module.exports = function(app, promodels) {
 
     var prouserModel = promodels.proUserModel;
+
+    app.get("/tests" , function (req, res) {
+        res.sendStatus(200).send("Works too!!");
+
+    });
  
     app.get("/api/project/user", getUsers);
 
